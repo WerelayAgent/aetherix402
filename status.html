@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>System Status | Aetherix402</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    // Point Tailwind's own font classes at Geist, so every existing
+    // font-sans and font-mono in the markup picks it up without being touched.
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+
+  
+  
+  
+  
+  
+  <meta name="description" content="AI components you pay for per call, settled over HTTP 402 on Solana. No signup, no subscription, no card.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aetherix402">
+  <meta property="og:title" content="Aetherix402">
+  <meta property="og:description" content="AI components you pay for per call, settled over HTTP 402 on Solana. No signup, no subscription, no card.">
+  <meta property="og:url" content="https://aetherix402.com/status">
+  <meta property="og:image" content="https://aetherix402.com/static/og-card.png?v=1788191516">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Aetherix402. Pay per call, on Solana.">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Aetherix402">
+  <meta name="twitter:title" content="Aetherix402">
+  <meta name="twitter:description" content="AI components you pay for per call, settled over HTTP 402 on Solana. No signup, no subscription, no card.">
+  <meta name="twitter:image" content="https://aetherix402.com/static/og-card.png?v=1788191516">
+
+  <link rel="stylesheet" href="/static/css/style.css">
+
+  <link rel="icon" href="/static/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="96x96" href="/static/favicon/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/static/favicon/site.webmanifest">
+  <meta name="theme-color" content="#030712">
+</head>
+
+<body class="font-sans page-status">
+
+  <!-- HEADER -->
+  <header class="px-6 py-2 flex justify-between items-center relative">
+
+  <!-- LOGO -->
+  <h1 onclick="window.location.href='/'"
+      class="ml-2 flex items-center gap-4 cursor-pointer group select-none">
+
+    <img src="/static/favicon/web-app-manifest-192x192.png"
+          alt="Aetherix402"
+          class="w-16 h-16 transition-transform duration-200
+                group-hover:scale-105" />
+
+    <span class="hidden sm:inline text-base font-bold text-cyan-300 tracking-wider">
+      X402
+    </span>
+  </h1>
+
+    <!-- DESKTOP NAV -->
+    <nav class="desktop-nav hidden md:flex gap-6 text-sm items-center">
+      <a href="/token" class="text-cyan-300 hover:text-cyan-200 transition font-semibold">$AETH</a>
+      <a href="https://github.com/Aetherix402/Aetherix402" target="_blank" class="text-gray-400 hover:text-cyan-300 transition">GitHub</a>
+      <a href="https://x.com/Aetherix402" target="_blank" class="text-gray-400 hover:text-cyan-300 transition">X</a>
+      <a href="/learn" class="text-gray-400 hover:text-cyan-300 transition">Learn</a>
+      <a href="/docs" class="text-gray-400 hover:text-cyan-300 transition">Docs</a>
+      <a href="/roadmap" class="text-gray-400 hover:text-cyan-300 transition">Roadmap</a>
+      <a href="/legal" class="text-gray-400 hover:text-cyan-300 transition">Legal</a>
+
+      <a id="system-status" href="/status" class="status-chip hidden sm:inline-flex" title="View full system status">
+        <span class="status-chip-dot"></span>
+        <span class="status-chip-text">Checking</span>
+      </a>
+
+      <button id="connect-wallet" class="wallet-btn" aria-haspopup="dialog">
+        <span class="wallet-dot" aria-hidden="true"></span>
+        <span id="connect-wallet-label">Connect Wallet</span>
+      </button>
+    </nav>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button class="mobile-menu-btn md:hidden text-cyan-300 text-3xl" onclick="toggleMobileMenu()">☰</button>
+
+    <!-- MOBILE NAV -->
+    <nav id="mobile-nav"
+        class="hidden flex-col gap-4 bg-[#030712]/95 border-t border-cyan-400/30 p-4 absolute left-0 right-0 top-full z-50 md:hidden">
+
+      <a href="/token" class="text-cyan-300 font-semibold">$AETH</a>
+      <a href="https://github.com/Aetherix402/Aetherix402" target="_blank" class="text-gray-300">GitHub</a>
+      <a href="https://x.com/Aetherix402" target="_blank" class="text-gray-300">X</a>
+      <a href="/learn" class="text-gray-300">Learn</a>
+      <a href="/docs" class="text-gray-300">Docs</a>
+      <a href="/roadmap" class="text-gray-300">Roadmap</a>
+      <a href="/legal" class="text-gray-300">Legal</a>
+
+      <a id="system-status-mobile" href="/status" class="status-chip">
+        <span class="status-chip-dot"></span>
+        <span class="status-chip-text">Checking</span>
+      </a>
+
+      <button id="mobile-connect-wallet" class="wallet-btn w-full justify-center">
+        <span class="wallet-dot" aria-hidden="true"></span>
+        <span id="mobile-connect-wallet-label">Connect Wallet</span>
+      </button>
+    </nav>
+  </header>
+
+  <style>
+    :root{
+      --bg: #030712;
+      --panel: rgba(15, 23, 42, 0.78);
+      --panel-strong: rgba(11, 18, 32, 0.90);
+      --border: rgba(56, 189, 248, 0.22);
+      --border-strong: rgba(56, 189, 248, 0.34);
+      --text: #e5e7eb;
+      --muted: rgba(229,231,235,0.70);
+      --cyan: #22d3ee;
+      --cyan-2: #67e8f9;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    html {
+      overflow-y: scroll;
+    }
+
+    .background {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      /*
+        Behind the content, not over it. This sat at 15 against the shell's 10,
+        so the vignette inside it washed black across whatever happened to be
+        near the bottom of the viewport. It read as the footer bleeding into the
+        section above it, but the footer was never involved: the layer is fixed
+        to the viewport, so it dimmed a different part of the page at every
+        scroll position. pointer-events:none meant clicks still landed, which is
+        why it looked like a rendering quirk rather than a stacking bug.
+      */
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    header > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .bg-gradient {
+      position: absolute;
+      inset: -25%;
+      background:
+        radial-gradient(65% 50% at 18% 18%, rgba(34,211,238,0.18), transparent 60%),
+        radial-gradient(60% 50% at 82% 22%, rgba(56,189,248,0.16), transparent 62%),
+        radial-gradient(65% 60% at 50% 88%, rgba(34,211,238,0.14), transparent 65%);
+      filter: blur(14px);
+      opacity: 1;
+    }
+
+    .scanlines {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.035) 0,
+        rgba(255,255,255,0.035) 1px,
+        transparent 2px,
+        transparent 5px
+      );
+      opacity: 0.35;
+    }
+
+    .vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, transparent 55%, rgba(0,0,0,0.65) 100%);
+      opacity: 0.8;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(34, 211, 238, 0.28);
+      border-radius: 50%;
+      width: 2px;
+      height: 2px;
+      animation: floatUp linear infinite;
+      will-change: transform, opacity;
+    }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(110vh); opacity: 0; }
+      20%  { opacity: 1; }
+      100% { transform: translateY(-12vh); opacity: 0; }
+    }
+
+    .app-shell {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: relative;
+      z-index: 20;
+
+      min-height: 80px;
+
+      isolation: isolate;
+
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: linear-gradient(
+        180deg,
+        rgba(3,7,18,0.65) 0%,
+        rgba(3,7,18,0.25) 100%
+      );
+    }
+
+    header,
+    header * {
+      transition: none !important;
+    }
+
+    /* Same cyan, calmer geometry. The gradient, the inset highlight and the
+       coloured drop shadow were doing three jobs at once, which is what made
+       these read as cheap. Flat fill, tighter radius, lighter weight. */
+    .btn{
+      position: relative;
+      background: linear-gradient(180deg, var(--cyan-2), var(--cyan));
+      color: #001018;
+      font-weight: 700;
+      padding: .55rem 1.05rem;
+      border-radius: .85rem;
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+      box-shadow:
+        0 10px 30px rgba(34,211,238,0.18),
+        inset 0 1px 0 rgba(255,255,255,0.35);
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+      box-shadow:
+        0 14px 40px rgba(34,211,238,0.22),
+        inset 0 1px 0 rgba(255,255,255,0.42);
+    }
+    .btn:active{ transform: translateY(0px) scale(0.99); }
+
+    .modal-bg{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.68);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index: 70;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    /* The hover state existed without a base state, so every ghost button on
+       the site rendered as bare text until somebody put a cursor on it. This is
+       the outline the hover was always written against. */
+    .btn-ghost{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: .6rem 1.1rem;
+      border-radius: .65rem;
+      border: 1px solid rgba(34,211,238,0.22);
+      background: transparent;
+      color: #cbd5e1;
+      font-size: .875rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .15s, border-color .15s, color .15s;
+    }
+    .btn-ghost:disabled{ opacity:.45; cursor:not-allowed; }
+    .btn-ghost:hover{
+      background: rgba(34,211,238,0.08);
+      border-color: rgba(34,211,238,0.45);
+      color: var(--cyan-2);
+    }
+
+    .modal-bg{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.68);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index: 70;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .modal{
+      background: linear-gradient(180deg, rgba(11,18,32,0.92), rgba(2,6,23,0.92));
+      border: 1px solid var(--border-strong);
+      border-radius: 1.25rem;
+      width: min(520px, 92vw);
+      padding: 1.25rem;
+      box-shadow:
+        0 30px 90px rgba(0,0,0,0.55),
+        0 0 0 1px rgba(34,211,238,0.10);
+    }
+
+    /* Flat surface. Hover lifts by brightening the border rather than by
+       translating the card under a coloured glow. */
+    .card{
+      background: linear-gradient(180deg, rgba(15,23,42,0.82), rgba(2,6,23,0.72));
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      border-color: rgba(34,211,238,0.40);
+      box-shadow:
+        0 18px 60px rgba(0,0,0,0.38),
+        0 0 30px rgba(34,211,238,0.12);
+    }
+
+    .pill{
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      color: #7dd3fc;
+      font-size: .75rem;
+      letter-spacing: .04em;
+      text-transform: lowercase;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    .filter-bar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.5rem;
+      justify-content:center;
+    }
+
+    .filter-chip{
+      padding: 0.48rem 0.95rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(229,231,235,0.75);
+      background: rgba(15,23,42,0.65);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 9999px;
+      transition: transform .16s ease, background .16s ease, border-color .16s ease, color .16s ease, box-shadow .16s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .filter-chip:hover{
+      transform: translateY(-1px);
+      color: rgba(229,231,235,0.95);
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(34,211,238,0.36);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.28);
+    }
+
+    .filter-chip.active{
+      color: #001018;
+      background: var(--cyan);
+      border-color: var(--cyan);
+    }
+
+    /* ---- wallet picker ---- */
+    .wallet-group-label{
+      font-size: .6875rem;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      color: rgba(148,163,184,0.75);
+      margin: 0 0 .5rem .15rem;
+    }
+    .wallet-list{ display: flex; flex-direction: column; gap: .5rem; }
+
+    .wallet-row{
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      width: 100%;
+      text-align: left;
+      padding: .7rem .8rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: .75rem;
+      transition: background .15s ease, border-color .15s ease;
+      cursor: pointer;
+    }
+    .wallet-row:hover{
+      background: rgba(34,211,238,0.07);
+      border-color: rgba(34,211,238,0.38);
+    }
+    .wallet-row[disabled]{ opacity:.45; cursor:not-allowed; }
+    .wallet-row[disabled]:hover{
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(255,255,255,0.09);
+    }
+
+    .wallet-logo{
+      width: 34px; height: 34px;
+      border-radius: .55rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .wallet-logo img{ display:block; width: 22px; height: 22px; object-fit: contain; }
+    .wallet-meta{ display: flex; flex-direction: column; line-height: 1.25; flex: 1 1 auto; }
+    .wallet-name{ font-size: .9rem; font-weight: 600; color: #e5e7eb; }
+    .wallet-sub{ font-size: .72rem; color: rgba(148,163,184,0.85); }
+    .wallet-sub.is-installed{ color: #34d399; }
+    .wallet-chev{ color: rgba(148,163,184,0.5); font-size: 1.15rem; flex: none; }
+
+    .wallet-close{
+      color: rgba(148,163,184,0.7);
+      font-size: 1.4rem;
+      line-height: 1;
+      padding: 0 .25rem;
+      transition: color .15s ease;
+    }
+    .wallet-close:hover{ color: #e5e7eb; }
+
+    .wallet-cancel{
+      width: 100%;
+      margin-top: 1.1rem;
+      padding: .55rem;
+      font-size: .8125rem;
+      color: rgba(148,163,184,0.85);
+      border-radius: .625rem;
+      transition: background .15s ease, color .15s ease;
+    }
+    .wallet-cancel:hover{ background: rgba(255,255,255,0.05); color: #e5e7eb; }
+
+    /* ---- header status chip ---- */
+    .status-chip{
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .35rem .7rem;
+      border-radius: 9999px;
+      font-size: .75rem;
+      font-weight: 500;
+      color: rgba(148,163,184,0.95);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.09);
+      transition: background .16s ease, border-color .16s ease, color .16s ease;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .status-chip:hover{ background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.2); }
+
+    .status-chip-dot{
+      width: 7px; height: 7px; border-radius: 9999px; flex: none;
+      background: rgba(148,163,184,0.7);
+    }
+
+    /* Only the healthy state pulses. A problem should hold still and be read. */
+    .status-chip.is-ok{ color:#6ee7b7; border-color: rgba(52,211,153,0.28); background: rgba(52,211,153,0.07); }
+    .status-chip.is-ok .status-chip-dot{ background:#34d399; animation: chipPulse 2.4s ease-in-out infinite; }
+
+    .status-chip.is-degraded{ color:#fcd34d; border-color: rgba(251,191,36,0.3); background: rgba(251,191,36,0.07); }
+    .status-chip.is-degraded .status-chip-dot{ background:#fbbf24; }
+
+    .status-chip.is-down{ color:#fca5a5; border-color: rgba(248,113,113,0.3); background: rgba(248,113,113,0.07); }
+    .status-chip.is-down .status-chip-dot{ background:#f87171; }
+
+    @keyframes chipPulse{
+      0%,100%{ box-shadow: 0 0 0 0 rgba(52,211,153,0.45); }
+      70%    { box-shadow: 0 0 0 5px rgba(52,211,153,0); }
+    }
+    @media (prefers-reduced-motion: reduce){
+      .status-chip.is-ok .status-chip-dot{ animation: none; }
+    }
+
+    input, textarea, select {
+      color-scheme: dark;
+    }
+
+    @media (max-width: 768px){
+      .modal{ max-height: 85vh; overflow-y: auto; }
+      textarea, .code-input { max-height: 40vh; resize: vertical; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      body{ transition:none; }
+      .particle{ animation:none; opacity:0.35; }
+      .card, .btn, .filter-chip{ transition:none; }
+    }
+
+    /* Outline by default so it does not compete with the primary actions on
+       the page, and fills in only once a wallet is actually attached. */
+    .wallet-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .5rem .85rem;
+      font-size: .8125rem;
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+      color: var(--cyan-2);
+      background: rgba(34,211,238,0.06);
+      border: 1px solid rgba(34,211,238,0.30);
+      border-radius: .625rem;
+      transition: background .16s ease, border-color .16s ease, color .16s ease;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .wallet-btn:hover {
+      background: rgba(34,211,238,0.13);
+      border-color: rgba(34,211,238,0.55);
+    }
+
+    .wallet-dot {
+      width: 7px; height: 7px;
+      border-radius: 9999px;
+      background: rgba(148,163,184,0.65);
+      flex: none;
+      transition: background .16s ease, box-shadow .16s ease;
+    }
+    /* Connected: the dot goes live and the address reads as a value, not a CTA. */
+    .wallet-btn.is-connected {
+      color: #a5f3fc;
+      background: rgba(34,211,238,0.10);
+      border-color: rgba(34,211,238,0.42);
+    }
+    .wallet-btn.is-connected .wallet-dot {
+      background: #34d399;
+      box-shadow: 0 0 0 3px rgba(52,211,153,0.16);
+    }
+
+    .wallet-btn:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -32px;
+      height: 32px;
+      pointer-events: none;
+      background: linear-gradient(
+        to bottom,
+        rgba(3,7,18,0.25),
+        rgba(3,7,18,0.0)
+      );
+    }
+
+    @keyframes page-fade {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .page-fade {
+      animation: page-fade 0.55s ease-out both;
+    }
+
+    #mobile-nav {
+      will-change: transform;
+    }
+  </style>
+
+  <!-- Ambient background -->
+  <div class="background" aria-hidden="true">
+    <div class="bg-gradient"></div>
+    <div id="particle-container"></div>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <div class="app-shell">
+
+    <!-- PAGE CONTENT -->
+    <main class="p-6">
+      
+<div class="page-fade">
+<section class="max-w-5xl mx-auto">
+
+  <p class="text-xs text-gray-500 uppercase tracking-widest mb-4">/ Aetherix402 / Status</p>
+
+  <!-- HEADLINE -->
+  <div id="banner" class="status-banner mb-3">
+    <span class="banner-dot"></span>
+    <div>
+      <h1 id="banner-title" class="text-2xl font-bold text-white tracking-tight">Checking systems</h1>
+      <p id="banner-sub" class="text-sm text-gray-400 mt-0.5">Running live probes against every dependency.</p>
+    </div>
+    <div class="ml-auto text-right">
+      <div class="live-tag"><span class="live-dot"></span>Live</div>
+      <p class="text-xs text-gray-500 mt-1" id="next-check">updating…</p>
+    </div>
+  </div>
+
+  <p class="text-xs text-gray-500 mb-10">
+    Every value is measured when it is read. Latencies are the real round trip to each
+    dependency and the counts come from the ledger, so nothing here is estimated or
+    remembered. This page re-probes on its own every 15 seconds.
+    <span id="checked-at"></span>
+  </p>
+
+  <!-- TOP LINE NUMBERS -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+    <div class="stat">
+      <p class="stat-label">Uptime</p>
+      <p class="stat-value" id="stat-uptime">&mdash;</p>
+      <p class="stat-note">since last deploy</p>
+    </div>
+    <div class="stat">
+      <p class="stat-label">Solana slot</p>
+      <p class="stat-value" id="stat-slot">&mdash;</p>
+      <p class="stat-note" id="stat-slot-note">mainnet head</p>
+    </div>
+    <div class="stat">
+      <p class="stat-label">Assets generated</p>
+      <p class="stat-value" id="stat-assets">&mdash;</p>
+      <p class="stat-note"><span id="stat-assets-24h">0</span> in the last 24h</p>
+    </div>
+    <div class="stat">
+      <p class="stat-label">Workers</p>
+      <p class="stat-value" id="stat-workers">&mdash;</p>
+      <p class="stat-note">celery pool</p>
+    </div>
+  </div>
+
+  <!-- CORE SERVICES -->
+  <h2 class="text-lg font-semibold text-white tracking-tight mb-1">Core services</h2>
+  <p class="text-sm text-gray-500 mb-4">
+    Probed on every load. A failure here affects the whole platform.
+  </p>
+  <div id="services" class="space-y-2 mb-12">
+    <div class="svc-skeleton"></div>
+    <div class="svc-skeleton"></div>
+    <div class="svc-skeleton"></div>
+  </div>
+
+  <!-- COMPONENTS -->
+  <h2 class="text-lg font-semibold text-white tracking-tight mb-1">Components</h2>
+  <p class="text-sm text-gray-500 mb-4">
+    What each component needs in order to run, and whether that is present right now.
+  </p>
+  <div class="overflow-x-auto mb-12">
+    <table class="status-table">
+      <thead>
+        <tr><th>Component</th><th>Price</th><th>Depends on</th><th class="text-right">State</th></tr>
+      </thead>
+      <tbody id="components"></tbody>
+    </table>
+  </div>
+
+  <!-- DATA PROVIDERS -->
+  <h2 class="text-lg font-semibold text-white tracking-tight mb-1">Data providers</h2>
+  <p class="text-sm text-gray-500 mb-4">
+    Optional sources. When one is absent the component that uses it falls back to the
+    others rather than failing.
+  </p>
+  <div id="integrations" class="grid sm:grid-cols-2 gap-2 mb-12"></div>
+
+  <!-- PAYMENTS -->
+  <h2 class="text-lg font-semibold text-white tracking-tight mb-1">Payments</h2>
+  <p class="text-sm text-gray-500 mb-4">Which methods the API is currently accepting.</p>
+  <div class="grid sm:grid-cols-2 gap-3 mb-12">
+    <div class="card">
+      <div class="flex items-center justify-between mb-1">
+        <h3 class="text-white font-semibold text-sm">USDC on Solana</h3>
+        <span class="chip chip-ok">accepting</span>
+      </div>
+      <p class="text-xs text-gray-500">Exact pricing. Settles at the quoted amount.</p>
+    </div>
+    <div class="card">
+      <div class="flex items-center justify-between mb-1">
+        <h3 class="text-white font-semibold text-sm">$AETH on Solana</h3>
+        <span class="chip" id="aeth-chip">checking</span>
+      </div>
+      <p class="text-xs text-gray-500" id="aeth-note">
+        Activates automatically once a mint address is configured.
+      </p>
+    </div>
+  </div>
+
+  <!-- LEDGER -->
+  <h2 class="text-lg font-semibold text-white tracking-tight mb-1">Ledger</h2>
+  <p class="text-sm text-gray-500 mb-4">
+    Counted from the ledger itself over its most recent entries, not from a running tally.
+  </p>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
+    <div class="stat"><p class="stat-label">Backend</p><p class="stat-value text-base" id="led-backend">&mdash;</p></div>
+    <div class="stat"><p class="stat-label">Succeeded</p><p class="stat-value" id="led-ok">&mdash;</p></div>
+    <div class="stat"><p class="stat-label">Pending</p><p class="stat-value" id="led-pending">&mdash;</p></div>
+    <div class="stat"><p class="stat-label">Replay guard</p><p class="stat-value text-base">enforced</p></div>
+  </div>
+
+  <div class="divider pt-6 text-sm text-gray-500">
+    The same data is available as JSON at
+    <a href="/api/status" class="text-cyan-300 hover:text-cyan-200 transition">/api/status</a>.
+    Probe results are shared for ten seconds, so several open tabs do not multiply the outbound checks.
+  </div>
+
+</section>
+</div>
+
+<style>
+  .status-banner{
+    display:flex; align-items:center; gap:1rem;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:1rem; padding:1.25rem 1.4rem;
+    background:rgba(15,23,42,0.5);
+  }
+  .banner-dot{
+    width:12px; height:12px; border-radius:9999px; flex:none;
+    background:#64748b; box-shadow:0 0 0 4px rgba(100,116,139,0.15);
+  }
+  .banner-ok    .banner-dot{ background:#34d399; box-shadow:0 0 0 4px rgba(52,211,153,0.18); }
+  .banner-degr  .banner-dot{ background:#fbbf24; box-shadow:0 0 0 4px rgba(251,191,36,0.18); }
+  .banner-down  .banner-dot{ background:#f87171; box-shadow:0 0 0 4px rgba(248,113,113,0.18); }
+
+  .live-tag{
+    display:inline-flex; align-items:center; gap:.4rem;
+    font-size:.7rem; letter-spacing:.06em; text-transform:uppercase;
+    color:rgba(148,163,184,0.9);
+  }
+  .live-dot{
+    width:6px; height:6px; border-radius:9999px; background:#34d399;
+    animation:liveBlink 2.4s ease-in-out infinite;
+  }
+  @keyframes liveBlink{
+    0%,100%{ box-shadow:0 0 0 0 rgba(52,211,153,0.5); }
+    70%    { box-shadow:0 0 0 5px rgba(52,211,153,0); }
+  }
+  @media (prefers-reduced-motion: reduce){ .live-dot{ animation:none; } }
+
+  .stat{
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:.75rem; padding:.9rem 1rem;
+    background:rgba(15,23,42,0.42);
+  }
+  .stat-label{ font-size:.68rem; text-transform:uppercase; letter-spacing:.08em; color:rgba(148,163,184,0.75); }
+  .stat-value{ font-size:1.4rem; font-weight:700; color:#fff; font-variant-numeric:tabular-nums; margin-top:.15rem; }
+  .stat-note{ font-size:.7rem; color:rgba(148,163,184,0.6); margin-top:.1rem; }
+
+  .svc{
+    display:flex; align-items:center; gap:.9rem;
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:.75rem; padding:.85rem 1rem;
+    background:rgba(15,23,42,0.42);
+  }
+  .svc-dot{ width:8px; height:8px; border-radius:9999px; flex:none; background:#64748b; }
+  .svc-name{ font-size:.9rem; font-weight:600; color:#e5e7eb; }
+  .svc-detail{ font-size:.75rem; color:rgba(148,163,184,0.8); }
+  .svc-latency{
+    margin-left:auto; font-size:.75rem; font-variant-numeric:tabular-nums;
+    color:rgba(148,163,184,0.85); font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  .svc-skeleton{ height:56px; border-radius:.75rem; background:rgba(255,255,255,0.03); }
+
+  .chip{
+    font-size:.68rem; padding:.12rem .55rem; border-radius:9999px;
+    border:1px solid rgba(148,163,184,0.3); color:rgba(148,163,184,0.9);
+    white-space:nowrap;
+  }
+  .chip-ok    { border-color:rgba(52,211,153,0.4);  color:#6ee7b7; }
+  .chip-warn  { border-color:rgba(251,191,36,0.4);  color:#fcd34d; }
+  .chip-down  { border-color:rgba(248,113,113,0.4); color:#fca5a5; }
+
+  .status-table{ width:100%; border-collapse:collapse; font-size:.85rem; }
+  .status-table th{
+    text-align:left; font-size:.68rem; text-transform:uppercase; letter-spacing:.08em;
+    color:rgba(148,163,184,0.8); padding:.55rem .7rem;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .status-table td{
+    padding:.65rem .7rem; border-bottom:1px solid rgba(255,255,255,0.05);
+    color:rgba(203,213,225,0.9); vertical-align:middle;
+  }
+  .status-table tr:last-child td{ border-bottom:none; }
+</style>
+
+<script>
+  const OK = "operational", DEGR = "degraded", DOWN = "down",
+        NC = "not configured", INC = "incomplete";
+  const REFRESH_MS = 15000;
+
+  const SERVICE_LABELS = {
+    api:     ["Web API",            "Serves the site and every endpoint"],
+    solana:  ["Solana RPC",         "Reads transactions to verify payments"],
+    redis:   ["Queue broker",       "Carries jobs to the workers"],
+    ledger:  ["Ledger database",    "Purchases and replay protection"],
+    workers: ["Job workers",        "Run every component"],
+    oracle:  ["Price oracle",       "Quotes AETH against USDC"],
+    storage: ["Report storage",     "Delivers generated files"],
+    ai:      ["Inference",          "The model behind every component"],
+  };
+
+  function cell(text, cls) {
+    const td = document.createElement("td");
+    if (cls) td.className = cls;
+    td.textContent = text;
+    return td;
+  }
+
+  function chipFor(status) {
+    if (status === OK)   return ["chip chip-ok",   "operational"];
+    if (status === DEGR) return ["chip chip-warn", "degraded"];
+    if (status === NC)   return ["chip chip-warn", "awaiting setup"];
+    return ["chip chip-down", "unavailable"];
+  }
+  function dotColour(status) {
+    if (status === OK)   return "#34d399";
+    if (status === DEGR || status === NC || status === INC) return "#fbbf24";
+    return "#f87171";
+  }
+
+  function render(d) {
+    // headline
+    const banner = document.getElementById("banner");
+    const cls = d.overall === OK ? "banner-ok"
+              : d.overall === INC ? "banner-degr"
+              : d.overall === DEGR ? "banner-degr" : "banner-down";
+    banner.className = "status-banner mb-3 " + cls;
+
+    document.getElementById("banner-title").textContent =
+        d.overall === OK   ? "All systems operational"
+      : d.overall === INC  ? "Operational, setup incomplete"
+      : d.overall === DEGR ? "Partially degraded"
+      :                      "Service disruption";
+
+    const failing = Object.entries(d.services)
+      .filter(([, s]) => s.status === DOWN || s.status === DEGR)
+      .map(([k]) => (SERVICE_LABELS[k] || [k])[0]);
+    const pending = Object.entries(d.services)
+      .filter(([, s]) => s.status === NC)
+      .map(([k]) => (SERVICE_LABELS[k] || [k])[0]);
+
+    document.getElementById("banner-sub").textContent =
+        failing.length ? failing.join(", ") + (failing.length === 1 ? " is affected" : " are affected")
+      : pending.length ? "Everything configured is responding. Awaiting credentials for " + pending.join(", ") + "."
+      : "Every probe returned healthy.";
+
+    document.getElementById("checked-at").textContent =
+      "Last checked " + new Date(d.checked_at).toLocaleTimeString() + ".";
+
+    // headline numbers
+    document.getElementById("stat-uptime").textContent = d.uptime.text;
+    const slot = (d.services.solana.detail.match(/slot (\d+)/) || [])[1];
+    document.getElementById("stat-slot").textContent = slot ? Number(slot).toLocaleString() : "unreachable";
+    document.getElementById("stat-slot-note").textContent =
+      d.services.solana.latency_ms + " ms round trip";
+    document.getElementById("stat-assets").textContent = d.ledger.available ? d.ledger.assets_total : "n/a";
+    document.getElementById("stat-assets-24h").textContent = d.ledger.available ? d.ledger.assets_24h : 0;
+    const w = (d.services.workers.detail.match(/^(\d+)/) || [])[1];
+    document.getElementById("stat-workers").textContent = w ? w : "0";
+
+    // core services
+    const host = document.getElementById("services");
+    host.innerHTML = "";
+    for (const [key, s] of Object.entries(d.services)) {
+      const [name, blurb] = SERVICE_LABELS[key] || [key, ""];
+      const [cls, text] = chipFor(s.status);
+      const row = document.createElement("div");
+      row.className = "svc";
+      row.innerHTML =
+        '<span class="svc-dot" style="background:' + dotColour(s.status) + '"></span>' +
+        '<div><div class="svc-name">' + name + '</div>' +
+        '<div class="svc-detail">' + blurb + " &middot; " + s.detail + '</div></div>' +
+        '<span class="svc-latency">' + (s.latency_ms ? s.latency_ms + " ms" : "") + '</span>' +
+        '<span class="' + cls + '" style="margin-left:.75rem">' + text + '</span>';
+      host.appendChild(row);
+    }
+
+    // Components, prices and dependencies all come from the API, which reads
+    // the same configuration checkout charges against. A list kept here drifted
+    // the moment a price or the model changed in the environment.
+    const tb = document.getElementById("components");
+    tb.innerHTML = "";
+    for (const c of (d.components || [])) {
+      const states = c.needs.map(k => d.services[k] ? d.services[k].status : DOWN);
+      const worst = states.includes(DOWN) ? DOWN
+                  : states.includes(DEGR)  ? DEGR
+                  : states.includes(NC)    ? NC : OK;
+      const [cls, text] = chipFor(worst);
+
+      const tr = document.createElement("tr");
+      tr.appendChild(cell(c.name, "text-white"));
+      tr.appendChild(cell("$" + c.price, ""));
+      tr.appendChild(cell(c.depends_on.join(", "), "text-gray-500"));
+
+      const last = document.createElement("td");
+      last.className = "text-right";
+      const chip = document.createElement("span");
+      chip.className = cls;
+      chip.textContent = text;
+      last.appendChild(chip);
+      tr.appendChild(last);
+      tb.appendChild(tr);
+    }
+
+    // providers
+    const ig = document.getElementById("integrations");
+    ig.innerHTML = "";
+    for (const p of d.integrations) {
+      const [cls, text] = chipFor(p.status);
+      const el = document.createElement("div");
+      el.className = "svc";
+      el.innerHTML =
+        '<span class="svc-dot" style="background:' + dotColour(p.status) + '"></span>' +
+        '<div><div class="svc-name">' + p.label + '</div>' +
+        '<div class="svc-detail">' + p.detail + '</div></div>' +
+        '<span class="' + cls + '" style="margin-left:auto">' + text + '</span>';
+      ig.appendChild(el);
+    }
+
+    // payments
+    const aethOn = true;
+    const chip = document.getElementById("aeth-chip");
+    chip.className = aethOn ? "chip chip-ok" : "chip";
+    chip.textContent = aethOn ? "accepting" : "awaiting launch";
+    if (aethOn) {
+      document.getElementById("aeth-note").textContent =
+        "Priced live with a one percent tolerance for drift between quote and settlement.";
+    }
+
+    // ledger
+    if (d.ledger.available) {
+      document.getElementById("led-backend").textContent = d.services.ledger.detail;
+      document.getElementById("led-ok").textContent = d.ledger.succeeded;
+      document.getElementById("led-pending").textContent = d.ledger.pending;
+    }
+  }
+
+  async function load() {
+    try {
+      const res = await fetch("/api/status", { cache: "no-store" });
+      render(await res.json());
+    } catch {
+      document.getElementById("banner").className = "status-banner mb-3 banner-down";
+      document.getElementById("banner-title").textContent = "Cannot reach the API";
+      document.getElementById("banner-sub").textContent =
+        "This page could not load its own status endpoint.";
+    }
+  }
+
+  let nextAt = 0;
+  async function cycle() {
+    await load();
+    nextAt = Date.now() + REFRESH_MS;
+  }
+
+  // A visible countdown, so the page reads as live rather than as a snapshot
+  // somebody forgot to reload.
+  setInterval(() => {
+    const left = Math.max(0, Math.ceil((nextAt - Date.now()) / 1000));
+    const el = document.getElementById("next-check");
+    if (el) el.textContent = left ? "next check in " + left + "s" : "checking…";
+  }, 1000);
+
+  cycle();
+  setInterval(cycle, REFRESH_MS);
+</script>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-cyan-900/30 mt-12 text-center text-sm text-gray-500 p-6">
+      © 2026 Aetherix402 · Powered by the X402 protocol.
+      <div class="space-x-4 mt-2">
+        <a href="https://github.com/Aetherix402/Aetherix402" target="_blank" class="hover:text-cyan-300 transition">GitHub</a>
+        <a href="https://x.com/Aetherix402" target="_blank" class="text-gray-400 hover:text-cyan-300 transition">X</a>
+        <a href="/learn" class="hover:text-cyan-300 transition">Learn</a>
+        <a href="/roadmap" class="hover:text-cyan-300 transition">Roadmap</a>
+        <a href="/legal" class="hover:text-cyan-300 transition">Legal</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Wallet Selection Modal -->
+  <div id="wallet-select-modal" class="modal-bg" style="display:none;"
+       role="dialog" aria-modal="true" aria-labelledby="wallet-modal-title">
+    <div class="modal">
+
+      <div class="flex items-start justify-between mb-1">
+        <h3 id="wallet-modal-title" class="text-white text-base font-semibold tracking-tight">Connect a wallet</h3>
+        <button type="button" class="wallet-close" aria-label="Close"
+                onclick="closeWalletModal()">&times;</button>
+      </div>
+      <p class="text-xs text-gray-400 mb-5">
+        Aetherix402 never holds your keys. You approve every payment in your own wallet.
+      </p>
+
+      <p class="wallet-group-label">Solana</p>
+      <div class="wallet-list mb-4">
+
+        <button class="wallet-row" data-wallet="phantom" onclick="connectPhantom()">
+          <span class="wallet-logo" style="background:#ab9ff2"><img src="/static/wallets/phantom-purple.png?v=1788191516" alt="" width="22" height="22" loading="lazy"></span>
+          <span class="wallet-meta">
+            <span class="wallet-name">Phantom</span>
+            <span class="wallet-sub" data-detect="phantom">Detecting…</span>
+          </span>
+          <span class="wallet-chev" aria-hidden="true">&rsaquo;</span>
+        </button>
+
+        <button class="wallet-row" data-wallet="solflare" onclick="connectSolflare()">
+          <span class="wallet-logo" style="background:#0a0a0a"><img src="/static/wallets/solflare.png?v=1788191516" alt="" width="22" height="22" loading="lazy"></span>
+          <span class="wallet-meta">
+            <span class="wallet-name">Solflare</span>
+            <span class="wallet-sub" data-detect="solflare">Detecting…</span>
+          </span>
+          <span class="wallet-chev" aria-hidden="true">&rsaquo;</span>
+        </button>
+
+        <button class="wallet-row" data-wallet="backpack" onclick="connectBackpack()">
+          <span class="wallet-logo" style="background:#0a0a0a"><img src="/static/wallets/backpack.png?v=1788191516" alt="" width="22" height="22" loading="lazy"></span>
+          <span class="wallet-meta">
+            <span class="wallet-name">Backpack</span>
+            <span class="wallet-sub" data-detect="backpack">Detecting…</span>
+          </span>
+          <span class="wallet-chev" aria-hidden="true">&rsaquo;</span>
+        </button>
+      </div>
+
+      <p class="wallet-group-label">Ethereum</p>
+      <div class="wallet-list">
+        <button class="wallet-row" data-wallet="metamask" onclick="connectMetamask()">
+          <span class="wallet-logo" style="background:#0a0a0a"><img src="/static/wallets/metamask.png?v=1788191516" alt="" width="22" height="22" loading="lazy"></span>
+          <span class="wallet-meta">
+            <span class="wallet-name">MetaMask</span>
+            <span class="wallet-sub" data-detect="metamask">Detecting…</span>
+          </span>
+          <span class="wallet-chev" aria-hidden="true">&rsaquo;</span>
+        </button>
+      </div>
+
+      <button type="button" class="wallet-cancel" onclick="closeWalletModal()">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Ambient particles init -->
+  <script>
+    (function initParticles(){
+      const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduced) return;
+
+      const container = document.getElementById("particle-container");
+      if (!container) return;
+
+      const count = 80;
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement("div");
+        p.className = "particle";
+        p.style.left = (Math.random() * 100) + "%";
+        p.style.opacity = (0.25 + Math.random() * 0.5).toFixed(2);
+        p.style.animationDuration = (4 + Math.random() * 10) + "s";
+        p.style.animationDelay = (Math.random() * 6) + "s";
+        container.appendChild(p);
+      }
+    })();
+  </script>
+
+  <!-- WALLET JS -->
+  <script>
+    let currentWallet = "";
+    let currentChain  = "";
+    window.currentWallet = "";
+    const walletBtn = document.getElementById("connect-wallet");
+
+    function shorten(addr) { return addr.slice(0,4) + "..." + addr.slice(-4); }
+
+    function updateWalletUI() {
+      const mobileWalletBtn = document.getElementById("mobile-connect-wallet");
+      const label = document.getElementById("connect-wallet-label");
+      const mobileLabel = document.getElementById("mobile-connect-wallet-label");
+
+      const connected = !!currentWallet;
+      const text = connected ? shorten(currentWallet) : "Connect Wallet";
+
+      if (label) label.textContent = text;
+      if (mobileLabel) mobileLabel.textContent = text;
+
+      walletBtn.classList.toggle("is-connected", connected);
+      walletBtn.title = connected ? currentWallet + " (click to disconnect)" : "Connect a wallet";
+      if (mobileWalletBtn) mobileWalletBtn.classList.toggle("is-connected", connected);
+    }
+
+    async function connectPhantom() {
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      const hasPhantom = !!window.solana?.isPhantom;
+
+      // MOBILE: redirect into Phantom app browser
+      if (isMobile && !hasPhantom) {
+        const target = encodeURIComponent(window.location.href);
+        window.location.href = `https://phantom.app/ul/browse/${target}`;
+        return;
+      }
+
+      // DESKTOP without Phantom
+      if (!hasPhantom) {
+        alert("Please install the Phantom browser extension to continue.");
+        return;
+      }
+
+      try {
+        await window.solana.disconnect().catch(() => {});
+        const res = await window.solana.connect({ onlyIfTrusted: false });
+        currentWallet = res.publicKey.toString();
+        window.currentProvider = window.solana;
+        currentChain = "solana";
+        window.currentWallet = currentWallet;
+        window.dispatchEvent(new CustomEvent('aetherix402:wallet', { detail: currentWallet }));
+        updateWalletUI();
+        window.dispatchEvent(new Event("wallet:connected"));
+      } catch (err) {
+        console.error(err);
+      }
+
+      document.getElementById("wallet-select-modal").style.display = "none";
+    }
+
+    function closeWalletModal() {
+      document.getElementById("wallet-select-modal").style.display = "none";
+    }
+
+    /* Adopt whatever provider object a wallet injected, then share the result
+       through the same globals and event the Phantom path already uses. */
+    async function adoptSolanaProvider(provider, label) {
+      if (!provider) {
+        alert(label + " was not detected. Install it, then reload this page.");
+        return;
+      }
+      try {
+        await provider.disconnect?.().catch(() => {});
+        const res = await provider.connect({ onlyIfTrusted: false });
+        currentWallet = (res?.publicKey ?? provider.publicKey).toString();
+        window.currentProvider = provider;
+        currentChain = "solana";
+        window.currentWallet = currentWallet;
+        window.dispatchEvent(new CustomEvent('aetherix402:wallet', { detail: currentWallet }));
+        window.currentChain = currentChain;
+        updateWalletUI();
+        window.dispatchEvent(new Event("wallet:connected"));
+      } catch (err) {
+        console.error(err);
+      }
+      closeWalletModal();
+    }
+
+    function connectSolflare() {
+      adoptSolanaProvider(window.solflare, "Solflare");
+    }
+
+    function connectBackpack() {
+      adoptSolanaProvider(window.backpack?.solana || window.xnf?.solana, "Backpack");
+    }
+
+    async function connectMetamask() {
+      if (!window.ethereum) {
+        alert("MetaMask was not detected. Install it, then reload this page.");
+        return;
+      }
+      try {
+        const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+        currentWallet = accounts[0];
+        currentChain = "ethereum";
+        window.currentWallet = currentWallet;
+        window.dispatchEvent(new CustomEvent('aetherix402:wallet', { detail: currentWallet }));
+        window.currentChain = currentChain;
+        updateWalletUI();
+        window.dispatchEvent(new Event("wallet:connected"));
+      } catch(err) {
+        console.error(err);
+      }
+      closeWalletModal();
+    }
+
+    /* Tell the reader which wallets are actually available before they click. */
+    function refreshWalletAvailability() {
+      const found = {
+        phantom:  !!(window.phantom?.solana?.isPhantom || window.solana?.isPhantom),
+        solflare: !!window.solflare,
+        backpack: !!(window.backpack?.solana || window.xnf?.solana),
+        metamask: !!window.ethereum,
+      };
+      document.querySelectorAll("[data-detect]").forEach(el => {
+        const installed = found[el.dataset.detect];
+        el.textContent = installed ? "Installed" : "Not detected";
+        el.classList.toggle("is-installed", installed);
+      });
+    }
+
+    walletBtn.addEventListener("click", () => {
+      if (!currentWallet) {
+        refreshWalletAvailability();
+        document.getElementById("wallet-select-modal").style.display = "flex";
+      } else {
+        if (confirm("Disconnect wallet?")) {
+          currentWallet = "";
+          currentChain = "";
+          window.currentWallet = "";
+          updateWalletUI();
+        }
+      }
+    });
+
+    const walletModal = document.getElementById("wallet-select-modal");
+    walletModal.addEventListener("click", (e) => {
+      if (e.target === walletModal) closeWalletModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && walletModal.style.display === "flex") closeWalletModal();
+    });
+  </script>
+
+  <script>
+    const mobileWalletBtn = document.getElementById("mobile-connect-wallet");
+    if (mobileWalletBtn) {
+      mobileWalletBtn.addEventListener("click", () => {
+        if (!currentWallet) {
+          document.getElementById("wallet-select-modal").style.display = "flex";
+        } else {
+          if (confirm("Disconnect wallet?")) {
+            currentWallet = "";
+            currentChain = "";
+            window.currentWallet = "";
+            updateWalletUI();
+          }
+        }
+      });
+    }
+  </script>
+
+  <script>
+    async function registerPayment({ txSig, payMethod }) {
+      if (!currentWallet) throw new Error("Wallet not connected");
+      return { txSig, wallet: currentWallet, method: payMethod || "USDC" };
+    }
+  </script>
+
+  <script>
+    function toggleMobileMenu() {
+      const nav = document.getElementById("mobile-nav");
+      if (!nav) return;
+      nav.classList.toggle("hidden");
+      nav.classList.toggle("flex");
+    }
+  </script>
+
+  <script>
+    async function requestTxSignature() {
+      const sig = prompt("Paste your transaction signature:");
+      if (!sig) throw new Error("Transaction signature required");
+      return sig.trim();
+    }
+  </script>
+
+  <script>
+    function forceClosePaymentModal() {
+      const modal = document.getElementById("payment-modal");
+      if (!modal) return;
+      modal.style.display = "none";
+      modal.classList.remove("flex");
+      document.body.style.pointerEvents = "auto";
+    }
+  </script>
+
+  <script>
+    const globalLocks = {};
+    function lock(key) { if (globalLocks[key]) return false; globalLocks[key] = true; return true; }
+    function unlock(key) { globalLocks[key] = false; }
+    async function safeJson(res) {
+      const text = await res.text();
+      try { return JSON.parse(text); }
+      catch { return { error: "Invalid JSON response", raw: text.slice(0, 200) }; }
+    }
+  </script>
+
+  <script>
+    let lastStatusCheck = Date.now();
+    function timeAgo(ts) {
+      const sec = Math.floor((Date.now() - ts) / 1000);
+      if (sec < 5) return "just now";
+      if (sec < 60) return `${sec}s ago`;
+      return `${Math.floor(sec / 60)}m ago`;
+    }
+
+    async function checkSystemStatus() {
+      const els = [
+        document.getElementById("system-status"),
+        document.getElementById("system-status-mobile")
+      ].filter(Boolean);
+
+      if (!els.length) return;
+
+      function paint(state, label) {
+        lastStatusCheck = Date.now();
+        els.forEach(el => {
+          el.classList.remove("is-ok", "is-degraded", "is-down");
+          el.classList.add(state);
+          const t = el.querySelector(".status-chip-text");
+          if (t) t.textContent = label;
+          el.title = label + " . Click for the full status page";
+        });
+      }
+
+      const setOperational = () => paint("is-ok", "All systems operational");
+      const setDegraded    = () => paint("is-degraded", "Partially degraded");
+      const setDown        = () => paint("is-down", "Service disruption");
+
+      try {
+        const res = await fetch("/api/status", { cache: "no-store" });
+        const json = await res.json();
+        if (json?.overall === "operational") setOperational();
+        else if (json?.overall === "degraded") setDegraded();
+        else setDown();
+      } catch {
+        setDown();
+      }
+    }
+
+    checkSystemStatus();
+    setInterval(checkSystemStatus, 15000);
+  </script>
+
+  
+
+<script>
+// Escape closes whatever modal is open, on every page.
+//
+// Five purchase modals shipped with their close button emptied, which left a
+// visitor who opened one with no way out but a page reload. A keyboard route
+// costs nothing and does not depend on a glyph rendering.
+//
+// Clicking the backdrop deliberately does not close anything: these modals hold
+// text somebody typed, and losing a long prompt to a stray click is worse than
+// one extra keystroke.
+document.addEventListener("keydown", function (e) {
+  if (e.key !== "Escape") return;
+  document.querySelectorAll(".modal-bg").forEach(function (m) {
+    const shown = m.style.display && m.style.display !== "none";
+    if (shown || getComputedStyle(m).display === "flex") m.style.display = "none";
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Prebuilt Agent Store | Aetherix402</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    // Point Tailwind's own font classes at Geist, so every existing
+    // font-sans and font-mono in the markup picks it up without being touched.
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+
+  
+  
+  
+  
+  
+  <meta name="description" content="Nine complete Python agent projects. Watch one run on live data before you buy, then download the source and keep it.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aetherix402">
+  <meta property="og:title" content="Prebuilt Agent Store | Aetherix402">
+  <meta property="og:description" content="Nine complete Python agent projects. Watch one run on live data before you buy, then download the source and keep it.">
+  <meta property="og:url" content="https://aetherix402.com/agents">
+  <meta property="og:image" content="https://aetherix402.com/static/og-card.png?v=1788191516">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Aetherix402. Pay per call, on Solana.">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Aetherix402">
+  <meta name="twitter:title" content="Prebuilt Agent Store | Aetherix402">
+  <meta name="twitter:description" content="Nine complete Python agent projects. Watch one run on live data before you buy, then download the source and keep it.">
+  <meta name="twitter:image" content="https://aetherix402.com/static/og-card.png?v=1788191516">
+
+  <link rel="stylesheet" href="/static/css/style.css">
+
+  <link rel="icon" href="/static/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="96x96" href="/static/favicon/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/static/favicon/site.webmanifest">
+  <meta name="theme-color" content="#030712">
+</head>
+
+<body class="font-sans page-agents">
+
+  <!-- HEADER -->
+  <header class="px-6 py-2 flex justify-between items-center relative">
+
+  <!-- LOGO -->
+  <h1 onclick="window.location.href='/'"
+      class="ml-2 flex items-center gap-4 cursor-pointer group select-none">
+
+    <img src="/static/favicon/web-app-manifest-192x192.png"
+          alt="Aetherix402"
+          class="w-16 h-16 transition-transform duration-200
+                group-hover:scale-105" />
+
+    <span class="hidden sm:inline text-base font-bold text-cyan-300 tracking-wider">
+      X402
+    </span>
+  </h1>
+
+    <!-- DESKTOP NAV -->
+    <nav class="desktop-nav hidden md:flex gap-6 text-sm items-center">
+      <a href="/token" class="text-cyan-300 hover:text-cyan-200 transition font-semibold">$AETH</a>
+      <a href="https://github.com/Aetherix402/Aetherix402" target="_blank" class="text-gray-400 hover:text-cyan-300 transition">GitHub</a>
+      <a href="https://x.com/Aetherix402" target="_blank" class="text-gray-400 hover:text-cyan-300 transition">X</a>
+      <a href="/learn" class="text-gray-400 hover:text-cyan-300 transition">Learn</a>
+      <a href="/docs" class="text-gray-400 hover:text-cyan-300 transition">Docs</a>
+      <a href="/roadmap" class="text-gray-400 hover:text-cyan-300 transition">Roadmap</a>
+      <a href="/legal" class="text-gray-400 hover:text-cyan-300 transition">Legal</a>
+
+      <a id="system-status" href="/status" class="status-chip hidden sm:inline-flex" title="View full system status">
+        <span class="status-chip-dot"></span>
+        <span class="status-chip-text">Checking</span>
+      </a>
+
+      <button id="connect-wallet" class="wallet-btn" aria-haspopup="dialog">
+        <span class="wallet-dot" aria-hidden="true"></span>
+        <span id="connect-wallet-label">Connect Wallet</span>
+      </button>
+    </nav>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button class="mobile-menu-btn md:hidden text-cyan-300 text-3xl" onclick="toggleMobileMenu()">☰</button>
+
+    <!-- MOBILE NAV -->
+    <nav id="mobile-nav"
+        class="hidden flex-col gap-4 bg-[#030712]/95 border-t border-cyan-400/30 p-4 absolute left-0 right-0 top-full z-50 md:hidden">
+
+      <a href="/token" class="text-cyan-300 font-semibold">$AETH</a>
+      <a href="https://github.com/Aetherix402/Aetherix402" target="_blank" class="text-gray-300">GitHub</a>
+      <a href="https://x.com/Aetherix402" target="_blank" class="text-gray-300">X</a>
+      <a href="/learn" class="text-gray-300">Learn</a>
+      <a href="/docs" class="text-gray-300">Docs</a>
+      <a href="/roadmap" class="text-gray-300">Roadmap</a>
+      <a href="/legal" class="text-gray-300">Legal</a>
+
+      <a id="system-status-mobile" href="/status" class="status-chip">
+        <span class="status-chip-dot"></span>
+        <span class="status-chip-text">Checking</span>
+      </a>
+
+      <button id="mobile-connect-wallet" class="wallet-btn w-full justify-center">
+        <span class="wallet-dot" aria-hidden="true"></span>
+        <span id="mobile-connect-wallet-label">Connect Wallet</span>
+      </button>
+    </nav>
+  </header>
+
+  <style>
+    :root{
+      --bg: #030712;
+      --panel: rgba(15, 23, 42, 0.78);
+      --panel-strong: rgba(11, 18, 32, 0.90);
+      --border: rgba(56, 189, 248, 0.22);
+      --border-strong: rgba(56, 189, 248, 0.34);
+      --text: #e5e7eb;
+      --muted: rgba(229,231,235,0.70);
+      --cyan: #22d3ee;
+      --cyan-2: #67e8f9;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    html {
+      overflow-y: scroll;
+    }
+
+    .background {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      /*
+        Behind the content, not over it. This sat at 15 against the shell's 10,
+        so the vignette inside it washed black across whatever happened to be
+        near the bottom of the viewport. It read as the footer bleeding into the
+        section above it, but the footer was never involved: the layer is fixed
+        to the viewport, so it dimmed a different part of the page at every
+        scroll position. pointer-events:none meant clicks still landed, which is
+        why it looked like a rendering quirk rather than a stacking bug.
+      */
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    header > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .bg-gradient {
+      position: absolute;
+      inset: -25%;
+      background:
+        radial-gradient(65% 50% at 18% 18%, rgba(34,211,238,0.18), transparent 60%),
+        radial-gradient(60% 50% at 82% 22%, rgba(56,189,248,0.16), transparent 62%),
+        radial-gradient(65% 60% at 50% 88%, rgba(34,211,238,0.14), transparent 65%);
+      filter: blur(14px);
+      opacity: 1;
+    }
+
+    .scanlines {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.035) 0,
+        rgba(255,255,255,0.035) 1px,
+        transparent 2px,
+        transparent 5px
+      );
+      opacity: 0.35;
+    }
+
+    .vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, transparent 55%, rgba(0,0,0,0.65) 100%);
+      opacity: 0.8;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(34, 211, 238, 0.28);
+      border-radius: 50%;
+      width: 2px;
+      height: 2px;
+      animation: floatUp linear infinite;
+      will-change: transform, opacity;
+    }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(110vh); opacity: 0; }
+      20%  { opacity: 1; }
+      100% { transform: translateY(-12vh); opacity: 0; }
+    }
+
+    .app-shell {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: relative;
+      z-index: 20;
+
+      min-height: 80px;
+
+      isolation: isolate;
+
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: linear-gradient(
+        180deg,
+        rgba(3,7,18,0.65) 0%,
+        rgba(3,7,18,0.25) 100%
+      );
+    }
+
+    header,
+    header * {
+      transition: none !important;
+    }
+
+    /* Same cyan, calmer geometry. The gradient, the inset highlight and the
+       coloured drop shadow were doing three jobs at once, which is what made
+       these read as cheap. Flat fill, tighter radius, lighter weight. */
+    .btn{
+      position: relative;
+      background: linear-gradient(180deg, var(--cyan-2), var(--cyan));
+      color: #001018;
+      font-weight: 700;
+      padding: .55rem 1.05rem;
+      border-radius: .85rem;
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+      box-shadow:
+        0 10px 30px rgba(34,211,238,0.18),
+        inset 0 1px 0 rgba(255,255,255,0.35);
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+      box-shadow:
+        0 14px 40px rgba(34,211,238,0.22),
+        inset 0 1px 0 rgba(255,255,255,0.42);
+    }
+    .btn:active{ transform: translateY(0px) scale(0.99); }
+
+    .modal-bg{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.68);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index: 70;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    /* The hover state existed without a base state, so every ghost button on
+       the site rendered as bare text until somebody put a cursor on it. This is
+       the outline the hover was always written against. */
+    .btn-ghost{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: .6rem 1.1rem;
+      border-radius: .65rem;
+      border: 1px solid rgba(34,211,238,0.22);
+      background: transparent;
+      color: #cbd5e1;
+      font-size: .875rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .15s, border-color .15s, color .15s;
+    }
+    .btn-ghost:disabled{ opacity:.45; cursor:not-allowed; }
+    .btn-ghost:hover{
+      background: rgba(34,211,238,0.08);
+      border-color: rgba(34,211,238,0.45);
+      color: var(--cyan-2);
+    }
+
+    .modal-bg{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.68);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index: 70;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .modal{
+      background: linear-gradient(180deg, rgba(11,18,32,0.92), rgba(2,6,23,0.92));
+      border: 1px solid var(--border-strong);
+      border-radius: 1.25rem;
+      width: min(520px, 92vw);
+      padding: 1.25rem;
+      box-shadow:
+        0 30px 90px rgba(0,0,0,0.55),
+        0 0 0 1px rgba(34,211,238,0.10);
+    }
+
+    /* Flat surface. Hover lifts by brightening the border rather than by
+       translating the card under a coloured glow. */
+    .card{
+      background: linear-gradient(180deg, rgba(15,23,42,0.82), rgba(2,6,23,0.72));
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      border-color: rgba(34,211,238,0.40);
+      box-shadow:
+        0 18px 60px rgba(0,0,0,0.38),
+        0 0 30px rgba(34,211,238,0.12);
+    }
+
+    .pill{
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      color: #7dd3fc;
+      font-size: .75rem;
+      letter-spacing: .04em;
+      text-transform: lowercase;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    .filter-bar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.5rem;
+      justify-content:center;
+    }
+
+    .filter-chip{
+      padding: 0.48rem 0.95rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(229,231,235,0.75);
+      background: rgba(15,23,42,0.65);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 9999px;
+      transition: transform .16s ease, background .16s ease, border-color .16s ease, color .16s ease, box-shadow .16s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .filter-chip:hover{
+      transform: translateY(-1px);
+      color: rgba(229,231,235,0.95);
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(34,211,238,0.36);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.28);
+    }
+
+    .filter-chip.active{
+      color: #001018;
+      background: var(--cyan);
+      border-color: var(--cyan);
+    }
+
+    /* ---- wallet picker ---- */
+    .wallet-group-label{
+      font-size: .6875rem;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      color: rgba(148,163,184,0.75);
+      margin: 0 0 .5rem .15rem;
+    }
+    .wallet-list{ display: flex; flex-direction: column; gap: .5rem; }
+
+    .wallet-row{
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      width: 100%;
+      text-align: left;
+      padding: .7rem .8rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: .75rem;
+      transition: background .15s ease, border-color .15s ease;
+      cursor: pointer;
+    }
+    .wallet-row:hover{
+      background: rgba(34,211,238,0.07);
+      border-color: rgba(34,211,238,0.38);
+    }
+    .wallet-row[disabled]{ opacity:.45; cursor:not-allowed; }
+    .wallet-row[disabled]:hover{
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(255,255,255,0.09);
+    }
+
+    .wallet-logo{
+      width: 34px; height: 34px;
+      border-radius: .55rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .wallet-logo img{ display:block; width: 22px; height: 22px; object-fit: contain; }
+    .wallet-meta{ display: flex; flex-direction: column; line-height: 1.25; flex: 1 1 auto; }
+    .wallet-name{ font-size: .9rem; font-weight: 600; color: #e5e7eb; }
+    .wallet-sub{ font-size: .72rem; color: rgba(148,163,184,0.85); }
+    .wallet-sub.is-installed{ color: #34d399; }
+    .wallet-chev{ color: rgba(148,163,184,0.5); font-size: 1.15rem; flex: none; }
+
+    .wallet-close{
+      color: rgba(148,163,184,0.7);
+      font-size: 1.4rem;
+      line-height: 1;
+      padding: 0 .25rem;
+      transition: color .15s ease;
+    }
+    .wallet-close:hover{ color: #e5e7eb; }
+
+    .wallet-cancel{
+      width: 100%;
+      margin-top: 1.1rem;
+      padding: .55rem;
+      font-size: .8125rem;
+      color: rgba(148,163,184,0.85);
+      border-radius: .625rem;
+      transition: background .15s ease, color .15s ease;
+    }
+    .wallet-cancel:hover{ background: rgba(255,255,255,0.05); color: #e5e7eb; }
+
+    /* ---- header status chip ---- */
+    .status-chip{
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .35rem .7rem;
+      border-radius: 9999px;
+      font-size: .75rem;
+      font-weight: 500;
+      color: rgba(148,163,184,0.95);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.09);
+      transition: background .16s ease, border-color .16s ease, color .16s ease;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .status-chip:hover{ background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.2); }
+
+    .status-chip-dot{
+      width: 7px; height: 7px; border-radius: 9999px; flex: none;
+      background: rgba(148,163,184,0.7);
+    }
+
+    /* Only the healthy state pulses. A problem should hold still and be read. */
+    .status-chip.is-ok{ color:#6ee7b7; border-color: rgba(52,211,153,0.28); background: rgba(52,211,153,0.07); }
+    .status-chip.is-ok .status-chip-dot{ background:#34d399; animation: chipPulse 2.4s ease-in-out infinite; }
+
+    .status-chip.is-degraded{ color:#fcd34d; border-color: rgba(251,191,36,0.3); background: rgba(251,191,36,0.07); }
+    .status-chip.is-degraded .status-chip-dot{ background:#fbbf24; }
+
+    .status-chip.is-down{ color:#fca5a5; border-color: rgba(248,113,113,0.3); background: rgba(248,113,113,0.07); }
+    .status-chip.is-down .status-chip-dot{ background:#f87171; }
+
+    @keyframes chipPulse{
+      0%,100%{ box-shadow: 0 0 0 0 rgba(52,211,153,0.45); }
+      70%    { box-shadow: 0 0 0 5px rgba(52,211,153,0); }
+    }
+    @media (prefers-reduced-motion: reduce){
+      .status-chip.is-ok .status-chip-dot{ animation: none; }
+    }
+
+    input, textarea, select {
+      color-scheme: dark;
+    }
+
+    @media (max-width: 768px){
+      .modal{ max-height: 85vh; overflow-y: auto; }
+      textarea, .code-input { max-height: 40vh; resize: vertical; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      body{ transition:none; }
+      .particle{ animation:none; opacity:0.35; }
+      .card, .btn, .filter-chip{ transition:none; }
+    }
+
+    /* Outline by default so it does not compete with the primary actions on
+       the page, and fills in only once a wallet is actually attached. */
+    .wallet-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .5rem .85rem;
+      font-size: .8125rem;
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+      color: var(--cyan-2);
+      background: rgba(34,211,238,0.06);
+      border: 1px solid rgba(34,211,238,0.30);
+      border-radius: .625rem;
+      transition: background .16s ease, border-color .16s ease, color .16s ease;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .wallet-btn:hover {
+      background: rgba(34,211,238,0.13);
+      border-color: rgba(34,211,238,0.55);
+    }
+
+    .wallet-dot {
+      width: 7px; height: 7px;
+      border-radius: 9999px;
+      background: rgba(148,163,184,0.65);
+      flex: none;
+      transition: background .16s ease, box-shadow .16s ease;
+    }
+    /* Connected: the dot goes live and the address reads as a value, not a CTA. */
+    .wallet-btn.is-connected {
+      color: #a5f3fc;
+      background: rgba(34,211,238,0.10);
+      border-color: rgba(34,211,238,0.42);
+    }
+    .wallet-btn.is-connected .wallet-dot {
+      background: #34d399;
+      box-shadow: 0 0 0 3px rgba(52,211,153,0.16);
+    }
+
+    .wallet-btn:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -32px;
+      height: 32px;
+      pointer-events: none;
+      background: linear-gradient(
+        to bottom,
+        rgba(3,7,18,0.25),
+        rgba(3,7,18,0.0)
+      );
+    }
+
+    @keyframes page-fade {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .page-fade {
+      animation: page-fade 0.55s ease-out both;
+    }
+
+    #mobile-nav {
+      will-change: transform;
+    }
+  </style>
+
+  <!-- Ambient background -->
+  <div class="background" aria-hidden="true">
+    <div class="bg-gradient"></div>
+    <div id="particle-container"></div>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <div class="app-shell">
+
+    <!-- PAGE CONTENT -->
+    <main class="p-6">
+      
+<style>
+  /* Only ever rendered for a wallet that actually won something. */
+  .claim-btn {
+    padding: .5rem 1.1rem; font-size: .85rem; font-weight: 700;
+    color: #052e16; background: #6ee7b7;
+    border: none; border-radius: .6rem; cursor: pointer;
+    white-space: nowrap; transition: background .15s;
+  }
+  .claim-btn:hover { background: #a7f3d0; }
+  .claim-btn:disabled { opacity: .6; cursor: default; }
+</style>
+
+<script>
+// Free agent claims for giveaway winners.
+//
+// The button exists only for a wallet with an unclaimed prize, and only that
+// wallet is ever told about it: /api/my-prizes answers for the connected wallet
+// and nobody else, so a visitor who has not won sees nothing and cannot tell
+// that anyone has.
+//
+// Claiming is signed. The address alone proves nothing, because winners post
+// their wallets publicly in the giveaway thread, so without a signature anyone
+// reading it could take somebody else's prize.
+
+async function refreshPrizes() {
+  document.querySelectorAll(".claim-btn").forEach(b => {
+    const buy = b.parentElement.querySelector(".buy-agent-btn");
+    if (buy) buy.style.display = "";
+    b.remove();
+  });
+
+  if (!window.currentWallet) return;
+
+  let prizes = [];
+  try {
+    const r = await fetch("/api/my-prizes", { headers: { "X-USER-WALLET": window.currentWallet } });
+    prizes = (await r.json()).agents || [];
+  } catch (e) { return; }
+
+  prizes.forEach(agentId => {
+    const buy = document.querySelector(`.buy-agent-btn[data-id="${agentId}"]`);
+    if (!buy) return;
+    const claim = document.createElement("button");
+    claim.className = "claim-btn";
+    claim.textContent = "Claim free";
+    claim.title = "You won this. Sign to prove the wallet is yours and download it.";
+    claim.onclick = () => claimAgent(agentId, claim);
+    buy.style.display = "none";
+    buy.parentElement.insertBefore(claim, buy);
+  });
+}
+
+async function claimAgent(agentId, btn) {
+  const provider = window.currentProvider;
+  if (!provider?.signMessage) {
+    alert("This wallet cannot sign messages, so the claim cannot be verified. Try Phantom, Solflare or Backpack.");
+    return;
+  }
+
+  const label = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = "Check your wallet...";
+
+  try {
+    const headers = { "X-USER-WALLET": window.currentWallet };
+    const cr = await fetch(`/api/claim/${agentId}/challenge`, { method: "POST", headers });
+    if (!cr.ok) throw new Error((await cr.json()).detail || "Could not start the claim");
+    const ch = await cr.json();
+
+    // Signing a plain message. Nothing goes on chain and no funds move, which
+    // the message itself says so the wallet prompt is not alarming.
+    const signed = await provider.signMessage(new TextEncoder().encode(ch.message), "utf8");
+    const raw = signed?.signature ?? signed;
+    const sig = window.bs58ish(raw);
+
+    btn.textContent = "Building...";
+    const dr = await fetch(`/api/download_agent/${agentId}`, {
+      method: "POST",
+      headers: { ...headers, "Content-Type": "application/json",
+                 "X-CLAIM-NONCE": ch.nonce, "X-CLAIM-SIGNATURE": sig },
+      body: "{}",
+    });
+    if (!dr.ok) throw new Error((await dr.json().catch(() => ({}))).detail || "Claim refused");
+
+    const blob = await dr.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = `${agentId}.zip`;
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+
+    btn.textContent = "Claimed";
+    // The prize is spent, so the button goes and the normal Buy returns.
+    setTimeout(refreshPrizes, 1200);
+  } catch (err) {
+    alert(err.message || "That claim could not be completed");
+    btn.disabled = false;
+    btn.textContent = label;
+  }
+}
+
+// Wallets hand back raw bytes; the server reads base58.
+window.bs58ish = function (bytes) {
+  if (typeof bytes === "string") return bytes;
+  const A = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+  let digits = [0];
+  for (const b of bytes) {
+    let carry = b;
+    for (let i = 0; i < digits.length; i++) {
+      carry += digits[i] << 8; digits[i] = carry % 58; carry = (carry / 58) | 0;
+    }
+    while (carry) { digits.push(carry % 58); carry = (carry / 58) | 0; }
+  }
+  let out = "";
+  for (const b of bytes) { if (b === 0) out += "1"; else break; }
+  for (let i = digits.length - 1; i >= 0; i--) out += A[digits[i]];
+  return out;
+};
+
+document.addEventListener("DOMContentLoaded", refreshPrizes);
+window.addEventListener("aetherix402:wallet", refreshPrizes);
+</script>
+
+
+<div class="page-fade">
+
+<div class="max-w-4xl mx-auto px-6 mt-6">
+
+  <p class="text-xs text-gray-500 uppercase tracking-widest mb-4">
+    / AETHERON / AGENTS
+  </p>
+
+  <a href="/shop"
+     class="inline-flex items-center text-cyan-300 hover:text-cyan-200 text-sm mb-6 transition">
+    ← Back to Shop
+  </a>
+
+</div>
+
+<section class="text-center max-w-3xl mx-auto mt-4">
+  <h2 class="text-4xl font-semibold text-cyan-300 mb-4">Prebuilt Agent Store (Template)</h2>
+  <p class="text-gray-400">
+    Download automation agent templates. Spanning trading bots, Discord/Telegram assistants, whale trackers, liquidity monitors, snipers, analysis engines, and other on-chain tools. Each template provides a robust, customizable framework that’s easy to adapt, extend, and integrate into real workflow environments.
+  </p>
+</section>
+
+<main class="max-w-6xl mx-auto px-6 mt-16 space-y-24">
+
+  <!-- Trading & Execution -->
+  <section class="border-t border-cyan-400/10 pt-12">
+    <h3 class="text-2xl font-semibold text-cyan-300 mb-2">
+      Trading & Execution
+    </h3>
+    <p class="text-gray-400 text-sm mb-8">
+      High-speed agents designed for sniping, launches, and active trade execution.
+    </p>
+
+    <div id="folder-trading"
+         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      <!-- Solana Trading Assistant -->
+      <div class="card flex flex-col justify-between">
+        <div class="w-fit mb-3">
+          <span class="pill">download</span>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-semibold text-cyan-400">
+            Solana Trading Assistant
+          </h2>
+          <p class="text-gray-400 text-sm mt-2">
+            Analyze tokens, detect trends, and make on-chain insights actionable. Provides quick summaries to guide fast decision-making.
+          </p>
+        </div>
+
+        <div class="mt-6 flex justify-between items-center">
+           <span class="text-cyan-300 font-semibold">4.99 USDC</span>
+
+          <div class="flex items-center gap-2">
+            <button type="button" class="preview-agent-btn" data-agent="solana-trading-assistant" onclick="previewAgent('solana-trading-assistant')"
+                    title="Run it for a few seconds on live data, no payment">Watch it run</button>
+            <button class="btn buy-agent-btn"
+            data-id="solana-trading-assistant"
+            data-price="4.99">
+            Buy
+          </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pump.fun Launch Assistant -->
+      <div class="card flex flex-col justify-between">
+        <div class="w-fit mb-3">
+          <span class="pill">download</span>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-semibold text-cyan-400">
+            Pump.fun Launch Assistant
+          </h2>
+          <p class="text-gray-400 text-sm mt-2">
+            Track new launches, liquidity events, and early-signal opportunities with automated intelligence.
+          </p>
+        </div>
+
+        <div class="mt-6 flex justify-between items-center">
+          <span class="text-cyan-300 font-semibold">4.99 USDC</span>
+
+          <div class="flex items-center gap-2">
+            <button type="button" class="preview-agent-btn" data-agent="pumpfun-launcher" onclick="previewAgent('pumpfun-launcher')"
+                    title="Run it for a few seconds on live data, no payment">Watch it run</button>
+            <button class="btn buy-agent-btn"
+            data-id="pumpfun-launcher"
+            data-price="4.99">
+            Buy
+          </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sniper Trade Agent -->
+      <div class="card flex flex-col justify-between">
+        <div class="w-fit mb-3">
+          <span class="pill">download</span>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-semibold text-cyan-400">
+            Sniper Trade Agent
+          </h2>
+          <p class="text-gray-400 text-sm mt-2">
+            Real-time memecoin sniper bot with safety rules, blacklist protection and adjustable auto-buy triggers.
+          </p>
+        </div>
+
+        <div class="mt-6 flex justify-between items-center">
+          <span class="text-cyan-300 font-semibold">4.99 USDC</span>
+
+          <div class="flex items-center gap-2">
+            <button type="button" class="preview-agent-btn" data-agent="solana-sniper" onclick="previewAgent('solana-sniper')"
+                    title="Run it for a few seconds on live data, no payment">Watch it run</button>
+            <button class="btn buy-agent-btn"
+            data-id="solana-sniper"
+            data-price="4.99">
+            Buy
+          </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Market Intelligence -->
+  <section class="border-t border-cyan-400/10 pt-12">
+    <h3 class="text-2xl font-semibold text-cyan-300 mb-2">
+      Market Intelligence
+    </h3>
+    <p class="text-gray-400 text-sm mb-8">
+      Monitoring, analytics, and signal-extraction agents for informed decisions.
+    </p>
+
+    <div id="folder-intelligence"
+           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+        <!-- Alpha Scanner Agent -->
+        <div class="card flex flex-col justify-between">
+          <div class="w-fit mb-3">
+            <span class="pill">download</span>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-semibold text-cyan-400">
+              Alpha Scanner Agent
+            </h2>
+            <p class="text-gray-400 text-sm mt-2">
+              Agent template that scans social, on-chain, and market signals
+              to detect emerging narratives, cross-signal confirmation, and ranked alpha
+              opportunities before they become consensus.
+            </p>
+          </div>
+
+          <div class="mt-6 flex justify-between items-center">
+            <span class="text-cyan-300 font-semibold">4.99 USDC</span>
+
+            <div class="flex items-center gap-2">
+            <button type="button" class="preview-agent-btn" data-agent="alpha-scanner" onclick="previewAgent('alpha-scanner')"
+                    title="Run it for a few seconds on live data, no payment">Watch it run</button>
+            <button class="btn buy-agent-btn"
+              data-id="alpha-scanner"
+              data-price="4.99">
+              Buy
+            </button>
+          </div>
+          </div>
+        </div>
+
+        <!-- Prediction Market Agent -->
+        <div class="card flex flex-col justify-between">
+          <div class="w-fit mb-3">
+            <span class="pill">download</span>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-semibold text-cyan-400">
+              Prediction Market Agent
+            </h2>
+            <p class="text-gray-400 text-sm mt-2">
+              Analyzes prediction markets, implied probabilities, sentiment, and mispricing across events and outcomes.
+            </p>
+          </div>
+
+          <div class="mt-6 flex justify-between items-center">
+            <span class="text-cyan-300 font-semibold">4.99 USDC</span>
+
+            <div class="flex items-center gap-2">
+            <button type="button" class="preview-agent-btn" data-agent="prediction-market" onclick="previewAgent('prediction-market')"
+                    title="Run it for a few seconds on live data, no payment">Watch it run</button>
+            <button class="btn buy-agent-btn"
+              data-id="prediction-market"
+              data-price="4.99">
+              Buy
+            </button>
+          </div>
+          </div>
+        </div>
+
+        <!-- Market Tracker Agent -->
+        <div class="card flex flex-col justify-between">
+          <div class="w-fit mb-3">
+            <span class="pill">download</span>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-semibold text-cyan-400">
+              Market Tracker Agent
+            </h2>
+            <p class="text-gray-400 text-sm mt-2">
+              Tracks market regimes using risk, volatility, liquidity, correlation, and psychology signals to help interpret overall market conditions before taking action.
+            </p>
+          </div>
+
+          <div class="mt-6 flex justify-between items-center">
+            <span class="text-cyan-300 font-semibold">4.99 USDC</span>
+
+            <div class="flex items-center gap-2">
+            <button type="button" class="preview-agent-btn" data-agent="market-tracker" onclick="previewAgent('market-tracker')"
+                    title="Run it for a few seconds on live data, no payment">Watch it run</button>
+            <button class="btn buy-agent-btn"
+              data-id="market-tracker"
+              data-price="4.99">
+              Buy
+            </button>
+          </div>
+          </div>
+        </div>
+
+        <!-- Wallet Watcher Bot -->
+        <div class="card flex flex-col justify-between">
+          <div class="w-fit mb-3">
+            <span class="pill">download</span>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-semibold text-cyan-400">
+              Wallet Watcher Bot
+            </h2>
+            <p class="text-gray-400 text-sm mt-2">
+              Monitor any wallet in real-time. Transfers, NFT actions, swap/liquidity signals with alerting. With optional filters for what you want to follow.
+            </p>
+          </div>
+
+          <div class="mt-6 flex justify-between items-center">
+            <span class="text-cyan-300 font-semibold">4.99 USDC</span>
+
+            <div class="flex items-center gap-2">
+            <button type="button" class="preview-agent-btn" data-agent="wallet-watcher" onclick="previewAgent('wallet-watcher')"
+                    title="Run it for a few seconds on live data, no payment">Watch it run</button>
+            <button class="btn buy-agent-btn"
+              data-id="wallet-watcher"
+              data-price="4.99">
+              Buy
+            </button>
+          </div>
+          </div>
+        </div>
+
+    </div>
+  </section>
+
+  <!-- Community & Operations -->
+  <section class="border-t border-cyan-400/10 pt-12">
+    <h3 class="text-2xl font-semibold text-cyan-300 mb-2">
+      Community & Operations
+    </h3>
+    <p class="text-gray-400 text-sm mb-8">
+      Automation agents for Discord, moderation, and operational workflows.
+    </p>
+
+    <div id="folder-ops"
+         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      <!-- Discord Support Agent -->
+      <div class="card flex flex-col justify-between">
+        <div class="w-fit mb-3">
+          <span class="pill">download</span>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-semibold text-cyan-400">
+            Discord Support Agent
+          </h2>
+          <p class="text-gray-400 text-sm mt-2">
+            Automated AI Discord assistant. Responses, moderation, commands, and intelligent support features.
+          </p>
+        </div>
+
+        <div class="mt-6 flex justify-between items-center">
+          <span class="text-cyan-300 font-semibold">4.99 USDC</span>
+
+          <button class="btn buy-agent-btn"
+            data-id="discord-helper"
+            data-price="4.99">
+            Buy
+          </button>
+        </div>
+      </div>
+
+      <!-- Project Planner Agent -->
+      <div class="card flex flex-col justify-between">
+        <div class="w-fit mb-3">
+          <span class="pill">download</span>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-semibold text-cyan-400">
+            Project Planner Agent
+          </h2>
+          <p class="text-gray-400 text-sm mt-2">
+            Modular project coordination framework for managing tasks, notes, milestones, reminders, cleanup automation, and structured summaries in a configurable workflow system.
+          </p>
+        </div>
+
+        <div class="mt-6 flex justify-between items-center">
+          <span class="text-cyan-300 font-semibold">4.99 USDC</span>
+
+          <div class="flex items-center gap-2">
+            <button type="button" class="preview-agent-btn" data-agent="project-planner" onclick="previewAgent('project-planner')"
+                    title="Run it for a few seconds on live data, no payment">Watch it run</button>
+            <button class="btn buy-agent-btn"
+            data-id="project-planner"
+            data-price="4.99">
+            Buy
+          </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<div id="payment-modal" class="modal-bg" style="display:none;">
+  <div class="modal text-center p-6 w-[360px]">
+
+    <h3 class="text-cyan-300 text-2xl font-semibold mb-3">Choose Payment Method</h3>
+
+    <p class="text-gray-400 text-sm mb-6">
+      Select how you would like to pay for this agent.
+    </p>
+
+    <div class="flex flex-col gap-4 items-start mx-auto w-56 ml-1 text-gray-200">
+      <label class="flex items-center gap-3 cursor-pointer hover:text-cyan-200 transition">
+        <input type="radio" name="payment_method" value="USDC" checked class="scale-110">
+        <span class="text-sm">USDC</span>
+      </label>
+
+      <label class="flex items-center gap-3 cursor-pointer hover:text-cyan-200 transition">
+        <input type="radio" name="payment_method" value="AETH" class="scale-110">
+        <span class="text-sm">AETH</span>
+      </label>
+    </div>
+
+    <div id="agent-pay-info"
+         class="mt-4 bg-black/30 border border-cyan-400/20 rounded-lg p-3 hidden text-left">
+
+      <div class="text-xs text-gray-400 mb-1">Send to wallet</div>
+      <div class="text-cyan-300 font-mono text-sm break-all">
+        FZtoQTD7MLHvJzxxSPcUaQkXB5yP6qKYBZ8tUV18hHo1
+      </div>
+
+      <div class="text-xs text-gray-400 mt-3 mb-1">Send this amount</div>
+      <div id="agent-pay-amount"
+           class="text-gray-200 text-sm font-semibold">-</div>
+
+      <div id="agent-aeth-note"
+           class="text-xs text-gray-400 mt-2 hidden">
+        AETH amount is calculated automatically.
+      </div>
+    </div>
+
+    <div class="flex justify-center gap-12 mt-8">
+
+      <button id="confirm-payment-btn"
+              class="btn px-8 py-2 text-sm rounded-md">
+        Confirm Purchase
+      </button>
+
+      <button onclick="closePaymentModal()"
+              class="text-gray-400 hover:text-gray-200 text-sm transition">
+        Cancel
+      </button>
+
+    </div>
+  </div>
+</div>
+</div>
+
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-cyan-900/30 mt-12 text-center text-sm text-gray-500 p-6">
+      © 2026 Aetherix402 · Powered by the X402 protocol.
+      <div class="space-x-4 mt-2">
+        <a href="https://github.com/Aetherix402/Aetherix402" target="_blank" class="hover:text-cyan-300 transition">GitHub</a>
+        <a href="https://x.com/Aetherix402" target="_blank" class="text-gray-400 hover:text-cyan-300 transition">X</a>
+        <a href="/learn" class="hover:text-cyan-300 transition">Learn</a>
+        <a href="/roadmap" class="hover:text-cyan-300 transition">Roadmap</a>
+        <a href="/legal" class="hover:text-cyan-300 transition">Legal</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Wallet Selection Modal -->
+  <div id="wallet-select-modal" class="modal-bg" style="display:none;"
+       role="dialog" aria-modal="true" aria-labelledby="wallet-modal-title">
+    <div class="modal">
+
+      <div class="flex items-start justify-between mb-1">
+        <h3 id="wallet-modal-title" class="text-white text-base font-semibold tracking-tight">Connect a wallet</h3>
+        <button type="button" class="wallet-close" aria-label="Close"
+                onclick="closeWalletModal()">&times;</button>
+      </div>
+      <p class="text-xs text-gray-400 mb-5">
+        Aetherix402 never holds your keys. You approve every payment in your own wallet.
+      </p>
+
+      <p class="wallet-group-label">Solana</p>
+      <div class="wallet-list mb-4">
+
+        <button class="wallet-row" data-wallet="phantom" onclick="connectPhantom()">
+          <span class="wallet-logo" style="background:#ab9ff2"><img src="/static/wallets/phantom-purple.png?v=1788191516" alt="" width="22" height="22" loading="lazy"></span>
+          <span class="wallet-meta">
+            <span class="wallet-name">Phantom</span>
+            <span class="wallet-sub" data-detect="phantom">Detecting…</span>
+          </span>
+          <span class="wallet-chev" aria-hidden="true">&rsaquo;</span>
+        </button>
+
+        <button class="wallet-row" data-wallet="solflare" onclick="connectSolflare()">
+          <span class="wallet-logo" style="background:#0a0a0a"><img src="/static/wallets/solflare.png?v=1788191516" alt="" width="22" height="22" loading="lazy"></span>
+          <span class="wallet-meta">
+            <span class="wallet-name">Solflare</span>
+            <span class="wallet-sub" data-detect="solflare">Detecting…</span>
+          </span>
+          <span class="wallet-chev" aria-hidden="true">&rsaquo;</span>
+        </button>
+
+        <button class="wallet-row" data-wallet="backpack" onclick="connectBackpack()">
+          <span class="wallet-logo" style="background:#0a0a0a"><img src="/static/wallets/backpack.png?v=1788191516" alt="" width="22" height="22" loading="lazy"></span>
+          <span class="wallet-meta">
+            <span class="wallet-name">Backpack</span>
+            <span class="wallet-sub" data-detect="backpack">Detecting…</span>
+          </span>
+          <span class="wallet-chev" aria-hidden="true">&rsaquo;</span>
+        </button>
+      </div>
+
+      <p class="wallet-group-label">Ethereum</p>
+      <div class="wallet-list">
+        <button class="wallet-row" data-wallet="metamask" onclick="connectMetamask()">
+          <span class="wallet-logo" style="background:#0a0a0a"><img src="/static/wallets/metamask.png?v=1788191516" alt="" width="22" height="22" loading="lazy"></span>
+          <span class="wallet-meta">
+            <span class="wallet-name">MetaMask</span>
+            <span class="wallet-sub" data-detect="metamask">Detecting…</span>
+          </span>
+          <span class="wallet-chev" aria-hidden="true">&rsaquo;</span>
+        </button>
+      </div>
+
+      <button type="button" class="wallet-cancel" onclick="closeWalletModal()">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Ambient particles init -->
+  <script>
+    (function initParticles(){
+      const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduced) return;
+
+      const container = document.getElementById("particle-container");
+      if (!container) return;
+
+      const count = 80;
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement("div");
+        p.className = "particle";
+        p.style.left = (Math.random() * 100) + "%";
+        p.style.opacity = (0.25 + Math.random() * 0.5).toFixed(2);
+        p.style.animationDuration = (4 + Math.random() * 10) + "s";
+        p.style.animationDelay = (Math.random() * 6) + "s";
+        container.appendChild(p);
+      }
+    })();
+  </script>
+
+  <!-- WALLET JS -->
+  <script>
+    let currentWallet = "";
+    let currentChain  = "";
+    window.currentWallet = "";
+    const walletBtn = document.getElementById("connect-wallet");
+
+    function shorten(addr) { return addr.slice(0,4) + "..." + addr.slice(-4); }
+
+    function updateWalletUI() {
+      const mobileWalletBtn = document.getElementById("mobile-connect-wallet");
+      const label = document.getElementById("connect-wallet-label");
+      const mobileLabel = document.getElementById("mobile-connect-wallet-label");
+
+      const connected = !!currentWallet;
+      const text = connected ? shorten(currentWallet) : "Connect Wallet";
+
+      if (label) label.textContent = text;
+      if (mobileLabel) mobileLabel.textContent = text;
+
+      walletBtn.classList.toggle("is-connected", connected);
+      walletBtn.title = connected ? currentWallet + " (click to disconnect)" : "Connect a wallet";
+      if (mobileWalletBtn) mobileWalletBtn.classList.toggle("is-connected", connected);
+    }
+
+    async function connectPhantom() {
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      const hasPhantom = !!window.solana?.isPhantom;
+
+      // MOBILE: redirect into Phantom app browser
+      if (isMobile && !hasPhantom) {
+        const target = encodeURIComponent(window.location.href);
+        window.location.href = `https://phantom.app/ul/browse/${target}`;
+        return;
+      }
+
+      // DESKTOP without Phantom
+      if (!hasPhantom) {
+        alert("Please install the Phantom browser extension to continue.");
+        return;
+      }
+
+      try {
+        await window.solana.disconnect().catch(() => {});
+        const res = await window.solana.connect({ onlyIfTrusted: false });
+        currentWallet = res.publicKey.toString();
+        window.currentProvider = window.solana;
+        currentChain = "solana";
+        window.currentWallet = currentWallet;
+        window.dispatchEvent(new CustomEvent('aetherix402:wallet', { detail: currentWallet }));
+        updateWalletUI();
+        window.dispatchEvent(new Event("wallet:connected"));
+      } catch (err) {
+        console.error(err);
+      }
+
+      document.getElementById("wallet-select-modal").style.display = "none";
+    }
+
+    function closeWalletModal() {
+      document.getElementById("wallet-select-modal").style.display = "none";
+    }
+
+    /* Adopt whatever provider object a wallet injected, then share the result
+       through the same globals and event the Phantom path already uses. */
+    async function adoptSolanaProvider(provider, label) {
+      if (!provider) {
+        alert(label + " was not detected. Install it, then reload this page.");
+        return;
+      }
+      try {
+        await provider.disconnect?.().catch(() => {});
+        const res = await provider.connect({ onlyIfTrusted: false });
+        currentWallet = (res?.publicKey ?? provider.publicKey).toString();
+        window.currentProvider = provider;
+        currentChain = "solana";
+        window.currentWallet = currentWallet;
+        window.dispatchEvent(new CustomEvent('aetherix402:wallet', { detail: currentWallet }));
+        window.currentChain = currentChain;
+        updateWalletUI();
+        window.dispatchEvent(new Event("wallet:connected"));
+      } catch (err) {
+        console.error(err);
+      }
+      closeWalletModal();
+    }
+
+    function connectSolflare() {
+      adoptSolanaProvider(window.solflare, "Solflare");
+    }
+
+    function connectBackpack() {
+      adoptSolanaProvider(window.backpack?.solana || window.xnf?.solana, "Backpack");
+    }
+
+    async function connectMetamask() {
+      if (!window.ethereum) {
+        alert("MetaMask was not detected. Install it, then reload this page.");
+        return;
+      }
+      try {
+        const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+        currentWallet = accounts[0];
+        currentChain = "ethereum";
+        window.currentWallet = currentWallet;
+        window.dispatchEvent(new CustomEvent('aetherix402:wallet', { detail: currentWallet }));
+        window.currentChain = currentChain;
+        updateWalletUI();
+        window.dispatchEvent(new Event("wallet:connected"));
+      } catch(err) {
+        console.error(err);
+      }
+      closeWalletModal();
+    }
+
+    /* Tell the reader which wallets are actually available before they click. */
+    function refreshWalletAvailability() {
+      const found = {
+        phantom:  !!(window.phantom?.solana?.isPhantom || window.solana?.isPhantom),
+        solflare: !!window.solflare,
+        backpack: !!(window.backpack?.solana || window.xnf?.solana),
+        metamask: !!window.ethereum,
+      };
+      document.querySelectorAll("[data-detect]").forEach(el => {
+        const installed = found[el.dataset.detect];
+        el.textContent = installed ? "Installed" : "Not detected";
+        el.classList.toggle("is-installed", installed);
+      });
+    }
+
+    walletBtn.addEventListener("click", () => {
+      if (!currentWallet) {
+        refreshWalletAvailability();
+        document.getElementById("wallet-select-modal").style.display = "flex";
+      } else {
+        if (confirm("Disconnect wallet?")) {
+          currentWallet = "";
+          currentChain = "";
+          window.currentWallet = "";
+          updateWalletUI();
+        }
+      }
+    });
+
+    const walletModal = document.getElementById("wallet-select-modal");
+    walletModal.addEventListener("click", (e) => {
+      if (e.target === walletModal) closeWalletModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && walletModal.style.display === "flex") closeWalletModal();
+    });
+  </script>
+
+  <script>
+    const mobileWalletBtn = document.getElementById("mobile-connect-wallet");
+    if (mobileWalletBtn) {
+      mobileWalletBtn.addEventListener("click", () => {
+        if (!currentWallet) {
+          document.getElementById("wallet-select-modal").style.display = "flex";
+        } else {
+          if (confirm("Disconnect wallet?")) {
+            currentWallet = "";
+            currentChain = "";
+            window.currentWallet = "";
+            updateWalletUI();
+          }
+        }
+      });
+    }
+  </script>
+
+  <script>
+    async function registerPayment({ txSig, payMethod }) {
+      if (!currentWallet) throw new Error("Wallet not connected");
+      return { txSig, wallet: currentWallet, method: payMethod || "USDC" };
+    }
+  </script>
+
+  <script>
+    function toggleMobileMenu() {
+      const nav = document.getElementById("mobile-nav");
+      if (!nav) return;
+      nav.classList.toggle("hidden");
+      nav.classList.toggle("flex");
+    }
+  </script>
+
+  <script>
+    async function requestTxSignature() {
+      const sig = prompt("Paste your transaction signature:");
+      if (!sig) throw new Error("Transaction signature required");
+      return sig.trim();
+    }
+  </script>
+
+  <script>
+    function forceClosePaymentModal() {
+      const modal = document.getElementById("payment-modal");
+      if (!modal) return;
+      modal.style.display = "none";
+      modal.classList.remove("flex");
+      document.body.style.pointerEvents = "auto";
+    }
+  </script>
+
+  <script>
+    const globalLocks = {};
+    function lock(key) { if (globalLocks[key]) return false; globalLocks[key] = true; return true; }
+    function unlock(key) { globalLocks[key] = false; }
+    async function safeJson(res) {
+      const text = await res.text();
+      try { return JSON.parse(text); }
+      catch { return { error: "Invalid JSON response", raw: text.slice(0, 200) }; }
+    }
+  </script>
+
+  <script>
+    let lastStatusCheck = Date.now();
+    function timeAgo(ts) {
+      const sec = Math.floor((Date.now() - ts) / 1000);
+      if (sec < 5) return "just now";
+      if (sec < 60) return `${sec}s ago`;
+      return `${Math.floor(sec / 60)}m ago`;
+    }
+
+    async function checkSystemStatus() {
+      const els = [
+        document.getElementById("system-status"),
+        document.getElementById("system-status-mobile")
+      ].filter(Boolean);
+
+      if (!els.length) return;
+
+      function paint(state, label) {
+        lastStatusCheck = Date.now();
+        els.forEach(el => {
+          el.classList.remove("is-ok", "is-degraded", "is-down");
+          el.classList.add(state);
+          const t = el.querySelector(".status-chip-text");
+          if (t) t.textContent = label;
+          el.title = label + " . Click for the full status page";
+        });
+      }
+
+      const setOperational = () => paint("is-ok", "All systems operational");
+      const setDegraded    = () => paint("is-degraded", "Partially degraded");
+      const setDown        = () => paint("is-down", "Service disruption");
+
+      try {
+        const res = await fetch("/api/status", { cache: "no-store" });
+        const json = await res.json();
+        if (json?.overall === "operational") setOperational();
+        else if (json?.overall === "degraded") setDegraded();
+        else setDown();
+      } catch {
+        setDown();
+      }
+    }
+
+    checkSystemStatus();
+    setInterval(checkSystemStatus, 15000);
+  </script>
+
+  
+
+<script>
+window.SOLANA_NETWORK = "";
+</script>
+
+<script>
+let selectedAgent = null;
+let selectedPrice = null;
+</script>
+
+<script>
+function isMobileDevice() {
+  return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+</script>
+
+<script>
+function shorten(addr) {
+  return addr.slice(0, 4) + "..." + addr.slice(-4);
+}
+</script>
+
+<script>
+function getAgentPayMethod(groupName) {
+  const selected = document.querySelector(`input[name="${groupName}"]:checked`);
+  return selected ? selected.value : "USDC";
+}
+
+document.querySelectorAll(".buy-agent-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    if (!window.currentWallet) {
+      alert("Connect your wallet first.");
+      return;
+    }
+
+    if (isMobileDevice()) {
+      alert(
+        "Agent downloads are only available on desktop.\n\n" +
+        "These templates include multiple files and folders " +
+        "and are intended to be used on a computer."
+      );
+      return;
+    }
+
+    selectedAgent = btn.dataset.id;
+    selectedPrice = parseFloat(btn.dataset.price || "4.99");
+
+    openPaymentModal(selectedAgent, selectedPrice);
+  });
+});
+</script>
+
+<script>
+function openPaymentModal(agentId, price) {
+  selectedAgent = agentId;
+  selectedPrice = price;
+  document.getElementById("payment-modal").style.display = "flex";
+  setTimeout(updateAgentPayAmount, 0);
+}
+
+function closePaymentModal() {
+  document.getElementById("payment-modal").style.display = "none";
+}
+</script>
+
+<script>
+function showLoading() {
+  document.getElementById("loading").classList.remove("hidden");
+}
+
+function hideLoading() {
+  document.getElementById("loading").classList.add("hidden");
+}
+</script>
+
+<script>
+document.getElementById("confirm-payment-btn")
+  .addEventListener("click", async () => {
+
+    closePaymentModal();
+    await downloadAgent(selectedAgent);
+  });
+</script>
+
+<script>
+async function updateAgentPayAmount() {
+  const method =
+    document.querySelector("input[name='payment_method']:checked")?.value || "USDC";
+
+  const box = document.getElementById("agent-pay-info");
+  const amount = document.getElementById("agent-pay-amount");
+  const note = document.getElementById("agent-aeth-note");
+
+  box.classList.remove("hidden");
+
+  if (method === "USDC") {
+    note.classList.add("hidden");
+    amount.textContent = "4.99 USDC";
+    return;
+  }
+
+  note.classList.remove("hidden");
+  amount.textContent = "Fetching AETH amount…";
+
+  try {
+    const res = await fetch("/api/price/aeth?usdc_price=4.99");
+    const data = await res.json();
+    amount.textContent = `${data.required_aeth} AETH`;
+  } catch {
+    amount.textContent = "Failed to fetch AETH amount";
+  }
+}
+</script>
+
+<script>
+document.querySelectorAll("input[name='payment_method']")
+  .forEach(r => r.addEventListener("change", updateAgentPayAmount));
+</script>
+
+<script>
+// Ask for the few settings the agent needs, then send them with the purchase
+// so config.json arrives filled in. A buyer previously had to open that file
+// and replace ADD_YOUR_WALLET_HERE before anything would run.
+async function collectAgentConfig(agentId) {
+  let setup;
+  try {
+    const r = await fetch(`/api/agents/${agentId}/setup`);
+    if (!r.ok) return {};
+    setup = await r.json();
+  } catch (e) {
+    return {};                       // never block a paid download on this
+  }
+  if (!setup.fields || !setup.fields.length) return {};
+  return await new Promise(resolve => showSetupForm(agentId, setup, resolve));
+}
+
+function showSetupForm(agentId, setup, resolve) {
+  const bg = document.getElementById("agent-setup-bg");
+  const body = document.getElementById("agent-setup-body");
+  const err = document.getElementById("agent-setup-error");
+
+  document.getElementById("agent-setup-title").textContent = `Set up ${agentId}`;
+  err.textContent = "";
+  body.innerHTML = "";
+
+  for (const f of setup.fields) {
+    const wrap = document.createElement("div");
+    wrap.className = "mb-4";
+
+    const label = document.createElement("label");
+    label.className = "block text-sm text-gray-300 mb-1";
+    label.textContent = f.label + (f.required ? "" : "  (optional)");
+    wrap.appendChild(label);
+
+    const input = document.createElement("input");
+    input.className = "w-full bg-white/5 border border-cyan-400/20 rounded-lg px-3 py-2 outline-none text-gray-200";
+    input.dataset.key = f.key;
+    input.placeholder = f.kind === "url" ? "https://..." : "";
+    wrap.appendChild(input);
+
+    if (f.help) {
+      const help = document.createElement("p");
+      help.className = "text-xs text-gray-500 mt-1";
+      help.textContent = f.help;
+      wrap.appendChild(help);
+    }
+    body.appendChild(wrap);
+  }
+
+  // Credentials we deliberately do not accept through a web form.
+  if (setup.local_only && setup.local_only.length) {
+    const note = document.createElement("div");
+    note.className = "mt-4 p-3 rounded-lg border border-amber-400/30 bg-amber-400/5";
+    const head = document.createElement("p");
+    head.className = "text-amber-300 text-sm font-semibold mb-1";
+    head.textContent = "You will set these yourself, in config.json";
+    note.appendChild(head);
+    for (const item of setup.local_only) {
+      const line = document.createElement("p");
+      line.className = "text-xs text-gray-400";
+      line.textContent = item.path + ": " + item.why;
+      note.appendChild(line);
+    }
+    body.appendChild(note);
+  }
+
+  const finish = (value) => {
+    bg.style.display = "none";
+    document.getElementById("agent-setup-go").onclick = null;
+    document.getElementById("agent-setup-skip").onclick = null;
+    resolve(value);
+  };
+
+  document.getElementById("agent-setup-go").onclick = () => {
+    const out = {};
+    for (const input of body.querySelectorAll("input[data-key]")) {
+      const v = input.value.trim();
+      if (v) out[input.dataset.key] = v;
+    }
+    const missing = setup.fields.filter(f => f.required && !out[f.key]);
+    if (missing.length) {
+      err.textContent = missing[0].label + " is required.";
+      return;
+    }
+    finish(out);
+  };
+  document.getElementById("agent-setup-skip").onclick = () => finish({});
+
+  bg.style.display = "flex";
+}
+
+async function downloadAgent(agentId) {
+  if (!window.currentWallet) {
+    alert("Connect wallet first.");
+    return;
+  }
+
+  // Asked before paying, so a typo costs nothing to correct.
+  const config = await collectAgentConfig(agentId);
+
+  const method =
+    document.querySelector('input[name="payment_method"]:checked')?.value || "USDC";
+
+  showLoading();
+
+  const send = (sig) => fetch(`/api/download_agent/${agentId}`, {
+    method: "POST",
+    headers: Object.assign({
+      "Content-Type": "application/json",
+      "X-USER-WALLET": window.currentWallet,
+      "X-PAYMENT-METHOD": method
+    }, sig ? { "X-TX-SIG": sig } : {}),
+    body: JSON.stringify({ config })
+  });
+
+  try {
+    let res = await send(null);
+
+    if (res.status === 402) {
+      alert(
+        "Payment required.\n\n" +
+        "Send the shown amount to the provided wallet,\n" +
+        "then paste the transaction signature."
+      );
+
+      const sig = prompt("Paste your Solana transaction signature:");
+      if (!sig) return;
+
+      res = await send(sig);
+    }
+
+    if (res.status === 409) {
+      alert("This transaction was already used.");
+      return;
+    }
+
+    if (!res.ok) {
+      const msg = await res.text();
+      alert(msg || "Download failed.");
+      return;
+    }
+
+    const blob = await res.blob();
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `${agentId}.zip`;
+    a.click();
+
+  } catch (e) {
+    console.error(e);
+    alert("Unexpected error.");
+  } finally {
+    hideLoading();
+  }
+}
+</script>
+
+<div id="agent-setup-bg" class="modal-bg" style="display:none">
+  <div class="modal bg-gray-950/95 backdrop-blur border border-cyan-400/20 rounded-2xl shadow-xl p-6 w-[520px] max-h-[80vh] overflow-y-auto">
+    <h3 id="agent-setup-title" class="text-cyan-300 text-xl font-semibold mb-1">Set up agent</h3>
+    <p class="text-sm text-gray-400 mb-5">
+      These go straight into config.json, so the agent runs as soon as you unzip it.
+      Anything you leave blank keeps its default.
+    </p>
+    <div id="agent-setup-body"></div>
+    <p id="agent-setup-error" class="text-sm text-red-400 mt-2"></p>
+    <div class="flex justify-end gap-3 mt-5">
+      <button id="agent-setup-skip" class="text-gray-400 hover:text-cyan-300 text-sm">Skip, use defaults</button>
+      <button id="agent-setup-go" class="btn">Continue</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Secondary to Buy: this is the thing to try first, not the thing to click. */
+  .preview-agent-btn {
+    padding: .35rem .75rem;
+    font-size: .75rem; font-weight: 600;
+    color: #67e8f9; background: rgba(103,232,249,.07);
+    border: 1px solid rgba(103,232,249,.3); border-radius: .5rem;
+    cursor: pointer; white-space: nowrap;
+    transition: background .15s, color .15s;
+  }
+  .preview-agent-btn:hover { background: rgba(103,232,249,.18); color: #a5f3fc; }
+</style>
+
+<div id="agent-preview-bg" class="modal-bg" style="display:none">
+  <div class="modal bg-gray-950/95 backdrop-blur border border-cyan-400/20 rounded-2xl shadow-xl p-6 w-[680px] max-h-[80vh] overflow-y-auto">
+    <div class="flex justify-between items-start mb-2">
+      <h3 id="agent-preview-title" class="text-cyan-300 text-xl font-semibold">Live run</h3>
+      <button onclick="document.getElementById('agent-preview-bg').style.display='none'"
+              class="text-gray-400 hover:text-cyan-300 text-lg">&times;</button>
+    </div>
+    <p id="agent-preview-status" class="text-sm text-gray-400 mb-4">Starting...</p>
+    <pre id="agent-preview-output" style="
+        background:#0b1220; border:1px solid rgba(34,211,238,.15); border-radius:.6rem;
+        padding:1rem; font-size:.72rem; line-height:1.45; color:#cbd5e1;
+        white-space:pre-wrap; word-break:break-word; max-height:52vh; overflow-y:auto;"></pre>
+  </div>
+</div>
+
+<script>
+// Run the agent for a few seconds and show what it prints, so a buyer sees it
+// working before paying rather than after.
+async function previewAgent(agentId) {
+  const bg = document.getElementById("agent-preview-bg");
+  const out = document.getElementById("agent-preview-output");
+  const status = document.getElementById("agent-preview-status");
+
+  document.getElementById("agent-preview-title").textContent = agentId + ", live run";
+  out.textContent = "";
+  status.textContent = "Starting the agent...";
+  bg.style.display = "flex";
+
+  let started;
+  try {
+    const headers = window.currentWallet ? { "X-USER-WALLET": window.currentWallet } : {};
+    const r = await fetch(`/api/agents/${agentId}/preview`, { method: "POST", headers });
+    if (r.status === 401 || r.status === 429) {
+      status.textContent = (await r.json()).detail;
+      return;
+    }
+    if (!r.ok) {
+      status.textContent = (await r.json()).detail || "Preview unavailable.";
+      return;
+    }
+    started = await r.json();
+  } catch (e) {
+    status.textContent = "Could not reach the server.";
+    return;
+  }
+
+  status.textContent = `Running for ${started.seconds} seconds against live data...`
+    + (started.already_seen
+        ? " You have watched this one before, so it did not cost you another."
+        : ` ${started.remaining} run${started.remaining === 1 ? "" : "s"} left on this wallet.`);
+
+  for (let i = 0; i < 60; i++) {
+    await new Promise(r => setTimeout(r, 2000));
+    let d;
+    try {
+      d = await (await fetch(`/api/agents/preview/${started.task_id}`)).json();
+    } catch (e) { continue; }
+    if (!d.ready) continue;
+
+    out.textContent = d.output || "(no output)";
+    status.textContent = d.reason || (d.ok ? "Finished." : "The agent exited with an error.");
+    status.style.color = d.ok ? "#34d399" : "#f87171";
+    return;
+  }
+  status.textContent = "The preview timed out.";
+}
+
+</script>
+
+<div id="loading" class="fixed inset-0 bg-black/70 hidden z-[9999] flex items-center justify-center">
+  <div class="text-center">
+    <div class="animate-spin h-10 w-10 border-4 border-cyan-400 border-t-transparent rounded-full mx-auto mb-4"></div>
+    <p class="text-cyan-300 text-lg font-semibold">Processing payment…</p>
+    <p class="text-cyan-600 text-sm">Please wait.</p>
+  </div>
+</div>
+
+
+
+<script>
+// Escape closes whatever modal is open, on every page.
+//
+// Five purchase modals shipped with their close button emptied, which left a
+// visitor who opened one with no way out but a page reload. A keyboard route
+// costs nothing and does not depend on a glyph rendering.
+//
+// Clicking the backdrop deliberately does not close anything: these modals hold
+// text somebody typed, and losing a long prompt to a stray click is worse than
+// one extra keystroke.
+document.addEventListener("keydown", function (e) {
+  if (e.key !== "Escape") return;
+  document.querySelectorAll(".modal-bg").forEach(function (m) {
+    const shown = m.style.display && m.style.display !== "none";
+    if (shown || getComputedStyle(m).display === "flex") m.style.display = "none";
+  });
+});
+</script>
+</body>
+</html>

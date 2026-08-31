@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>$AETH | Aetherix402</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    // Point Tailwind's own font classes at Geist, so every existing
+    // font-sans and font-mono in the markup picks it up without being touched.
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+
+  
+  
+  
+  
+  
+  <meta name="description" content="The token that pays for Aetherix402. The official mint address, the fee tier, burn on use, and how to check you have the right token.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aetherix402">
+  <meta property="og:title" content="$AETH | Aetherix402">
+  <meta property="og:description" content="The token that pays for Aetherix402. The official mint address, the fee tier, burn on use, and how to check you have the right token.">
+  <meta property="og:url" content="https://aetherix402.com/token">
+  <meta property="og:image" content="https://aetherix402.com/static/og-card.png?v=1788191516">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Aetherix402. Pay per call, on Solana.">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Aetherix402">
+  <meta name="twitter:title" content="$AETH | Aetherix402">
+  <meta name="twitter:description" content="The token that pays for Aetherix402. The official mint address, the fee tier, burn on use, and how to check you have the right token.">
+  <meta name="twitter:image" content="https://aetherix402.com/static/og-card.png?v=1788191516">
+
+  <link rel="stylesheet" href="/static/css/style.css">
+
+  <link rel="icon" href="/static/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="96x96" href="/static/favicon/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/static/favicon/site.webmanifest">
+  <meta name="theme-color" content="#030712">
+</head>
+
+<body class="font-sans page-token">
+
+  <!-- HEADER -->
+  <header class="px-6 py-2 flex justify-between items-center relative">
+
+  <!-- LOGO -->
+  <h1 onclick="window.location.href='/'"
+      class="ml-2 flex items-center gap-4 cursor-pointer group select-none">
+
+    <img src="/static/favicon/web-app-manifest-192x192.png"
+          alt="Aetherix402"
+          class="w-16 h-16 transition-transform duration-200
+                group-hover:scale-105" />
+
+    <span class="hidden sm:inline text-base font-bold text-cyan-300 tracking-wider">
+      X402
+    </span>
+  </h1>
+
+    <!-- DESKTOP NAV -->
+    <nav class="desktop-nav hidden md:flex gap-6 text-sm items-center">
+      <a href="/token" class="text-cyan-300 hover:text-cyan-200 transition font-semibold">$AETH</a>
+      <a href="https://github.com/Aetherix402/Aetherix402" target="_blank" class="text-gray-400 hover:text-cyan-300 transition">GitHub</a>
+      <a href="https://x.com/Aetherix402" target="_blank" class="text-gray-400 hover:text-cyan-300 transition">X</a>
+      <a href="/learn" class="text-gray-400 hover:text-cyan-300 transition">Learn</a>
+      <a href="/docs" class="text-gray-400 hover:text-cyan-300 transition">Docs</a>
+      <a href="/roadmap" class="text-gray-400 hover:text-cyan-300 transition">Roadmap</a>
+      <a href="/legal" class="text-gray-400 hover:text-cyan-300 transition">Legal</a>
+
+      <a id="system-status" href="/status" class="status-chip hidden sm:inline-flex" title="View full system status">
+        <span class="status-chip-dot"></span>
+        <span class="status-chip-text">Checking</span>
+      </a>
+
+      <button id="connect-wallet" class="wallet-btn" aria-haspopup="dialog">
+        <span class="wallet-dot" aria-hidden="true"></span>
+        <span id="connect-wallet-label">Connect Wallet</span>
+      </button>
+    </nav>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button class="mobile-menu-btn md:hidden text-cyan-300 text-3xl" onclick="toggleMobileMenu()">☰</button>
+
+    <!-- MOBILE NAV -->
+    <nav id="mobile-nav"
+        class="hidden flex-col gap-4 bg-[#030712]/95 border-t border-cyan-400/30 p-4 absolute left-0 right-0 top-full z-50 md:hidden">
+
+      <a href="/token" class="text-cyan-300 font-semibold">$AETH</a>
+      <a href="https://github.com/Aetherix402/Aetherix402" target="_blank" class="text-gray-300">GitHub</a>
+      <a href="https://x.com/Aetherix402" target="_blank" class="text-gray-300">X</a>
+      <a href="/learn" class="text-gray-300">Learn</a>
+      <a href="/docs" class="text-gray-300">Docs</a>
+      <a href="/roadmap" class="text-gray-300">Roadmap</a>
+      <a href="/legal" class="text-gray-300">Legal</a>
+
+      <a id="system-status-mobile" href="/status" class="status-chip">
+        <span class="status-chip-dot"></span>
+        <span class="status-chip-text">Checking</span>
+      </a>
+
+      <button id="mobile-connect-wallet" class="wallet-btn w-full justify-center">
+        <span class="wallet-dot" aria-hidden="true"></span>
+        <span id="mobile-connect-wallet-label">Connect Wallet</span>
+      </button>
+    </nav>
+  </header>
+
+  <style>
+    :root{
+      --bg: #030712;
+      --panel: rgba(15, 23, 42, 0.78);
+      --panel-strong: rgba(11, 18, 32, 0.90);
+      --border: rgba(56, 189, 248, 0.22);
+      --border-strong: rgba(56, 189, 248, 0.34);
+      --text: #e5e7eb;
+      --muted: rgba(229,231,235,0.70);
+      --cyan: #22d3ee;
+      --cyan-2: #67e8f9;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    html {
+      overflow-y: scroll;
+    }
+
+    .background {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      /*
+        Behind the content, not over it. This sat at 15 against the shell's 10,
+        so the vignette inside it washed black across whatever happened to be
+        near the bottom of the viewport. It read as the footer bleeding into the
+        section above it, but the footer was never involved: the layer is fixed
+        to the viewport, so it dimmed a different part of the page at every
+        scroll position. pointer-events:none meant clicks still landed, which is
+        why it looked like a rendering quirk rather than a stacking bug.
+      */
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    header > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .bg-gradient {
+      position: absolute;
+      inset: -25%;
+      background:
+        radial-gradient(65% 50% at 18% 18%, rgba(34,211,238,0.18), transparent 60%),
+        radial-gradient(60% 50% at 82% 22%, rgba(56,189,248,0.16), transparent 62%),
+        radial-gradient(65% 60% at 50% 88%, rgba(34,211,238,0.14), transparent 65%);
+      filter: blur(14px);
+      opacity: 1;
+    }
+
+    .scanlines {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.035) 0,
+        rgba(255,255,255,0.035) 1px,
+        transparent 2px,
+        transparent 5px
+      );
+      opacity: 0.35;
+    }
+
+    .vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, transparent 55%, rgba(0,0,0,0.65) 100%);
+      opacity: 0.8;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(34, 211, 238, 0.28);
+      border-radius: 50%;
+      width: 2px;
+      height: 2px;
+      animation: floatUp linear infinite;
+      will-change: transform, opacity;
+    }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(110vh); opacity: 0; }
+      20%  { opacity: 1; }
+      100% { transform: translateY(-12vh); opacity: 0; }
+    }
+
+    .app-shell {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: relative;
+      z-index: 20;
+
+      min-height: 80px;
+
+      isolation: isolate;
+
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: linear-gradient(
+        180deg,
+        rgba(3,7,18,0.65) 0%,
+        rgba(3,7,18,0.25) 100%
+      );
+    }
+
+    header,
+    header * {
+      transition: none !important;
+    }
+
+    /* Same cyan, calmer geometry. The gradient, the inset highlight and the
+       coloured drop shadow were doing three jobs at once, which is what made
+       these read as cheap. Flat fill, tighter radius, lighter weight. */
+    .btn{
+      position: relative;
+      background: linear-gradient(180deg, var(--cyan-2), var(--cyan));
+      color: #001018;
+      font-weight: 700;
+      padding: .55rem 1.05rem;
+      border-radius: .85rem;
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+      box-shadow:
+        0 10px 30px rgba(34,211,238,0.18),
+        inset 0 1px 0 rgba(255,255,255,0.35);
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+      box-shadow:
+        0 14px 40px rgba(34,211,238,0.22),
+        inset 0 1px 0 rgba(255,255,255,0.42);
+    }
+    .btn:active{ transform: translateY(0px) scale(0.99); }
+
+    .modal-bg{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.68);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index: 70;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    /* The hover state existed without a base state, so every ghost button on
+       the site rendered as bare text until somebody put a cursor on it. This is
+       the outline the hover was always written against. */
+    .btn-ghost{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: .6rem 1.1rem;
+      border-radius: .65rem;
+      border: 1px solid rgba(34,211,238,0.22);
+      background: transparent;
+      color: #cbd5e1;
+      font-size: .875rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .15s, border-color .15s, color .15s;
+    }
+    .btn-ghost:disabled{ opacity:.45; cursor:not-allowed; }
+    .btn-ghost:hover{
+      background: rgba(34,211,238,0.08);
+      border-color: rgba(34,211,238,0.45);
+      color: var(--cyan-2);
+    }
+
+    .modal-bg{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.68);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index: 70;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .modal{
+      background: linear-gradient(180deg, rgba(11,18,32,0.92), rgba(2,6,23,0.92));
+      border: 1px solid var(--border-strong);
+      border-radius: 1.25rem;
+      width: min(520px, 92vw);
+      padding: 1.25rem;
+      box-shadow:
+        0 30px 90px rgba(0,0,0,0.55),
+        0 0 0 1px rgba(34,211,238,0.10);
+    }
+
+    /* Flat surface. Hover lifts by brightening the border rather than by
+       translating the card under a coloured glow. */
+    .card{
+      background: linear-gradient(180deg, rgba(15,23,42,0.82), rgba(2,6,23,0.72));
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      border-color: rgba(34,211,238,0.40);
+      box-shadow:
+        0 18px 60px rgba(0,0,0,0.38),
+        0 0 30px rgba(34,211,238,0.12);
+    }
+
+    .pill{
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      color: #7dd3fc;
+      font-size: .75rem;
+      letter-spacing: .04em;
+      text-transform: lowercase;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    .filter-bar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.5rem;
+      justify-content:center;
+    }
+
+    .filter-chip{
+      padding: 0.48rem 0.95rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(229,231,235,0.75);
+      background: rgba(15,23,42,0.65);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 9999px;
+      transition: transform .16s ease, background .16s ease, border-color .16s ease, color .16s ease, box-shadow .16s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .filter-chip:hover{
+      transform: translateY(-1px);
+      color: rgba(229,231,235,0.95);
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(34,211,238,0.36);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.28);
+    }
+
+    .filter-chip.active{
+      color: #001018;
+      background: var(--cyan);
+      border-color: var(--cyan);
+    }
+
+    /* ---- wallet picker ---- */
+    .wallet-group-label{
+      font-size: .6875rem;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      color: rgba(148,163,184,0.75);
+      margin: 0 0 .5rem .15rem;
+    }
+    .wallet-list{ display: flex; flex-direction: column; gap: .5rem; }
+
+    .wallet-row{
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      width: 100%;
+      text-align: left;
+      padding: .7rem .8rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: .75rem;
+      transition: background .15s ease, border-color .15s ease;
+      cursor: pointer;
+    }
+    .wallet-row:hover{
+      background: rgba(34,211,238,0.07);
+      border-color: rgba(34,211,238,0.38);
+    }
+    .wallet-row[disabled]{ opacity:.45; cursor:not-allowed; }
+    .wallet-row[disabled]:hover{
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(255,255,255,0.09);
+    }
+
+    .wallet-logo{
+      width: 34px; height: 34px;
+      border-radius: .55rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .wallet-logo img{ display:block; width: 22px; height: 22px; object-fit: contain; }
+    .wallet-meta{ display: flex; flex-direction: column; line-height: 1.25; flex: 1 1 auto; }
+    .wallet-name{ font-size: .9rem; font-weight: 600; color: #e5e7eb; }
+    .wallet-sub{ font-size: .72rem; color: rgba(148,163,184,0.85); }
+    .wallet-sub.is-installed{ color: #34d399; }
+    .wallet-chev{ color: rgba(148,163,184,0.5); font-size: 1.15rem; flex: none; }
+
+    .wallet-close{
+      color: rgba(148,163,184,0.7);
+      font-size: 1.4rem;
+      line-height: 1;
+      padding: 0 .25rem;
+      transition: color .15s ease;
+    }
+    .wallet-close:hover{ color: #e5e7eb; }
+
+    .wallet-cancel{
+      width: 100%;
+      margin-top: 1.1rem;
+      padding: .55rem;
+      font-size: .8125rem;
+      color: rgba(148,163,184,0.85);
+      border-radius: .625rem;
+      transition: background .15s ease, color .15s ease;
+    }
+    .wallet-cancel:hover{ background: rgba(255,255,255,0.05); color: #e5e7eb; }
+
+    /* ---- header status chip ---- */
+    .status-chip{
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .35rem .7rem;
+      border-radius: 9999px;
+      font-size: .75rem;
+      font-weight: 500;
+      color: rgba(148,163,184,0.95);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.09);
+      transition: background .16s ease, border-color .16s ease, color .16s ease;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .status-chip:hover{ background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.2); }
+
+    .status-chip-dot{
+      width: 7px; height: 7px; border-radius: 9999px; flex: none;
+      background: rgba(148,163,184,0.7);
+    }
+
+    /* Only the healthy state pulses. A problem should hold still and be read. */
+    .status-chip.is-ok{ color:#6ee7b7; border-color: rgba(52,211,153,0.28); background: rgba(52,211,153,0.07); }
+    .status-chip.is-ok .status-chip-dot{ background:#34d399; animation: chipPulse 2.4s ease-in-out infinite; }
+
+    .status-chip.is-degraded{ color:#fcd34d; border-color: rgba(251,191,36,0.3); background: rgba(251,191,36,0.07); }
+    .status-chip.is-degraded .status-chip-dot{ background:#fbbf24; }
+
+    .status-chip.is-down{ color:#fca5a5; border-color: rgba(248,113,113,0.3); background: rgba(248,113,113,0.07); }
+    .status-chip.is-down .status-chip-dot{ background:#f87171; }
+
+    @keyframes chipPulse{
+      0%,100%{ box-shadow: 0 0 0 0 rgba(52,211,153,0.45); }
+      70%    { box-shadow: 0 0 0 5px rgba(52,211,153,0); }
+    }
+    @media (prefers-reduced-motion: reduce){
+      .status-chip.is-ok .status-chip-dot{ animation: none; }
+    }
+
+    input, textarea, select {
+      color-scheme: dark;
+    }
+
+    @media (max-width: 768px){
+      .modal{ max-height: 85vh; overflow-y: auto; }
+      textarea, .code-input { max-height: 40vh; resize: vertical; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      body{ transition:none; }
+      .particle{ animation:none; opacity:0.35; }
+      .card, .btn, .filter-chip{ transition:none; }
+    }
+
+    /* Outline by default so it does not compete with the primary actions on
+       the page, and fills in only once a wallet is actually attached. */
+    .wallet-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .5rem .85rem;
+      font-size: .8125rem;
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+      color: var(--cyan-2);
+      background: rgba(34,211,238,0.06);
+      border: 1px solid rgba(34,211,238,0.30);
+      border-radius: .625rem;
+      transition: background .16s ease, border-color .16s ease, color .16s ease;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .wallet-btn:hover {
+      background: rgba(34,211,238,0.13);
+      border-color: rgba(34,211,238,0.55);
+    }
+
+    .wallet-dot {
+      width: 7px; height: 7px;
+      border-radius: 9999px;
+      background: rgba(148,163,184,0.65);
+      flex: none;
+      transition: background .16s ease, box-shadow .16s ease;
+    }
+    /* Connected: the dot goes live and the address reads as a value, not a CTA. */
+    .wallet-btn.is-connected {
+      color: #a5f3fc;
+      background: rgba(34,211,238,0.10);
+      border-color: rgba(34,211,238,0.42);
+    }
+    .wallet-btn.is-connected .wallet-dot {
+      background: #34d399;
+      box-shadow: 0 0 0 3px rgba(52,211,153,0.16);
+    }
+
+    .wallet-btn:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -32px;
+      height: 32px;
+      pointer-events: none;
+      background: linear-gradient(
+        to bottom,
+        rgba(3,7,18,0.25),
+        rgba(3,7,18,0.0)
+      );
+    }
+
+    @keyframes page-fade {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .page-fade {
+      animation: page-fade 0.55s ease-out both;
+    }
+
+    #mobile-nav {
+      will-change: transform;
+    }
+  </style>
+
+  <!-- Ambient background -->
+  <div class="background" aria-hidden="true">
+    <div class="bg-gradient"></div>
+    <div id="particle-container"></div>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <div class="app-shell">
+
+    <!-- PAGE CONTENT -->
+    <main class="p-6">
+      
+
+
+
+<style>
+  .tk-panel{
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:1rem; padding:1.5rem;
+    background:rgba(15,23,42,0.42);
+  }
+  .tk-stat{
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:.75rem; padding:.9rem 1rem;
+    background:rgba(15,23,42,0.42);
+  }
+  .tk-label{ font-size:.68rem; text-transform:uppercase; letter-spacing:.08em; color:rgba(148,163,184,0.75); }
+  .tk-value{ font-size:1.35rem; font-weight:700; color:#fff; margin-top:.15rem; }
+  .tk-note{ font-size:.72rem; color:rgba(148,163,184,0.65); margin-top:.15rem; }
+
+  .tk-chip{
+    display:inline-flex; align-items:center; gap:.4rem;
+    font-size:.68rem; padding:.2rem .7rem; border-radius:9999px;
+    border:1px solid rgba(148,163,184,0.3); color:rgba(148,163,184,0.9);
+    text-transform:uppercase; letter-spacing:.06em; white-space:nowrap;
+  }
+  .tk-chip-live{ border-color:rgba(52,211,153,0.45); color:#6ee7b7; }
+  .tk-chip-wait{ border-color:rgba(251,191,36,0.45); color:#fcd34d; }
+
+  .tk-dot{ width:7px; height:7px; border-radius:9999px; background:currentColor; }
+  .tk-chip-live .tk-dot{ animation:tkBlink 2.4s ease-in-out infinite; }
+  @keyframes tkBlink{
+    0%,100%{ box-shadow:0 0 0 0 rgba(52,211,153,0.5); }
+    70%    { box-shadow:0 0 0 5px rgba(52,211,153,0); }
+  }
+  @media (prefers-reduced-motion: reduce){ .tk-chip-live .tk-dot{ animation:none; } }
+
+  /* The address itself. Monospace and generously spaced, because people
+     compare these character by character. */
+  .tk-ca{
+    font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:1.02rem; letter-spacing:.02em; word-break:break-all;
+    color:#a5f3fc; line-height:1.6;
+  }
+  .tk-ca-empty{
+    font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:1rem; color:rgba(148,163,184,0.55); letter-spacing:.06em;
+  }
+  .tk-copy{
+    padding:.4rem .9rem; font-size:.75rem; font-weight:600;
+    color:#67e8f9; background:rgba(103,232,249,.08);
+    border:1px solid rgba(103,232,249,.3); border-radius:.5rem;
+    cursor:pointer; white-space:nowrap; transition:background .15s,color .15s;
+  }
+  .tk-copy:hover{ background:rgba(103,232,249,.18); color:#a5f3fc; }
+
+  .tk-link{
+    display:inline-flex; align-items:center; gap:.35rem;
+    font-size:.78rem; color:#67e8f9; text-decoration:none;
+    border-bottom:1px solid rgba(103,232,249,.25); padding-bottom:1px;
+  }
+  .tk-link:hover{ color:#a5f3fc; border-color:rgba(103,232,249,.6); }
+
+  .tk-warn{
+    border:1px solid rgba(251,191,36,0.28);
+    background:rgba(251,191,36,0.05);
+    border-radius:.9rem; padding:1.1rem 1.25rem;
+  }
+
+  /* The two mechanics, side by side. */
+  .tk-mech{
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:.9rem; padding:1.25rem;
+    background:rgba(15,23,42,0.42);
+    transition:border-color .2s;
+  }
+  .tk-mech:hover{ border-color:rgba(34,211,238,0.28); }
+  .tk-mech-title{ font-size:1.02rem; font-weight:700; color:#67e8f9; }
+  .tk-mech-when{ font-size:.66rem; text-transform:uppercase; letter-spacing:.07em; color:rgba(148,163,184,0.6); }
+
+  .tk-table{ width:100%; border-collapse:collapse; font-size:.86rem; }
+  .tk-table th{
+    text-align:left; font-size:.66rem; text-transform:uppercase; letter-spacing:.08em;
+    color:rgba(148,163,184,0.6); font-weight:600;
+    padding:0 .6rem .6rem; border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .tk-table td{ padding:.7rem .6rem; border-bottom:1px solid rgba(255,255,255,0.05); color:#cbd5e1; }
+  .tk-table tr:last-child td{ border-bottom:none; }
+  .tk-num{ font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace; font-variant-numeric:tabular-nums; }
+  .tk-aeth{ color:#67e8f9; font-weight:600; }
+
+  .tk-step{ display:flex; gap:1rem; align-items:flex-start; }
+  .tk-step-n{
+    flex:none; width:26px; height:26px; border-radius:9999px;
+    border:1px solid rgba(103,232,249,.35); color:#67e8f9;
+    font-size:.72rem; font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Geist Mono',ui-monospace,monospace;
+  }
+</style>
+
+<div class="page-fade">
+<section class="max-w-4xl mx-auto">
+
+  <p class="text-xs text-gray-500 uppercase tracking-widest mb-4">/ Aetherix402 / $AETH</p>
+
+  <a href="/shop" class="inline-flex items-center text-cyan-300 hover:text-cyan-200 text-sm mb-6 transition">
+    ← Back to Shop
+  </a>
+
+  <div class="flex items-center gap-4 flex-wrap mb-4">
+    <h1 class="text-4xl font-bold text-cyan-400">$AETH</h1>
+    
+      <span class="tk-chip tk-chip-live"><span class="tk-dot"></span>Live</span>
+    
+  </div>
+
+  <p class="text-gray-300 mb-10">
+    The token that pays for Aetherix402. It is not a separate product, a governance
+    wrapper or a claim on revenue: it is a second way to pay for the same calls,
+    priced under USDC, and burned rather than kept once it is spent.
+  </p>
+
+  
+
+  <h2 class="text-2xl font-semibold text-cyan-300 mb-2">Official contract address</h2>
+  <p class="text-gray-400 text-sm mb-4">
+    This page reads the address straight from the running configuration. If the
+    panel below is empty, the mint does not exist yet and nothing has launched.
+  </p>
+
+  
+    <div class="tk-panel mb-4">
+      <p class="tk-label mb-2">Solana mint address</p>
+      <div class="flex items-start gap-4 flex-wrap">
+        <p class="tk-ca flex-1 min-w-[280px]" id="ca-text">D3qncuGsa2iMKcaxnqZxUMeVqPztzyAr819nXfjypump</p>
+        <button class="tk-copy" onclick="copyCA()" id="ca-copy">Copy</button>
+      </div>
+      <div class="flex gap-5 flex-wrap mt-4">
+        <a class="tk-link" target="_blank" rel="noopener"
+           href="https://solscan.io/token/D3qncuGsa2iMKcaxnqZxUMeVqPztzyAr819nXfjypump">Solscan</a>
+        <a class="tk-link" target="_blank" rel="noopener"
+           href="https://dexscreener.com/solana/D3qncuGsa2iMKcaxnqZxUMeVqPztzyAr819nXfjypump">DexScreener</a>
+        <a class="tk-link" target="_blank" rel="noopener"
+           href="https://pump.fun/coin/D3qncuGsa2iMKcaxnqZxUMeVqPztzyAr819nXfjypump">Pump.fun</a>
+      </div>
+    </div>
+  
+
+  
+
+  <div class="tk-warn mb-12">
+    <p class="text-amber-200 font-semibold mb-2 text-sm">How to be sure you have the right token</p>
+    <ul class="text-gray-300 text-sm space-y-2 leading-relaxed">
+      <li>
+        There are exactly three places an official address is published: this
+        page at <strong class="text-gray-100">aetherix402.com/token</strong>, the
+        <a class="tk-link" href="https://github.com/Aetherix402/Aetherix402" target="_blank" rel="noopener">source repository</a>,
+        and
+        <a class="tk-link" href="https://x.com/Aetherix402" target="_blank" rel="noopener">@Aetherix402</a>.
+        All three will agree. If they do not, trust none of them and wait.
+      </li>
+      <li>
+        Compare the address in full. The first and last four characters are not
+        enough, and a wallet that shows you only those is not showing you enough
+        to decide.
+      </li>
+      <li>
+        Nobody will ever send you the address first. Treat any Aetherix402 token
+        announced anywhere else, or before it appears here, as fake.
+      </li>
+      <li>
+        A launch does not need your keys, your seed phrase or a signature to
+        "claim" anything. There is no airdrop, no presale, no allocation and no
+        whitelist.
+      </li>
+    </ul>
+  </div>
+
+  
+
+  <h2 class="text-2xl font-semibold text-cyan-300 mb-2">What it does</h2>
+  <p class="text-gray-400 text-sm mb-6">
+    Two mechanics, both built after the token exists rather than switched on by
+    its arrival.
+  </p>
+
+  <div class="grid md:grid-cols-2 gap-4 mb-6">
+    <div class="tk-mech">
+      <div class="flex justify-between items-start gap-3 mb-2">
+        <p class="tk-mech-title">Fee tier</p>
+        <span class="tk-mech-when">Q3 2026</span>
+      </div>
+      <p class="text-gray-300 text-sm leading-relaxed">
+        Paying in AETH costs less than paying in USDC for the same call. It sits
+        in the pricing layer rather than running as a promotion, so it is not a
+        code that expires and not a discount that has to be claimed. You pay
+        less because of what you paid with.
+      </p>
+    </div>
+
+    <div class="tk-mech">
+      <div class="flex justify-between items-start gap-3 mb-2">
+        <p class="tk-mech-title">Burn on use</p>
+        <span class="tk-mech-when">Q3 2026</span>
+      </div>
+      <p class="text-gray-300 text-sm leading-relaxed">
+        The AETH taken as payment is burned instead of kept. Burns are made
+        in batches rather than one per payment, so the counter below will show
+        an amount waiting to be burned between them. Supply falls because the
+        product is being used, not because of a buyback or an announcement, and
+        every burn is a transaction on chain that anyone can count without
+        asking us.
+      </p>
+    </div>
+  </div>
+
+  <p class="text-gray-400 text-sm mb-4">
+    What that looks like against the prices on the shop today. The rate is not
+    finalised, so treat the AETH column as the shape of it rather than a
+    committed number.
+  </p>
+
+  <div class="tk-panel mb-12">
+    <table class="tk-table">
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th style="text-align:right">USDC</th>
+          <th style="text-align:right">In AETH</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td>Prompt Optimizer</td>
+          <td class="tk-num" style="text-align:right; color:rgba(148,163,184,0.85)">0.25</td>
+          <td class="tk-num tk-aeth" style="text-align:right">0.20</td>
+        </tr>
+        
+        <tr>
+          <td>Code Explainer</td>
+          <td class="tk-num" style="text-align:right; color:rgba(148,163,184,0.85)">0.50</td>
+          <td class="tk-num tk-aeth" style="text-align:right">0.40</td>
+        </tr>
+        
+        <tr>
+          <td>Prompt Tester</td>
+          <td class="tk-num" style="text-align:right; color:rgba(148,163,184,0.85)">0.50</td>
+          <td class="tk-num tk-aeth" style="text-align:right">0.40</td>
+        </tr>
+        
+        <tr>
+          <td>Risk Engine</td>
+          <td class="tk-num" style="text-align:right; color:rgba(148,163,184,0.85)">0.75</td>
+          <td class="tk-num tk-aeth" style="text-align:right">0.60</td>
+        </tr>
+        
+        <tr>
+          <td>Contract Intelligence</td>
+          <td class="tk-num" style="text-align:right; color:rgba(148,163,184,0.85)">1.00</td>
+          <td class="tk-num tk-aeth" style="text-align:right">0.80</td>
+        </tr>
+        
+        <tr>
+          <td>Agent templates</td>
+          <td class="tk-num" style="text-align:right; color:rgba(148,163,184,0.85)">4.99</td>
+          <td class="tk-num tk-aeth" style="text-align:right">3.99</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+  
+
+  
+  <h2 class="text-2xl font-semibold text-cyan-300 mb-2">Burned so far</h2>
+  <p class="text-gray-400 text-sm mb-6">
+    Counted from the records on both sides, not kept as a running total. Every
+    burn is confirmed against the chain before it is recorded here, so these are
+    transactions you can open and check rather than figures we published. If it
+    reads zero, nothing has been burned yet, and it will say so.
+  </p>
+
+  <div class="grid sm:grid-cols-3 gap-4 mb-6">
+    <div class="tk-stat">
+      <p class="tk-label">Taken as payment</p>
+      <p class="tk-value tk-num">581223.00</p>
+      <p class="tk-note">across 8 payments</p>
+    </div>
+    <div class="tk-stat">
+      <p class="tk-label">Burned</p>
+      <p class="tk-value tk-num" style="color:#67e8f9">0.00</p>
+      <p class="tk-note">across 0 burns</p>
+    </div>
+    <div class="tk-stat">
+      <p class="tk-label">Not yet burned</p>
+      <p class="tk-value tk-num">581223.00</p>
+      <p class="tk-note">waiting on the next burn</p>
+    </div>
+  </div>
+
+  
+  <div class="tk-panel mb-12">
+    <p class="text-gray-400 text-sm leading-relaxed">
+      No burns yet. When AETH is taken as payment it gets destroyed rather than
+      kept, and every one of those transactions will be listed here with a link
+      to Solscan. You can also check the supply directly on
+      the mint:
+      <a class="tk-link" target="_blank" rel="noopener"
+         href="https://solscan.io/token/D3qncuGsa2iMKcaxnqZxUMeVqPztzyAr819nXfjypump">solscan.io/token/D3qncuGs...</a>
+    </p>
+  </div>
+  
+
+  
+  
+
+  
+
+  <h2 class="text-2xl font-semibold text-cyan-300 mb-2">What happens at launch</h2>
+  <p class="text-gray-400 text-sm mb-6">
+    The AETH payment path is already written and already tested. It sits dormant
+    with no mint configured, which is why the shop is USDC only right now.
+  </p>
+
+  <div class="tk-panel mb-12 space-y-5">
+    <div class="tk-step">
+      <span class="tk-step-n">1</span>
+      <p class="text-gray-300 text-sm leading-relaxed">
+        The mint is created on <strong class="text-gray-100">pump.fun</strong>.
+        No presale, no allocation, no team unlock, and no liquidity we control.
+      </p>
+    </div>
+    <div class="tk-step">
+      <span class="tk-step-n">2</span>
+      <p class="text-gray-300 text-sm leading-relaxed">
+        The address is set as <code class="text-cyan-300 text-xs">AETH_MINT_ADDRESS</code>,
+        and appears on this page the moment it is. No redeploy and no code
+        change, because there is nothing to change.
+      </p>
+    </div>
+    <div class="tk-step">
+      <span class="tk-step-n">3</span>
+      <p class="text-gray-300 text-sm leading-relaxed">
+        AETH becomes payable everywhere at once: the shop, the SDK, and the
+        <code class="text-cyan-300 text-xs">accepted_methods</code> in every
+        402 response the API returns.
+      </p>
+    </div>
+    <div class="tk-step">
+      <span class="tk-step-n">4</span>
+      <p class="text-gray-300 text-sm leading-relaxed">
+        The fee tier and the burn are built on top of that, after launch. They
+        are not automatic, and this page will say plainly when each one is live.
+      </p>
+    </div>
+  </div>
+
+  
+
+  <h2 class="text-2xl font-semibold text-cyan-300 mb-2">Further out</h2>
+  <p class="text-gray-400 text-sm mb-6">
+    Where the token reaches past paying for calls. Dates are on the
+    <a class="tk-link" href="/roadmap">roadmap</a>, and nothing here is built yet.
+  </p>
+
+  <div class="grid md:grid-cols-2 gap-4 mb-12">
+    
+    <div class="tk-mech">
+      <div class="flex justify-between items-start gap-3 mb-2">
+        <p class="tk-mech-title">Creator revenue sharing</p>
+        <span class="tk-mech-when">Q4 2026</span>
+      </div>
+      <p class="text-gray-300 text-sm leading-relaxed">Publish an agent template to the store and be paid per sale, settled straight to your wallet, with the protocol cut taken at settlement rather than invoiced.</p>
+    </div>
+    
+    <div class="tk-mech">
+      <div class="flex justify-between items-start gap-3 mb-2">
+        <p class="tk-mech-title">Component reputation</p>
+        <span class="tk-mech-when">Q3 2027</span>
+      </div>
+      <p class="text-gray-300 text-sm leading-relaxed">Ranking built from settled usage and verified outputs, not from stars anyone can buy.</p>
+    </div>
+    
+    <div class="tk-mech">
+      <div class="flex justify-between items-start gap-3 mb-2">
+        <p class="tk-mech-title">Governance</p>
+        <span class="tk-mech-when">Q4 2027</span>
+      </div>
+      <p class="text-gray-300 text-sm leading-relaxed">Voting on component inclusion, protocol fees and treasury allocation, weighted by holdings and by usage rather than by holdings alone.</p>
+    </div>
+    
+    <div class="tk-mech">
+      <div class="flex justify-between items-start gap-3 mb-2">
+        <p class="tk-mech-title">Protocol grants</p>
+        <span class="tk-mech-when">Q4 2027</span>
+      </div>
+      <p class="text-gray-300 text-sm leading-relaxed">Treasury funded grants for the components the registry shows people asking for and nobody has built.</p>
+    </div>
+    
+  </div>
+
+  
+
+  <h2 class="text-2xl font-semibold text-cyan-300 mb-2">What it is not</h2>
+  <div class="tk-panel mb-10">
+    <ul class="text-gray-300 text-sm space-y-3 leading-relaxed">
+      <li><strong class="text-gray-100">Not required.</strong> Every component is payable in USDC and always will be. AETH is a cheaper option, never a gate.</li>
+      <li><strong class="text-gray-100">Not a security.</strong> It buys calls. It is not a share of revenue and it does not entitle you to a payout.</li>
+      <li><strong class="text-gray-100">Not custodial.</strong> Aetherix402 holds no keys and cannot move, freeze or claw back anything you hold.</li>
+      <li><strong class="text-gray-100">Not a promise of price.</strong> Burning supply is a mechanic, not a forecast, and usage is what drives it.</li>
+    </ul>
+  </div>
+
+  <p class="text-gray-500 text-xs leading-relaxed">
+    Nothing here is financial advice. Aetherix402 does not control liquidity on
+    pump.fun and cannot influence what the token trades at. Buy only what you
+    can afford to lose, and verify the address in more than one place before you
+    send anything anywhere.
+  </p>
+
+</section>
+</div>
+
+
+<script>
+function copyCA() {
+  const btn = document.getElementById("ca-copy");
+  const text = document.getElementById("ca-text").textContent.trim();
+  // Older browsers and any non secure context have no clipboard API, and a
+  // button that silently does nothing is worse than one that says so.
+  const done = ok => {
+    btn.textContent = ok ? "Copied" : "Press Ctrl+C";
+    if (!ok) {
+      const r = document.createRange();
+      r.selectNodeContents(document.getElementById("ca-text"));
+      const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+    setTimeout(() => { btn.textContent = "Copy"; }, 1800);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(() => done(true), () => done(false));
+  } else {
+    done(false);
+  }
+}
+</script>
+
+
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-cyan-900/30 mt-12 text-center text-sm text-gray-500 p-6">
+      © 2026 Aetherix402 · Powered by the X402 protocol.
+      <div class="space-x-4 mt-2">
+        <a href="https://github.com/Aetherix402/Aetherix402" target="_blank" class="hover:text-cyan-300 transition">GitHub</a>
+        <a href="https://x.com/Aetherix402" target="_blank" class="text-gray-400 hover:text-cyan-300 transition">X</a>
+        <a href="/learn" class="hover:text-cyan-300 transition">Learn</a>
+        <a href="/roadmap" class="hover:text-cyan-300 transition">Roadmap</a>
+        <a href="/legal" class="hover:text-cyan-300 transition">Legal</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Wallet Selection Modal -->
+  <div id="wallet-select-modal" class="modal-bg" style="display:none;"
+       role="dialog" aria-modal="true" aria-labelledby="wallet-modal-title">
+    <div class="modal">
+
+      <div class="flex items-start justify-between mb-1">
+        <h3 id="wallet-modal-title" class="text-white text-base font-semibold tracking-tight">Connect a wallet</h3>
+        <button type="button" class="wallet-close" aria-label="Close"
+                onclick="closeWalletModal()">&times;</button>
+      </div>
+      <p class="text-xs text-gray-400 mb-5">
+        Aetherix402 never holds your keys. You approve every payment in your own wallet.
+      </p>
+
+      <p class="wallet-group-label">Solana</p>
+      <div class="wallet-list mb-4">
+
+        <button class="wallet-row" data-wallet="phantom" onclick="connectPhantom()">
+          <span class="wallet-logo" style="background:#ab9ff2"><img src="/static/wallets/phantom-purple.png?v=1788191516" alt="" width="22" height="22" loading="lazy"></span>
+          <span class="wallet-meta">
+            <span class="wallet-name">Phantom</span>
+            <span class="wallet-sub" data-detect="phantom">Detecting…</span>
+          </span>
+          <span class="wallet-chev" aria-hidden="true">&rsaquo;</span>
+        </button>
+
+        <button class="wallet-row" data-wallet="solflare" onclick="connectSolflare()">
+          <span class="wallet-logo" style="background:#0a0a0a"><img src="/static/wallets/solflare.png?v=1788191516" alt="" width="22" height="22" loading="lazy"></span>
+          <span class="wallet-meta">
+            <span class="wallet-name">Solflare</span>
+            <span class="wallet-sub" data-detect="solflare">Detecting…</span>
+          </span>
+          <span class="wallet-chev" aria-hidden="true">&rsaquo;</span>
+        </button>
+
+        <button class="wallet-row" data-wallet="backpack" onclick="connectBackpack()">
+          <span class="wallet-logo" style="background:#0a0a0a"><img src="/static/wallets/backpack.png?v=1788191516" alt="" width="22" height="22" loading="lazy"></span>
+          <span class="wallet-meta">
+            <span class="wallet-name">Backpack</span>
+            <span class="wallet-sub" data-detect="backpack">Detecting…</span>
+          </span>
+          <span class="wallet-chev" aria-hidden="true">&rsaquo;</span>
+        </button>
+      </div>
+
+      <p class="wallet-group-label">Ethereum</p>
+      <div class="wallet-list">
+        <button class="wallet-row" data-wallet="metamask" onclick="connectMetamask()">
+          <span class="wallet-logo" style="background:#0a0a0a"><img src="/static/wallets/metamask.png?v=1788191516" alt="" width="22" height="22" loading="lazy"></span>
+          <span class="wallet-meta">
+            <span class="wallet-name">MetaMask</span>
+            <span class="wallet-sub" data-detect="metamask">Detecting…</span>
+          </span>
+          <span class="wallet-chev" aria-hidden="true">&rsaquo;</span>
+        </button>
+      </div>
+
+      <button type="button" class="wallet-cancel" onclick="closeWalletModal()">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Ambient particles init -->
+  <script>
+    (function initParticles(){
+      const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduced) return;
+
+      const container = document.getElementById("particle-container");
+      if (!container) return;
+
+      const count = 80;
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement("div");
+        p.className = "particle";
+        p.style.left = (Math.random() * 100) + "%";
+        p.style.opacity = (0.25 + Math.random() * 0.5).toFixed(2);
+        p.style.animationDuration = (4 + Math.random() * 10) + "s";
+        p.style.animationDelay = (Math.random() * 6) + "s";
+        container.appendChild(p);
+      }
+    })();
+  </script>
+
+  <!-- WALLET JS -->
+  <script>
+    let currentWallet = "";
+    let currentChain  = "";
+    window.currentWallet = "";
+    const walletBtn = document.getElementById("connect-wallet");
+
+    function shorten(addr) { return addr.slice(0,4) + "..." + addr.slice(-4); }
+
+    function updateWalletUI() {
+      const mobileWalletBtn = document.getElementById("mobile-connect-wallet");
+      const label = document.getElementById("connect-wallet-label");
+      const mobileLabel = document.getElementById("mobile-connect-wallet-label");
+
+      const connected = !!currentWallet;
+      const text = connected ? shorten(currentWallet) : "Connect Wallet";
+
+      if (label) label.textContent = text;
+      if (mobileLabel) mobileLabel.textContent = text;
+
+      walletBtn.classList.toggle("is-connected", connected);
+      walletBtn.title = connected ? currentWallet + " (click to disconnect)" : "Connect a wallet";
+      if (mobileWalletBtn) mobileWalletBtn.classList.toggle("is-connected", connected);
+    }
+
+    async function connectPhantom() {
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      const hasPhantom = !!window.solana?.isPhantom;
+
+      // MOBILE: redirect into Phantom app browser
+      if (isMobile && !hasPhantom) {
+        const target = encodeURIComponent(window.location.href);
+        window.location.href = `https://phantom.app/ul/browse/${target}`;
+        return;
+      }
+
+      // DESKTOP without Phantom
+      if (!hasPhantom) {
+        alert("Please install the Phantom browser extension to continue.");
+        return;
+      }
+
+      try {
+        await window.solana.disconnect().catch(() => {});
+        const res = await window.solana.connect({ onlyIfTrusted: false });
+        currentWallet = res.publicKey.toString();
+        window.currentProvider = window.solana;
+        currentChain = "solana";
+        window.currentWallet = currentWallet;
+        window.dispatchEvent(new CustomEvent('aetherix402:wallet', { detail: currentWallet }));
+        updateWalletUI();
+        window.dispatchEvent(new Event("wallet:connected"));
+      } catch (err) {
+        console.error(err);
+      }
+
+      document.getElementById("wallet-select-modal").style.display = "none";
+    }
+
+    function closeWalletModal() {
+      document.getElementById("wallet-select-modal").style.display = "none";
+    }
+
+    /* Adopt whatever provider object a wallet injected, then share the result
+       through the same globals and event the Phantom path already uses. */
+    async function adoptSolanaProvider(provider, label) {
+      if (!provider) {
+        alert(label + " was not detected. Install it, then reload this page.");
+        return;
+      }
+      try {
+        await provider.disconnect?.().catch(() => {});
+        const res = await provider.connect({ onlyIfTrusted: false });
+        currentWallet = (res?.publicKey ?? provider.publicKey).toString();
+        window.currentProvider = provider;
+        currentChain = "solana";
+        window.currentWallet = currentWallet;
+        window.dispatchEvent(new CustomEvent('aetherix402:wallet', { detail: currentWallet }));
+        window.currentChain = currentChain;
+        updateWalletUI();
+        window.dispatchEvent(new Event("wallet:connected"));
+      } catch (err) {
+        console.error(err);
+      }
+      closeWalletModal();
+    }
+
+    function connectSolflare() {
+      adoptSolanaProvider(window.solflare, "Solflare");
+    }
+
+    function connectBackpack() {
+      adoptSolanaProvider(window.backpack?.solana || window.xnf?.solana, "Backpack");
+    }
+
+    async function connectMetamask() {
+      if (!window.ethereum) {
+        alert("MetaMask was not detected. Install it, then reload this page.");
+        return;
+      }
+      try {
+        const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+        currentWallet = accounts[0];
+        currentChain = "ethereum";
+        window.currentWallet = currentWallet;
+        window.dispatchEvent(new CustomEvent('aetherix402:wallet', { detail: currentWallet }));
+        window.currentChain = currentChain;
+        updateWalletUI();
+        window.dispatchEvent(new Event("wallet:connected"));
+      } catch(err) {
+        console.error(err);
+      }
+      closeWalletModal();
+    }
+
+    /* Tell the reader which wallets are actually available before they click. */
+    function refreshWalletAvailability() {
+      const found = {
+        phantom:  !!(window.phantom?.solana?.isPhantom || window.solana?.isPhantom),
+        solflare: !!window.solflare,
+        backpack: !!(window.backpack?.solana || window.xnf?.solana),
+        metamask: !!window.ethereum,
+      };
+      document.querySelectorAll("[data-detect]").forEach(el => {
+        const installed = found[el.dataset.detect];
+        el.textContent = installed ? "Installed" : "Not detected";
+        el.classList.toggle("is-installed", installed);
+      });
+    }
+
+    walletBtn.addEventListener("click", () => {
+      if (!currentWallet) {
+        refreshWalletAvailability();
+        document.getElementById("wallet-select-modal").style.display = "flex";
+      } else {
+        if (confirm("Disconnect wallet?")) {
+          currentWallet = "";
+          currentChain = "";
+          window.currentWallet = "";
+          updateWalletUI();
+        }
+      }
+    });
+
+    const walletModal = document.getElementById("wallet-select-modal");
+    walletModal.addEventListener("click", (e) => {
+      if (e.target === walletModal) closeWalletModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && walletModal.style.display === "flex") closeWalletModal();
+    });
+  </script>
+
+  <script>
+    const mobileWalletBtn = document.getElementById("mobile-connect-wallet");
+    if (mobileWalletBtn) {
+      mobileWalletBtn.addEventListener("click", () => {
+        if (!currentWallet) {
+          document.getElementById("wallet-select-modal").style.display = "flex";
+        } else {
+          if (confirm("Disconnect wallet?")) {
+            currentWallet = "";
+            currentChain = "";
+            window.currentWallet = "";
+            updateWalletUI();
+          }
+        }
+      });
+    }
+  </script>
+
+  <script>
+    async function registerPayment({ txSig, payMethod }) {
+      if (!currentWallet) throw new Error("Wallet not connected");
+      return { txSig, wallet: currentWallet, method: payMethod || "USDC" };
+    }
+  </script>
+
+  <script>
+    function toggleMobileMenu() {
+      const nav = document.getElementById("mobile-nav");
+      if (!nav) return;
+      nav.classList.toggle("hidden");
+      nav.classList.toggle("flex");
+    }
+  </script>
+
+  <script>
+    async function requestTxSignature() {
+      const sig = prompt("Paste your transaction signature:");
+      if (!sig) throw new Error("Transaction signature required");
+      return sig.trim();
+    }
+  </script>
+
+  <script>
+    function forceClosePaymentModal() {
+      const modal = document.getElementById("payment-modal");
+      if (!modal) return;
+      modal.style.display = "none";
+      modal.classList.remove("flex");
+      document.body.style.pointerEvents = "auto";
+    }
+  </script>
+
+  <script>
+    const globalLocks = {};
+    function lock(key) { if (globalLocks[key]) return false; globalLocks[key] = true; return true; }
+    function unlock(key) { globalLocks[key] = false; }
+    async function safeJson(res) {
+      const text = await res.text();
+      try { return JSON.parse(text); }
+      catch { return { error: "Invalid JSON response", raw: text.slice(0, 200) }; }
+    }
+  </script>
+
+  <script>
+    let lastStatusCheck = Date.now();
+    function timeAgo(ts) {
+      const sec = Math.floor((Date.now() - ts) / 1000);
+      if (sec < 5) return "just now";
+      if (sec < 60) return `${sec}s ago`;
+      return `${Math.floor(sec / 60)}m ago`;
+    }
+
+    async function checkSystemStatus() {
+      const els = [
+        document.getElementById("system-status"),
+        document.getElementById("system-status-mobile")
+      ].filter(Boolean);
+
+      if (!els.length) return;
+
+      function paint(state, label) {
+        lastStatusCheck = Date.now();
+        els.forEach(el => {
+          el.classList.remove("is-ok", "is-degraded", "is-down");
+          el.classList.add(state);
+          const t = el.querySelector(".status-chip-text");
+          if (t) t.textContent = label;
+          el.title = label + " . Click for the full status page";
+        });
+      }
+
+      const setOperational = () => paint("is-ok", "All systems operational");
+      const setDegraded    = () => paint("is-degraded", "Partially degraded");
+      const setDown        = () => paint("is-down", "Service disruption");
+
+      try {
+        const res = await fetch("/api/status", { cache: "no-store" });
+        const json = await res.json();
+        if (json?.overall === "operational") setOperational();
+        else if (json?.overall === "degraded") setDegraded();
+        else setDown();
+      } catch {
+        setDown();
+      }
+    }
+
+    checkSystemStatus();
+    setInterval(checkSystemStatus, 15000);
+  </script>
+
+  
+
+<script>
+// Escape closes whatever modal is open, on every page.
+//
+// Five purchase modals shipped with their close button emptied, which left a
+// visitor who opened one with no way out but a page reload. A keyboard route
+// costs nothing and does not depend on a glyph rendering.
+//
+// Clicking the backdrop deliberately does not close anything: these modals hold
+// text somebody typed, and losing a long prompt to a stray click is worse than
+// one extra keystroke.
+document.addEventListener("keydown", function (e) {
+  if (e.key !== "Escape") return;
+  document.querySelectorAll(".modal-bg").forEach(function (m) {
+    const shown = m.style.display && m.style.display !== "none";
+    if (shown || getComputedStyle(m).display === "flex") m.style.display = "none";
+  });
+});
+</script>
+</body>
+</html>

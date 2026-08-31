@@ -1,0 +1,2473 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Aetherix402 Components</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    // Point Tailwind's own font classes at Geist, so every existing
+    // font-sans and font-mono in the markup picks it up without being touched.
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+
+  
+  
+  
+  
+  
+  <meta name="description" content="Five AI components and nine agent templates, priced from $0.25 to $4.99 and paid per call in USDC. No signup and no subscription.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aetherix402">
+  <meta property="og:title" content="Aetherix402 Components">
+  <meta property="og:description" content="Five AI components and nine agent templates, priced from $0.25 to $4.99 and paid per call in USDC. No signup and no subscription.">
+  <meta property="og:url" content="https://aetherix402.com/shop">
+  <meta property="og:image" content="https://aetherix402.com/static/og-card.png?v=1788191516">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Aetherix402. Pay per call, on Solana.">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Aetherix402">
+  <meta name="twitter:title" content="Aetherix402 Components">
+  <meta name="twitter:description" content="Five AI components and nine agent templates, priced from $0.25 to $4.99 and paid per call in USDC. No signup and no subscription.">
+  <meta name="twitter:image" content="https://aetherix402.com/static/og-card.png?v=1788191516">
+
+  <link rel="stylesheet" href="/static/css/style.css">
+
+  <link rel="icon" href="/static/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="96x96" href="/static/favicon/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/static/favicon/site.webmanifest">
+  <meta name="theme-color" content="#030712">
+</head>
+
+<body class="font-sans page-shop">
+
+  <!-- HEADER -->
+  <header class="px-6 py-2 flex justify-between items-center relative">
+
+  <!-- LOGO -->
+  <h1 onclick="window.location.href='/'"
+      class="ml-2 flex items-center gap-4 cursor-pointer group select-none">
+
+    <img src="/static/favicon/web-app-manifest-192x192.png"
+          alt="Aetherix402"
+          class="w-16 h-16 transition-transform duration-200
+                group-hover:scale-105" />
+
+    <span class="hidden sm:inline text-base font-bold text-cyan-300 tracking-wider">
+      X402
+    </span>
+  </h1>
+
+    <!-- DESKTOP NAV -->
+    <nav class="desktop-nav hidden md:flex gap-6 text-sm items-center">
+      <a href="/token" class="text-cyan-300 hover:text-cyan-200 transition font-semibold">$AETH</a>
+      <a href="https://github.com/Aetherix402/Aetherix402" target="_blank" class="text-gray-400 hover:text-cyan-300 transition">GitHub</a>
+      <a href="https://x.com/Aetherix402" target="_blank" class="text-gray-400 hover:text-cyan-300 transition">X</a>
+      <a href="/learn" class="text-gray-400 hover:text-cyan-300 transition">Learn</a>
+      <a href="/docs" class="text-gray-400 hover:text-cyan-300 transition">Docs</a>
+      <a href="/roadmap" class="text-gray-400 hover:text-cyan-300 transition">Roadmap</a>
+      <a href="/legal" class="text-gray-400 hover:text-cyan-300 transition">Legal</a>
+
+      <a id="system-status" href="/status" class="status-chip hidden sm:inline-flex" title="View full system status">
+        <span class="status-chip-dot"></span>
+        <span class="status-chip-text">Checking</span>
+      </a>
+
+      <button id="connect-wallet" class="wallet-btn" aria-haspopup="dialog">
+        <span class="wallet-dot" aria-hidden="true"></span>
+        <span id="connect-wallet-label">Connect Wallet</span>
+      </button>
+    </nav>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button class="mobile-menu-btn md:hidden text-cyan-300 text-3xl" onclick="toggleMobileMenu()">☰</button>
+
+    <!-- MOBILE NAV -->
+    <nav id="mobile-nav"
+        class="hidden flex-col gap-4 bg-[#030712]/95 border-t border-cyan-400/30 p-4 absolute left-0 right-0 top-full z-50 md:hidden">
+
+      <a href="/token" class="text-cyan-300 font-semibold">$AETH</a>
+      <a href="https://github.com/Aetherix402/Aetherix402" target="_blank" class="text-gray-300">GitHub</a>
+      <a href="https://x.com/Aetherix402" target="_blank" class="text-gray-300">X</a>
+      <a href="/learn" class="text-gray-300">Learn</a>
+      <a href="/docs" class="text-gray-300">Docs</a>
+      <a href="/roadmap" class="text-gray-300">Roadmap</a>
+      <a href="/legal" class="text-gray-300">Legal</a>
+
+      <a id="system-status-mobile" href="/status" class="status-chip">
+        <span class="status-chip-dot"></span>
+        <span class="status-chip-text">Checking</span>
+      </a>
+
+      <button id="mobile-connect-wallet" class="wallet-btn w-full justify-center">
+        <span class="wallet-dot" aria-hidden="true"></span>
+        <span id="mobile-connect-wallet-label">Connect Wallet</span>
+      </button>
+    </nav>
+  </header>
+
+  <style>
+    :root{
+      --bg: #030712;
+      --panel: rgba(15, 23, 42, 0.78);
+      --panel-strong: rgba(11, 18, 32, 0.90);
+      --border: rgba(56, 189, 248, 0.22);
+      --border-strong: rgba(56, 189, 248, 0.34);
+      --text: #e5e7eb;
+      --muted: rgba(229,231,235,0.70);
+      --cyan: #22d3ee;
+      --cyan-2: #67e8f9;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    html {
+      overflow-y: scroll;
+    }
+
+    .background {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      /*
+        Behind the content, not over it. This sat at 15 against the shell's 10,
+        so the vignette inside it washed black across whatever happened to be
+        near the bottom of the viewport. It read as the footer bleeding into the
+        section above it, but the footer was never involved: the layer is fixed
+        to the viewport, so it dimmed a different part of the page at every
+        scroll position. pointer-events:none meant clicks still landed, which is
+        why it looked like a rendering quirk rather than a stacking bug.
+      */
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    header > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .bg-gradient {
+      position: absolute;
+      inset: -25%;
+      background:
+        radial-gradient(65% 50% at 18% 18%, rgba(34,211,238,0.18), transparent 60%),
+        radial-gradient(60% 50% at 82% 22%, rgba(56,189,248,0.16), transparent 62%),
+        radial-gradient(65% 60% at 50% 88%, rgba(34,211,238,0.14), transparent 65%);
+      filter: blur(14px);
+      opacity: 1;
+    }
+
+    .scanlines {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.035) 0,
+        rgba(255,255,255,0.035) 1px,
+        transparent 2px,
+        transparent 5px
+      );
+      opacity: 0.35;
+    }
+
+    .vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, transparent 55%, rgba(0,0,0,0.65) 100%);
+      opacity: 0.8;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(34, 211, 238, 0.28);
+      border-radius: 50%;
+      width: 2px;
+      height: 2px;
+      animation: floatUp linear infinite;
+      will-change: transform, opacity;
+    }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(110vh); opacity: 0; }
+      20%  { opacity: 1; }
+      100% { transform: translateY(-12vh); opacity: 0; }
+    }
+
+    .app-shell {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: relative;
+      z-index: 20;
+
+      min-height: 80px;
+
+      isolation: isolate;
+
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: linear-gradient(
+        180deg,
+        rgba(3,7,18,0.65) 0%,
+        rgba(3,7,18,0.25) 100%
+      );
+    }
+
+    header,
+    header * {
+      transition: none !important;
+    }
+
+    /* Same cyan, calmer geometry. The gradient, the inset highlight and the
+       coloured drop shadow were doing three jobs at once, which is what made
+       these read as cheap. Flat fill, tighter radius, lighter weight. */
+    .btn{
+      position: relative;
+      background: linear-gradient(180deg, var(--cyan-2), var(--cyan));
+      color: #001018;
+      font-weight: 700;
+      padding: .55rem 1.05rem;
+      border-radius: .85rem;
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+      box-shadow:
+        0 10px 30px rgba(34,211,238,0.18),
+        inset 0 1px 0 rgba(255,255,255,0.35);
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+      box-shadow:
+        0 14px 40px rgba(34,211,238,0.22),
+        inset 0 1px 0 rgba(255,255,255,0.42);
+    }
+    .btn:active{ transform: translateY(0px) scale(0.99); }
+
+    .modal-bg{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.68);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index: 70;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    /* The hover state existed without a base state, so every ghost button on
+       the site rendered as bare text until somebody put a cursor on it. This is
+       the outline the hover was always written against. */
+    .btn-ghost{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: .6rem 1.1rem;
+      border-radius: .65rem;
+      border: 1px solid rgba(34,211,238,0.22);
+      background: transparent;
+      color: #cbd5e1;
+      font-size: .875rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .15s, border-color .15s, color .15s;
+    }
+    .btn-ghost:disabled{ opacity:.45; cursor:not-allowed; }
+    .btn-ghost:hover{
+      background: rgba(34,211,238,0.08);
+      border-color: rgba(34,211,238,0.45);
+      color: var(--cyan-2);
+    }
+
+    .modal-bg{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.68);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index: 70;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .modal{
+      background: linear-gradient(180deg, rgba(11,18,32,0.92), rgba(2,6,23,0.92));
+      border: 1px solid var(--border-strong);
+      border-radius: 1.25rem;
+      width: min(520px, 92vw);
+      padding: 1.25rem;
+      box-shadow:
+        0 30px 90px rgba(0,0,0,0.55),
+        0 0 0 1px rgba(34,211,238,0.10);
+    }
+
+    /* Flat surface. Hover lifts by brightening the border rather than by
+       translating the card under a coloured glow. */
+    .card{
+      background: linear-gradient(180deg, rgba(15,23,42,0.82), rgba(2,6,23,0.72));
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      border-color: rgba(34,211,238,0.40);
+      box-shadow:
+        0 18px 60px rgba(0,0,0,0.38),
+        0 0 30px rgba(34,211,238,0.12);
+    }
+
+    .pill{
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      color: #7dd3fc;
+      font-size: .75rem;
+      letter-spacing: .04em;
+      text-transform: lowercase;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    .filter-bar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.5rem;
+      justify-content:center;
+    }
+
+    .filter-chip{
+      padding: 0.48rem 0.95rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(229,231,235,0.75);
+      background: rgba(15,23,42,0.65);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 9999px;
+      transition: transform .16s ease, background .16s ease, border-color .16s ease, color .16s ease, box-shadow .16s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .filter-chip:hover{
+      transform: translateY(-1px);
+      color: rgba(229,231,235,0.95);
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(34,211,238,0.36);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.28);
+    }
+
+    .filter-chip.active{
+      color: #001018;
+      background: var(--cyan);
+      border-color: var(--cyan);
+    }
+
+    /* ---- wallet picker ---- */
+    .wallet-group-label{
+      font-size: .6875rem;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      color: rgba(148,163,184,0.75);
+      margin: 0 0 .5rem .15rem;
+    }
+    .wallet-list{ display: flex; flex-direction: column; gap: .5rem; }
+
+    .wallet-row{
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      width: 100%;
+      text-align: left;
+      padding: .7rem .8rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: .75rem;
+      transition: background .15s ease, border-color .15s ease;
+      cursor: pointer;
+    }
+    .wallet-row:hover{
+      background: rgba(34,211,238,0.07);
+      border-color: rgba(34,211,238,0.38);
+    }
+    .wallet-row[disabled]{ opacity:.45; cursor:not-allowed; }
+    .wallet-row[disabled]:hover{
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(255,255,255,0.09);
+    }
+
+    .wallet-logo{
+      width: 34px; height: 34px;
+      border-radius: .55rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .wallet-logo img{ display:block; width: 22px; height: 22px; object-fit: contain; }
+    .wallet-meta{ display: flex; flex-direction: column; line-height: 1.25; flex: 1 1 auto; }
+    .wallet-name{ font-size: .9rem; font-weight: 600; color: #e5e7eb; }
+    .wallet-sub{ font-size: .72rem; color: rgba(148,163,184,0.85); }
+    .wallet-sub.is-installed{ color: #34d399; }
+    .wallet-chev{ color: rgba(148,163,184,0.5); font-size: 1.15rem; flex: none; }
+
+    .wallet-close{
+      color: rgba(148,163,184,0.7);
+      font-size: 1.4rem;
+      line-height: 1;
+      padding: 0 .25rem;
+      transition: color .15s ease;
+    }
+    .wallet-close:hover{ color: #e5e7eb; }
+
+    .wallet-cancel{
+      width: 100%;
+      margin-top: 1.1rem;
+      padding: .55rem;
+      font-size: .8125rem;
+      color: rgba(148,163,184,0.85);
+      border-radius: .625rem;
+      transition: background .15s ease, color .15s ease;
+    }
+    .wallet-cancel:hover{ background: rgba(255,255,255,0.05); color: #e5e7eb; }
+
+    /* ---- header status chip ---- */
+    .status-chip{
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .35rem .7rem;
+      border-radius: 9999px;
+      font-size: .75rem;
+      font-weight: 500;
+      color: rgba(148,163,184,0.95);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.09);
+      transition: background .16s ease, border-color .16s ease, color .16s ease;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .status-chip:hover{ background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.2); }
+
+    .status-chip-dot{
+      width: 7px; height: 7px; border-radius: 9999px; flex: none;
+      background: rgba(148,163,184,0.7);
+    }
+
+    /* Only the healthy state pulses. A problem should hold still and be read. */
+    .status-chip.is-ok{ color:#6ee7b7; border-color: rgba(52,211,153,0.28); background: rgba(52,211,153,0.07); }
+    .status-chip.is-ok .status-chip-dot{ background:#34d399; animation: chipPulse 2.4s ease-in-out infinite; }
+
+    .status-chip.is-degraded{ color:#fcd34d; border-color: rgba(251,191,36,0.3); background: rgba(251,191,36,0.07); }
+    .status-chip.is-degraded .status-chip-dot{ background:#fbbf24; }
+
+    .status-chip.is-down{ color:#fca5a5; border-color: rgba(248,113,113,0.3); background: rgba(248,113,113,0.07); }
+    .status-chip.is-down .status-chip-dot{ background:#f87171; }
+
+    @keyframes chipPulse{
+      0%,100%{ box-shadow: 0 0 0 0 rgba(52,211,153,0.45); }
+      70%    { box-shadow: 0 0 0 5px rgba(52,211,153,0); }
+    }
+    @media (prefers-reduced-motion: reduce){
+      .status-chip.is-ok .status-chip-dot{ animation: none; }
+    }
+
+    input, textarea, select {
+      color-scheme: dark;
+    }
+
+    @media (max-width: 768px){
+      .modal{ max-height: 85vh; overflow-y: auto; }
+      textarea, .code-input { max-height: 40vh; resize: vertical; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      body{ transition:none; }
+      .particle{ animation:none; opacity:0.35; }
+      .card, .btn, .filter-chip{ transition:none; }
+    }
+
+    /* Outline by default so it does not compete with the primary actions on
+       the page, and fills in only once a wallet is actually attached. */
+    .wallet-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .5rem .85rem;
+      font-size: .8125rem;
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+      color: var(--cyan-2);
+      background: rgba(34,211,238,0.06);
+      border: 1px solid rgba(34,211,238,0.30);
+      border-radius: .625rem;
+      transition: background .16s ease, border-color .16s ease, color .16s ease;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .wallet-btn:hover {
+      background: rgba(34,211,238,0.13);
+      border-color: rgba(34,211,238,0.55);
+    }
+
+    .wallet-dot {
+      width: 7px; height: 7px;
+      border-radius: 9999px;
+      background: rgba(148,163,184,0.65);
+      flex: none;
+      transition: background .16s ease, box-shadow .16s ease;
+    }
+    /* Connected: the dot goes live and the address reads as a value, not a CTA. */
+    .wallet-btn.is-connected {
+      color: #a5f3fc;
+      background: rgba(34,211,238,0.10);
+      border-color: rgba(34,211,238,0.42);
+    }
+    .wallet-btn.is-connected .wallet-dot {
+      background: #34d399;
+      box-shadow: 0 0 0 3px rgba(52,211,153,0.16);
+    }
+
+    .wallet-btn:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -32px;
+      height: 32px;
+      pointer-events: none;
+      background: linear-gradient(
+        to bottom,
+        rgba(3,7,18,0.25),
+        rgba(3,7,18,0.0)
+      );
+    }
+
+    @keyframes page-fade {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .page-fade {
+      animation: page-fade 0.55s ease-out both;
+    }
+
+    #mobile-nav {
+      will-change: transform;
+    }
+  </style>
+
+  <!-- Ambient background -->
+  <div class="background" aria-hidden="true">
+    <div class="bg-gradient"></div>
+    <div id="particle-container"></div>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <div class="app-shell">
+
+    <!-- PAGE CONTENT -->
+    <main class="p-6">
+      
+<script>
+// The wallet decides the price, so every AETH quote has to carry it.
+function aethHeaders() {
+  return window.currentWallet ? { "X-USER-WALLET": window.currentWallet } : {};
+}
+</script>
+
+
+<div class="page-fade">
+
+    <section class="max-w-5xl mx-auto mt-10 text-center">
+      <h2 class="text-3xl font-semibold mb-3 text-cyan-300">Browse Components</h2>
+      <p class="text-gray-400 mb-6">Premium AI & automation modules powered by the X402 protocol.</p>
+      <div class="max-w-xl mx-auto mb-6">
+        <input id="search" placeholder="Search components..." class="w-full bg-white/5 border border-cyan-400/20 rounded-lg px-4 py-3 outline-none"/>
+      </div>
+      <div class="filter-bar mb-8">
+        <button class="filter-chip active" data-filter-btn data-category="All">all</button>
+        <button class="filter-chip" data-filter-btn data-category="AI Tools">ai tools</button>
+        <button class="filter-chip" data-filter-btn data-category="Data & Vision">data & vision</button>
+        <button class="filter-chip" data-filter-btn data-category="Development">development</button>
+      </div>
+    </section>
+
+    <main id="components-grid" class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
+      
+      <div
+        class="card p-6 flex flex-col justify-between w-full h-full min-h-[280px] transform
+               "
+        data-name="ai prompt optimizer"
+        data-category="AI Tools"
+      >
+        <div>
+          <div class="mb-2"><span class="pill">pay-per-use</span></div>
+          <h2 class="text-xl font-semibold text-cyan-400">AI Prompt Optimizer</h2>
+          <p class="text-gray-400 text-sm mt-2">Turn rough notes or unstructured ideas into polished, high-quality prompts with clear goals, context, and formatting.</p>
+        </div>
+
+        <div class="mt-6 flex justify-between items-center">
+
+          <span class="text-cyan-300 font-semibold">
+            0.25 USDC
+          </span>
+
+          
+            <button class="btn" onclick="
+              if (!requireWallet()) return;
+              document.getElementById('modal-bg').style.display='flex';
+              setTimeout(updatePromptPayAmount, 0);
+            ">
+              Use
+            </button>
+
+          
+        </div>
+        </div>
+        
+      <div
+        class="card p-6 flex flex-col justify-between w-full h-full min-h-[280px] transform
+               "
+        data-name="llm-powered code explainer"
+        data-category="Development"
+      >
+        <div>
+          <div class="mb-2"><span class="pill">pay-per-use</span></div>
+          <h2 class="text-xl font-semibold text-cyan-400">LLM-Powered Code Explainer</h2>
+          <p class="text-gray-400 text-sm mt-2">Get readable explanations of any code snippet, including logic breakdowns, complexity insights, and suggested improvements.</p>
+        </div>
+
+        <div class="mt-6 flex justify-between items-center">
+
+          <span class="text-cyan-300 font-semibold">
+            0.50 USDC
+          </span>
+
+          
+            <button class="btn" onclick="
+              if (!requireWallet()) return;
+              document.getElementById('modal-code-bg').style.display='flex';
+              setTimeout(updateCodePayAmount, 0);
+            ">
+              Use
+            </button>
+
+          
+        </div>
+        </div>
+        
+      <div
+        class="card p-6 flex flex-col justify-between w-full h-full min-h-[280px] transform
+               "
+        data-name="smart prompt tester (personasim)"
+        data-category="AI Tools"
+      >
+        <div>
+          <div class="mb-2"><span class="pill">pay-per-use</span></div>
+          <h2 class="text-xl font-semibold text-cyan-400">Smart Prompt Tester (PersonaSim)</h2>
+          <p class="text-gray-400 text-sm mt-2">Test your prompt against multiple AI personas, Developer, Skeptic, Hacker-to uncover blind spots, weaknesses, and ways to strengthen it.</p>
+        </div>
+
+        <div class="mt-6 flex justify-between items-center">
+
+          <span class="text-cyan-300 font-semibold">
+            0.50 USDC
+          </span>
+
+          
+            <button class="btn" onclick="
+              if (!requireWallet()) return;
+              document.getElementById('modal-tester-bg').style.display='flex';
+              setTimeout(updateTesterPayAmount, 0);
+            ">
+              Use
+            </button>
+
+          
+        </div>
+        </div>
+        
+      <div
+        class="card p-6 flex flex-col justify-between w-full h-full min-h-[280px] transform
+               "
+        data-name="contract intelligence analyzer"
+        data-category="AI Tools"
+      >
+        <div>
+          <div class="mb-2"><span class="pill">pay-per-use</span></div>
+          <h2 class="text-xl font-semibold text-cyan-400">Contract Intelligence Analyzer</h2>
+          <p class="text-gray-400 text-sm mt-2">Input Ethereum or Solana contract address and get metadata, function counts, and known issues.</p>
+        </div>
+
+        <div class="mt-6 flex justify-between items-center">
+
+          <span class="text-cyan-300 font-semibold">
+            1.00 USDC
+          </span>
+
+          
+            <button class="btn" onclick="
+              if (!requireWallet()) return;
+              document.getElementById('modal-contract-bg').style.display='flex';
+              setTimeout(updateContractPayAmount, 0);
+            ">
+              Analyze
+            </button>
+
+          
+        </div>
+        </div>
+        
+      <div
+        class="card p-6 flex flex-col justify-between w-full h-full min-h-[280px] transform
+               "
+        data-name="prebuilt agent store"
+        data-category="AI Tools"
+      >
+        <div>
+          <div class="mb-2"><span class="pill">download</span></div>
+          <h2 class="text-xl font-semibold text-cyan-400">Prebuilt Agent Store</h2>
+          <p class="text-gray-400 text-sm mt-2">Access prebuilt automation agents like trading bots, Discord/Telegram helpers, wallet watchers and monitoring scripts, all delivered ready to deploy.</p>
+        </div>
+
+        <div class="mt-6 flex justify-between items-center">
+
+          <span class="text-cyan-300 font-semibold">
+            4.99 USDC
+          </span>
+
+          
+            <a class="btn" href="/agents">Open Store</a>
+
+          
+        </div>
+        </div>
+        
+      <div
+        class="card p-6 flex flex-col justify-between w-full h-full min-h-[280px] transform
+               "
+        data-name="agent risk &amp; simulation engine"
+        data-category="AI Tools"
+      >
+        <div>
+          <div class="mb-2"><span class="pill">pay-per-use</span></div>
+          <h2 class="text-xl font-semibold text-cyan-400">Agent Risk &amp; Simulation Engine</h2>
+          <p class="text-gray-400 text-sm mt-2">Run Monte Carlo-style simulations with configurable runs/steps/mu/sigma and export the report.</p>
+        </div>
+
+        <div class="mt-6 flex justify-between items-center">
+
+          <span class="text-cyan-300 font-semibold">
+            0.75 USDC
+          </span>
+
+          
+            <button class="btn" onclick="
+              if (!requireWallet()) return;
+              document.getElementById('modal-risk-bg').style.display='flex';
+              setTimeout(updateRiskPayAmount, 0);
+            ">
+              Simulate
+            </button>
+
+          
+        </div>
+        </div>
+        
+      <div
+        class="card p-6 flex flex-col justify-between w-full h-full min-h-[280px] transform
+               "
+        data-name="launch site builder"
+        data-category="AI Tools"
+      >
+        <div>
+          <div class="mb-2"><span class="pill">pay-per-use</span></div>
+          <h2 class="text-xl font-semibold text-cyan-400">Launch Site Builder</h2>
+          <p class="text-gray-400 text-sm mt-2">A finished landing page for your token, before or after you launch. Describe it, or paste a contract address and it pulls the real name, ticker, image, supply and socials itself. One self-contained HTML file, ready to host.</p>
+        </div>
+
+        <div class="mt-6 flex justify-between items-center">
+
+          <span class="text-cyan-300 font-semibold">
+            2.50 USDC
+          </span>
+
+          
+            <button class="btn" onclick="
+              if (!requireWallet()) return;
+              window.location.href = '/build';
+            ">
+              Build
+            </button>
+
+          
+        </div>
+        </div>
+        
+        </main>
+
+    <section id="my-assets-section" class="max-w-5xl mx-auto mt-20 hidden">
+      <h2 class="text-2xl font-semibold text-cyan-300 mb-4 text-center">My Recent Assets</h2>
+      <div id="my-assets-list" class="bg-gray-900/40 border border-cyan-400/20 rounded-xl p-6 text-gray-300">
+        <p class="text-gray-500 text-center">Connect your wallet to view your assets.</p>
+      </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto mt-28 mb-24 text-center relative z-10">
+      <h2 class="text-3xl font-semibold mb-4 text-cyan-300">The Aetherix402 Roadmap</h2>
+      <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
+        Where this goes from here, through the end of 2027.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left text-gray-300">
+        <div class="bg-gray-900 border border-cyan-400/40 rounded-xl p-6 shadow-[0_0_25px_rgba(34,211,238,0.10)]">
+          <h3 class="text-cyan-300 font-semibold mb-2">Q3-Q4 2026</h3>
+          <p class="text-sm">$AETH on Pump.fun, then an MCP server so assistants can buy components
+          themselves, hosted agent runs, settlement from EVM wallets, and the store
+          opening to agents other people wrote.</p>
+        </div>
+        <div class="bg-gray-900 border border-cyan-400/20 rounded-xl p-6 hover:shadow-[0_0_25px_rgba(34,211,238,0.15)] transition">
+          <h3 class="text-cyan-300 font-semibold mb-2">Q1-Q2 2027</h3>
+          <p class="text-sm">Components chained together and settled per hop, then a trust ledger that
+          certifies every report on chain.</p>
+        </div>
+        <div class="bg-gray-900 border border-cyan-400/20 rounded-xl p-6 hover:shadow-[0_0_25px_rgba(34,211,238,0.15)] transition">
+          <h3 class="text-cyan-300 font-semibold mb-2">Q3-Q4 2027</h3>
+          <p class="text-sm">An open marketplace paying its creators per call, and agents hiring other
+          agents under governance.</p>
+        </div>
+      </div>
+
+      <a href="/roadmap" class="inline-block mt-10 btn text-sm px-6 py-2">View Full Roadmap →</a>
+    </section>
+
+    <div id="modal-bg" class="modal-bg">
+      <div class="modal bg-gray-950/95 backdrop-blur border border-cyan-400/20 rounded-2xl shadow-xl p-6 w-[520px]">
+        <div class="flex justify-between items-start mb-4">
+          <div>
+            <h3 class="text-cyan-300 text-xl font-semibold mb-1">AI Prompt Optimizer</h3>
+            <p class="text-sm text-gray-400">Price: <span class="text-cyan-300 font-semibold">0.25 USDC</span> per request.</p>
+            <p class="mt-2">
+              <button type="button" class="example-btn" data-slug="prompt-optimizer">
+                See an example report
+              </button>
+              <span class="example-left text-xs text-gray-500 ml-2"></span>
+            </p>
+          </div>
+          <button type="button" onclick="closeModal()" aria-label="Close"
+                  class="text-gray-400 hover:text-cyan-300 text-2xl leading-none px-2">&times;</button>
+        </div>
+
+        <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+          Enter your raw idea or messy text, and Aetherix402 will refine it into a <span class="text-cyan-300">production-grade prompt</span>.
+          Your optimized result will be generated as a downloadable PDF or text file.
+        </p>
+
+        <label class="block text-sm text-gray-400 mb-2">Your text</label>
+        <textarea id="user-text" rows="4" class="w-full bg-white/5 border border-cyan-400/20 rounded-lg px-3 py-2 outline-none placeholder-gray-500 text-gray-200"
+          placeholder="e.g., write a short product description for a futuristic AI marketplace"></textarea>
+
+        <label class="block text-sm text-gray-400 mb-1 mt-4">What is this prompt for?</label>
+        <select id="prompt-target" class="w-full bg-white/5 border border-cyan-400/20 rounded-lg px-3 py-2 outline-none text-gray-200">
+          <option value="">Not sure, keep it portable</option>
+          <option value="chat">Chat assistant</option>
+          <option value="coding">Coding agent</option>
+          <option value="agent">Autonomous agent with tools</option>
+          <option value="image">Image generation</option>
+          <option value="extraction">Structured data extraction</option>
+        </select>
+
+        <label class="block text-sm text-gray-400 mb-1 mt-4">Output format</label>
+        <select id="prompt-output-format" class="w-full bg-white/5 border border-cyan-400/20 rounded-lg px-3 py-2 outline-none text-gray-200">
+          <option value="pdf" selected>Premium PDF (.pdf)</option>
+          <option value="txt">Plain Text (.txt)</option>
+          <option value="docx">Word Document (.docx)</option>
+          <option value="html">Web Page (.html)</option>
+          <option value="md">Markdown (.md)</option>
+        </select>
+
+        <label class="block text-sm text-gray-400 mt-4 mb-2">Payment method</label>
+        <div class="flex gap-4">
+            <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="pay_method_prompt" value="USDC" checked>
+                <span>USDC</span>
+            </label>
+
+            <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="pay_method_prompt" value="AETH">
+                <span>AETH</span>
+            </label>
+        </div>
+
+        <div id="prompt-pay-info"
+             class="mt-4 bg-black/30 border border-cyan-400/20 rounded-lg p-3 hidden">
+
+          <div class="text-xs text-gray-400 mb-1">Send to wallet</div>
+          <div class="text-cyan-300 font-mono text-sm break-all">
+            FZtoQTD7MLHvJzxxSPcUaQkXB5yP6qKYBZ8tUV18hHo1
+          </div>
+
+          <div class="text-xs text-gray-400 mt-3 mb-1">Send this amount</div>
+          <div id="prompt-pay-amount"
+               class="text-gray-200 text-sm font-semibold">-</div>
+
+          <div id="prompt-aeth-note"
+               class="text-xs text-gray-400 mt-2 hidden">
+            AETH amount is calculated automatically.
+          </div>
+        </div>
+
+        <div class="flex justify-center mt-6 gap-3">
+          <button class="btn px-8 py-2.5 text-base" onclick="submitPromptOptimizer()">Execute</button>
+        </div>
+
+        <div id="result" class="mt-5 text-sm bg-white/5 border border-cyan-400/10 rounded-lg p-3 overflow-auto max-h-64 hidden text-gray-300"></div>
+      </div>
+    </div>
+
+    <div id="modal-code-bg" class="modal-bg">
+      <div class="modal bg-gray-950/95 backdrop-blur border border-cyan-400/20 rounded-2xl shadow-xl p-6 w-[520px]">
+        <div class="flex justify-between items-start mb-4">
+          <div>
+            <h3 class="text-cyan-300 text-xl font-semibold mb-1">LLM-Powered Code Explainer</h3>
+            <p class="text-sm text-gray-400">Price: <span class="text-cyan-300 font-semibold">0.50 USDC</span> per request.</p>
+            <p class="mt-2">
+              <button type="button" class="example-btn" data-slug="code-explainer">
+                See an example report
+              </button>
+              <span class="example-left text-xs text-gray-500 ml-2"></span>
+            </p>
+          </div>
+          <button type="button" onclick="closeCodeModal()" aria-label="Close"
+                  class="text-gray-400 hover:text-cyan-300 text-2xl leading-none px-2">&times;</button>
+        </div>
+
+        <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+          Paste your code snippet below, and Aetherix402 will generate a detailed report explaining its structure, logic, and complexity.
+          Including <span class="text-cyan-300">readability, performance, and security insights</span>.
+          Supports backend code, JavaScript, and JSX.
+          Export as PDF, TXT, DOCX, HTML, or MD.
+        </p>
+
+        <label class="block text-sm text-gray-400 mb-2">Your code</label>
+        <textarea id="user-code" rows="6" class="w-full bg-white/5 border border-cyan-400/20 rounded-lg px-3 py-2 outline-none placeholder-gray-500 text-gray-200"
+          placeholder="Paste your code here…"></textarea>
+
+        <label class="block text-sm text-gray-400 mb-1 mt-4">Output format</label>
+        <select id="output-format" class="w-full bg-white/5 border border-cyan-400/20 rounded-lg px-3 py-2 outline-none text-gray-200">
+          <option value="pdf" selected>Premium PDF (.pdf)</option>
+          <option value="txt">Plain Text (.txt)</option>
+          <option value="docx">Word Document (.docx)</option>
+          <option value="html">Web Page (.html)</option>
+          <option value="md">Markdown (.md)</option>
+        </select>
+
+        <label class="block text-sm text-gray-400 mt-4 mb-2">Payment method</label>
+        <div class="flex gap-4">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="pay_method_code" value="USDC" checked>
+              <span>USDC</span>
+            </label>
+
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="pay_method_code" value="AETH">
+              <span>AETH</span>
+            </label>
+        </div>
+
+        <div id="code-pay-info"
+             class="mt-4 bg-black/30 border border-cyan-400/20 rounded-lg p-3 hidden">
+
+          <div class="text-xs text-gray-400 mb-1">Send to wallet</div>
+          <div class="text-cyan-300 font-mono text-sm break-all">
+            FZtoQTD7MLHvJzxxSPcUaQkXB5yP6qKYBZ8tUV18hHo1
+          </div>
+
+          <div class="text-xs text-gray-400 mt-3 mb-1">Send this amount</div>
+          <div id="code-pay-amount" class="text-gray-200 text-sm font-semibold">-</div>
+
+          <div id="code-aeth-note"
+               class="text-xs text-gray-400 mt-2 hidden">
+            AETH amount is calculated automatically.
+          </div>
+        </div>
+
+        <div class="flex justify-center mt-6 gap-3">
+          <button class="btn px-8 py-2.5 text-base" onclick="submitCodeExplainer()">Execute</button>
+        </div>
+
+        <div id="code-result" class="mt-5 text-sm bg-white/5 border border-cyan-400/10 rounded-lg p-3 overflow-auto max-h-64 hidden text-gray-300"></div>
+      </div>
+    </div>
+
+    <div id="modal-tester-bg" class="modal-bg">
+      <div class="modal bg-gray-950/95 backdrop-blur border border-cyan-400/20 rounded-2xl shadow-xl p-6 w-[520px]">
+        <div class="flex justify-between items-start mb-4">
+          <div>
+            <h3 class="text-cyan-300 text-xl font-semibold mb-1">Smart Prompt Tester (PersonaSim)</h3>
+            <p class="text-sm text-gray-400">Price: <span class="text-cyan-300 font-semibold">0.50 USDC</span> per run.</p>
+            <p class="mt-2">
+              <button type="button" class="example-btn" data-slug="prompt-tester">
+                See an example report
+              </button>
+              <span class="example-left text-xs text-gray-500 ml-2"></span>
+            </p>
+          </div>
+          <button type="button" onclick="closeTesterModal()" aria-label="Close"
+                  class="text-gray-400 hover:text-cyan-300 text-2xl leading-none px-2">&times;</button>
+        </div>
+
+        <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+          Evaluate your prompt through multiple AI perspectives. Including <span class="text-cyan-300">Developer</span>,
+          <span class="text-cyan-300">Skeptic</span>, and <span class="text-cyan-300">Hacker</span> personas.
+          Aetherix402 will analyze responses, highlight strengths, and generate a hardened prompt blueprint for you.
+        </p>
+
+        <label class="block text-sm text-gray-400 mb-2">Your prompt</label>
+        <textarea id="tester-text" rows="5"
+          class="w-full bg-white/5 border border-cyan-400/20 rounded-lg px-3 py-2 outline-none placeholder-gray-500 text-gray-200"
+          placeholder="Paste the prompt you want to test across personas..."></textarea>
+
+        <label class="block text-sm text-gray-400 mb-1 mt-4">Output format</label>
+        <select id="tester-output-format" class="w-full bg-white/5 border border-cyan-400/20 rounded-lg px-3 py-2 outline-none text-gray-200">
+          <option value="pdf" selected>Premium PDF (.pdf)</option>
+          <option value="txt">Plain Text (.txt)</option>
+          <option value="docx">Word Document (.docx)</option>
+          <option value="html">Web Page (.html)</option>
+          <option value="md">Markdown (.md)</option>
+        </select>
+
+        <label class="block text-sm text-gray-400 mt-4 mb-2">Payment method</label>
+        <div class="flex gap-4">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="pay_method_tester" value="USDC" checked>
+              <span>USDC</span>
+            </label>
+
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="pay_method_tester" value="AETH">
+              <span>AETH</span>
+            </label>
+        </div>
+
+        <div id="tester-pay-info"
+             class="mt-4 bg-black/30 border border-cyan-400/20 rounded-lg p-3 hidden">
+
+          <div class="text-xs text-gray-400 mb-1">Send to wallet</div>
+          <div class="text-cyan-300 font-mono text-sm break-all">
+            FZtoQTD7MLHvJzxxSPcUaQkXB5yP6qKYBZ8tUV18hHo1
+          </div>
+
+          <div class="text-xs text-gray-400 mt-3 mb-1">Send this amount</div>
+          <div id="tester-pay-amount" class="text-gray-200 text-sm font-semibold">-</div>
+
+          <div id="tester-aeth-note"
+               class="text-xs text-gray-400 mt-2 hidden">
+            AETH amount is calculated automatically.
+          </div>
+        </div>
+
+        <div class="flex justify-center mt-6 gap-3">
+          <button class="btn px-8 py-2.5 text-base" onclick="submitPromptTester()">Execute</button>
+        </div>
+
+        <div id="tester-result"
+          class="mt-5 text-sm bg-white/5 border border-cyan-400/10 rounded-lg p-3 overflow-auto max-h-64 hidden text-gray-300"></div>
+      </div>
+    </div>
+
+
+
+    <div id="modal-contract-bg" class="modal-bg">
+      <div class="modal bg-gray-950/95 backdrop-blur border border-cyan-400/20 rounded-2xl shadow-xl p-6 w-[520px]">
+
+        <div class="flex justify-between items-start mb-4">
+          <div>
+            <h3 class="text-cyan-300 text-xl font-semibold mb-1">Contract Intelligence Analyzer</h3>
+            <p class="text-sm text-gray-400">Price: <span class="text-cyan-300 font-semibold">1.00 USDC</span> per request.</p>
+            <p class="mt-2">
+              <button type="button" class="example-btn" data-slug="contract-intel">
+                See an example report
+              </button>
+              <span class="example-left text-xs text-gray-500 ml-2"></span>
+            </p>
+          </div>
+
+          <button type="button" onclick="closeContractModal()" aria-label="Close"
+                  class="text-gray-400 hover:text-cyan-300 text-2xl leading-none px-2">&times;</button>
+        </div>
+
+        <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+          Enter an Ethereum or Solana contract address.
+          Aetherix402 will extract metadata, functions, risks, and known issues.
+        </p>
+
+        <label class="block text-sm text-gray-400 mb-2">Contract Address</label>
+        <input id="contract-address"
+          class="w-full bg-white/5 border border-cyan-400/20 rounded-lg px-3 py-2 text-gray-200 outline-none"
+          placeholder="0x.... or Solana address" />
+
+        <label class="block text-sm text-gray-400 mb-1 mt-4">Network</label>
+        <select id="contract-network"
+          class="w-full bg-white/5 border border-cyan-400/20 rounded-lg px-3 py-2 text-gray-200">
+          <option value="ethereum">Ethereum</option>
+          <option value="solana">Solana</option>
+        </select>
+
+        <label class="block text-sm text-gray-400 mb-1 mt-4">Output format</label>
+        <select id="contract-output-format" class="w-full bg-white/5 border border-cyan-400/20 rounded-lg px-3 py-2 outline-none text-gray-200">
+          <option value="pdf" selected>Premium PDF (.pdf)</option>
+          <option value="txt">Plain Text (.txt)</option>
+          <option value="docx">Word Document (.docx)</option>
+          <option value="html">Web Page (.html)</option>
+          <option value="md">Markdown (.md)</option>
+        </select>
+
+        <label class="block text-sm text-gray-400 mt-4 mb-2">Payment method</label>
+        <div class="flex gap-4">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="pay_method_contract" value="USDC" checked>
+              <span>USDC</span>
+            </label>
+
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="pay_method_contract" value="AETH">
+              <span>AETH</span>
+            </label>
+        </div>
+
+        <div id="contract-pay-info"
+             class="mt-4 bg-black/30 border border-cyan-400/20 rounded-lg p-3 hidden">
+
+          <div class="text-xs text-gray-400 mb-1">Send to wallet</div>
+          <div class="text-cyan-300 font-mono text-sm break-all">
+            FZtoQTD7MLHvJzxxSPcUaQkXB5yP6qKYBZ8tUV18hHo1
+          </div>
+
+          <div class="text-xs text-gray-400 mt-3 mb-1">Send this amount</div>
+          <div id="contract-pay-amount"
+               class="text-gray-200 text-sm font-semibold">-</div>
+
+          <div id="contract-aeth-note"
+               class="text-xs text-gray-400 mt-2 hidden">
+             AETH amount is calculated automatically.
+          </div>
+        </div>
+
+        <div class="flex justify-center mt-6 gap-3">
+          <button class="btn px-8 py-2.5 text-base" onclick="submitContractIntel()">Analyze</button>
+        </div>
+
+        <div id="contract-result"
+          class="mt-5 text-sm bg-white/5 border border-cyan-400/10 rounded-lg p-3 overflow-auto max-h-64 hidden text-gray-300"></div>
+
+      </div>
+    </div>
+
+  <div id="modal-risk-bg" class="modal-bg">
+    <div class="modal bg-gray-950/95 backdrop-blur border border-cyan-400/20 rounded-2xl shadow-xl
+                p-4 w-[440px] max-h-[80vh] overflow-y-auto">
+
+      <div class="flex justify-between items-start mb-3">
+        <div>
+          <h3 class="text-cyan-300 text-lg font-semibold mb-1">Agent Risk & Simulation Engine</h3>
+          <p class="text-sm text-gray-400">
+            Price: <span class="text-cyan-300 font-semibold">0.75 USDC</span> per request.
+          </p>
+            <p class="mt-2">
+              <button type="button" class="example-btn" data-slug="risk-engine">
+                See an example report
+              </button>
+              <span class="example-left text-xs text-gray-500 ml-2"></span>
+            </p>
+        </div>
+        <button type="button" onclick="closeRiskModal()" aria-label="Close"
+                  class="text-gray-400 hover:text-cyan-300 text-2xl leading-none px-2">&times;</button>
+      </div>
+
+      <p class="text-gray-400 text-sm mb-3 leading-relaxed">
+        Run a Monte Carlo GBM simulation using configurable runs, steps, drift, volatility, and start price.
+        Output is exported through the same asset pipeline.
+      </p>
+
+      <label class="block text-sm text-gray-400 mb-1">Runs</label>
+      <input id="risk-runs" type="number" min="1" value="2000"
+        class="w-full bg-white/5 border border-cyan-400/20 rounded-lg px-3 py-1.5 text-gray-200 outline-none"/>
+
+      <label class="block text-sm text-gray-400 mb-1 mt-2">Steps</label>
+      <input id="risk-steps" type="number" min="1" value="252"
+        class="w-full bg-white/5 border border-cyan-400/20 rounded-lg px-3 py-1.5 text-gray-200 outline-none"/>
+
+      <label class="block text-sm text-gray-400 mb-1 mt-2">Mu (drift)</label>
+      <input id="risk-mu" type="number" step="0.0001" value="0.08"
+        class="w-full bg-white/5 border border-cyan-400/20 rounded-lg px-3 py-1.5 text-gray-200 outline-none"/>
+
+      <label class="block text-sm text-gray-400 mb-1 mt-2">Sigma (volatility)</label>
+      <input id="risk-sigma" type="number" step="0.0001" value="0.25"
+        class="w-full bg-white/5 border border-cyan-400/20 rounded-lg px-3 py-1.5 text-gray-200 outline-none"/>
+
+      <label class="block text-sm text-gray-400 mb-1 mt-2">Start Price</label>
+      <input id="risk-start-price" type="number" step="0.0001" value="1.0"
+        class="w-full bg-white/5 border border-cyan-400/20 rounded-lg px-3 py-1.5 text-gray-200 outline-none"/>
+
+      <label class="block text-sm text-gray-400 mb-1 mt-2">Seed (optional)</label>
+      <input id="risk-seed" type="number" placeholder="Leave empty for random"
+        class="w-full bg-white/5 border border-cyan-400/20 rounded-lg px-3 py-1.5 text-gray-200 outline-none"/>
+
+      <label class="block text-sm text-gray-400 mb-1 mt-3">Output format</label>
+      <select id="risk-output-format"
+        class="w-full bg-white/5 border border-cyan-400/20 rounded-lg px-3 py-1.5 outline-none text-gray-200">
+        <option value="pdf" selected>Premium PDF (.pdf)</option>
+        <option value="txt">Plain Text (.txt)</option>
+        <option value="docx">Word Document (.docx)</option>
+        <option value="html">Web Page (.html)</option>
+        <option value="md">Markdown (.md)</option>
+      </select>
+
+      <label class="block text-sm text-gray-400 mt-3 mb-1">Payment method</label>
+      <div class="flex gap-4">
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="radio" name="pay_method_risk" value="USDC" checked>
+          <span>USDC</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="radio" name="pay_method_risk" value="AETH">
+          <span>AETH</span>
+        </label>
+      </div>
+
+      <div id="risk-pay-info"
+           class="mt-3 bg-black/30 border border-cyan-400/20 rounded-lg p-2 hidden">
+        <div class="text-xs text-gray-400 mb-1">Send to wallet</div>
+        <div class="text-cyan-300 font-mono text-xs break-all">
+          FZtoQTD7MLHvJzxxSPcUaQkXB5yP6qKYBZ8tUV18hHo1
+        </div>
+
+        <div class="text-xs text-gray-400 mt-2 mb-1">Send this amount</div>
+        <div id="risk-pay-amount" class="text-gray-200 text-sm font-semibold">-</div>
+
+        <div id="risk-aeth-note" class="text-xs text-gray-400 mt-1 hidden">
+          AETH amount is calculated automatically.
+        </div>
+      </div>
+
+      <div class="flex justify-center mt-4">
+        <button class="btn px-7 py-2 text-base" onclick="submitRiskEngine()">Simulate</button>
+      </div>
+
+      <div id="risk-result"
+           class="mt-4 text-sm bg-white/5 border border-cyan-400/10 rounded-lg p-3 overflow-auto max-h-56 hidden text-gray-300"></div>
+
+    </div>
+  </div>
+
+<script>
+    const componentLocks = {
+      "prompt-optimizer": false,
+      "code-explainer": false,
+      "prompt-tester": false,
+      "contract-intel": false,
+      "risk-engine": false
+    };
+
+    async function safeJson(res) {
+      const text = await res.text();
+      try {
+        return JSON.parse(text);
+      } catch {
+        return { error: "Non-JSON response", raw: text.slice(0, 200) };
+      }
+    }
+
+    function lock(key) {
+      if (componentLocks[key]) return false;
+      componentLocks[key] = true;
+      return true;
+    }
+
+    function unlock(key) {
+       componentLocks[key] = false;
+    }
+</script>
+
+<script>
+async function callPaidComponent({ key, endpoint, payload, onQueued, payMethodName }) {
+  if (!lock(key)) return;
+
+  showLoading();
+
+  const selected =
+    document.querySelector(`input[name='${payMethodName}']:checked`)?.value || "USDC";
+
+  try {
+    let res = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-USER-WALLET": window.currentWallet,
+        "X-PAYMENT-METHOD": selected
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (res.status === 402) {
+      alert(
+        "Payment required.\n\n" +
+        "Send the shown amount to the provided wallet,\n" +
+        "then paste the transaction signature."
+      );
+
+      const sig = prompt("Paste your Solana transaction signature:");
+
+      if (!sig) {
+        hideLoading();
+        unlock(key);
+
+        return { cancelled: true };
+      }
+
+      res = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-USER-WALLET": window.currentWallet,
+          "X-TX-SIG": sig,
+          "X-PAYMENT-METHOD": selected
+        },
+        body: JSON.stringify(payload)
+      });
+    }
+
+    if (res.status === 409) {
+      alert("This transaction was already used. Please retry.");
+      return;
+    }
+
+    if (!res.ok) {
+      const err = await safeJson(res);
+      alert(err.detail || err.error || "Request failed.");
+      return;
+    }
+
+    const data = await safeJson(res);
+    onQueued?.(data);
+    return { success: true };
+
+  } catch (e) {
+    console.error(`[${key}]`, e);
+    alert("Unexpected error. Please retry.");
+  } finally {
+    hideLoading();
+    unlock(key);
+  }
+}
+</script>
+
+<script>
+async function updatePromptPayAmount() {
+  const method =
+    document.querySelector("input[name='pay_method_prompt']:checked")?.value || "USDC";
+
+  const box = document.getElementById("prompt-pay-info");
+  const amount = document.getElementById("prompt-pay-amount");
+  const note = document.getElementById("prompt-aeth-note");
+
+  box.classList.remove("hidden");
+
+  if (method === "USDC") {
+    note.classList.add("hidden");
+    amount.textContent = "0.25 USDC";
+    return;
+  }
+
+  note.classList.remove("hidden");
+  amount.textContent = "Fetching AETH amount…";
+
+  try {
+    const res = await fetch("/api/price/aeth?component=prompt-optimizer", { headers: aethHeaders() });
+    const data = await res.json();
+    amount.textContent = `${data.required_aeth} AETH`;
+  } catch {
+    amount.textContent = "Failed to fetch AETH amount";
+  }
+}
+
+document.querySelectorAll("input[name='pay_method_prompt']")
+  .forEach(r => r.addEventListener("change", updatePromptPayAmount));
+</script>
+
+<script>
+async function updateTesterPayAmount() {
+  const method =
+    document.querySelector("input[name='pay_method_tester']:checked")?.value || "USDC";
+
+  const box = document.getElementById("tester-pay-info");
+  const amount = document.getElementById("tester-pay-amount");
+  const note = document.getElementById("tester-aeth-note");
+
+  box.classList.remove("hidden");
+
+  if (method === "USDC") {
+    note.classList.add("hidden");
+    amount.textContent = "0.50 USDC";
+    return;
+  }
+
+  note.classList.remove("hidden");
+  amount.textContent = "Fetching AETH amount…";
+
+  try {
+    const res = await fetch("/api/price/aeth?component=prompt-tester", { headers: aethHeaders() });
+    const data = await res.json();
+    amount.textContent = `${data.required_aeth} AETH`;
+  } catch {
+    amount.textContent = "Failed to fetch AETH amount";
+  }
+}
+
+document.querySelectorAll("input[name='pay_method_tester']")
+  .forEach(r => r.addEventListener("change", updateTesterPayAmount));
+</script>
+
+<script>
+async function updateCodePayAmount() {
+  const method =
+    document.querySelector("input[name='pay_method_code']:checked")?.value || "USDC";
+
+  const box = document.getElementById("code-pay-info");
+  const amount = document.getElementById("code-pay-amount");
+  const note = document.getElementById("code-aeth-note");
+
+  box.classList.remove("hidden");
+
+  if (method === "USDC") {
+    note.classList.add("hidden");
+    amount.textContent = "0.50 USDC";
+    return;
+  }
+
+  note.classList.remove("hidden");
+  amount.textContent = "Fetching AETH amount…";
+
+  try {
+    const res = await fetch("/api/price/aeth?component=code-explainer", { headers: aethHeaders() });
+    const data = await res.json();
+    amount.textContent = `${data.required_aeth} AETH`;
+  } catch {
+    amount.textContent = "Failed to fetch AETH amount";
+  }
+}
+
+document.querySelectorAll("input[name='pay_method_code']")
+  .forEach(r => r.addEventListener("change", updateCodePayAmount));
+</script>
+
+<script>
+async function updateContractPayAmount() {
+  const method =
+    document.querySelector("input[name='pay_method_contract']:checked")?.value || "USDC";
+
+  const box = document.getElementById("contract-pay-info");
+  const amount = document.getElementById("contract-pay-amount");
+  const note = document.getElementById("contract-aeth-note");
+
+  box.classList.remove("hidden");
+
+  if (method === "USDC") {
+    note.classList.add("hidden");
+    amount.textContent = "1.00 USDC";
+    return;
+  }
+
+  note.classList.remove("hidden");
+  amount.textContent = "Fetching AETH amount…";
+
+  try {
+    const res = await fetch("/api/price/aeth?component=contract-intel", { headers: aethHeaders() });
+    const data = await res.json();
+    amount.textContent = `${data.required_aeth} AETH`;
+  } catch {
+    amount.textContent = "Failed to fetch AETH amount";
+  }
+}
+
+document.querySelectorAll("input[name='pay_method_contract']")
+  .forEach(r => r.addEventListener("change", updateContractPayAmount));
+</script>
+
+<script>
+async function submitPromptOptimizer() {
+  const text = document.getElementById("user-text").value.trim();
+  const format = document.getElementById("prompt-output-format").value;
+  // Empty means the user did not pick one; send null rather than "" so the
+  // API's Literal check does not reject it.
+  const target = document.getElementById("prompt-target").value || null;
+  const resultDiv = document.getElementById("result");
+
+  if (!window.currentWallet) return alert("Connect wallet first.");
+  if (!text) return alert("Enter text.");
+
+  resultDiv.classList.remove("hidden");
+  resultDiv.textContent = "Submitting…";
+
+  const res = await callPaidComponent({
+    key: "prompt-optimizer",
+    endpoint: "/api/prompt-optimizer",
+    payload: { text, format, target },
+    payMethodName: "pay_method_prompt",
+    onQueued: d => pollJobStatus(d.task_id, resultDiv, format)
+  });
+
+    if (res?.cancelled) {
+      resultDiv.classList.add("hidden");
+      resultDiv.textContent = "";
+    }
+}
+
+async function submitCodeExplainer() {
+  const text = document.getElementById("user-code").value.trim();
+  const format = document.getElementById("output-format").value;
+  const resultDiv = document.getElementById("code-result");
+
+  if (!window.currentWallet) return alert("Connect wallet first.");
+  if (!text) return alert("Paste code.");
+
+  resultDiv.classList.remove("hidden");
+  resultDiv.textContent = "Submitting…";
+
+  const res = await callPaidComponent({
+    key: "code-explainer",
+    endpoint: "/api/code-explainer",
+    payload: { text, format },
+    payMethodName: "pay_method_code",
+    onQueued: d => pollJobStatus(d.task_id, resultDiv, format)
+  });
+
+  if (res?.cancelled) {
+    resultDiv.classList.add("hidden");
+    resultDiv.textContent = "";
+  }
+}
+
+async function submitPromptTester() {
+  const text = document.getElementById("tester-text").value.trim();
+  const format = document.getElementById("tester-output-format").value;
+  const resultDiv = document.getElementById("tester-result");
+
+  if (!window.currentWallet) return alert("Connect wallet first.");
+  if (!text) return alert("Enter prompt.");
+
+  resultDiv.classList.remove("hidden");
+  resultDiv.textContent = "Submitting…";
+
+  const res = await callPaidComponent({
+    key: "prompt-tester",
+    endpoint: "/api/prompt-tester",
+    payload: { text, format },
+    payMethodName: "pay_method_tester",
+    onQueued: d => pollJobStatus(d.task_id, resultDiv, format)
+  });
+
+  if (res?.cancelled) {
+    resultDiv.classList.add("hidden");
+    resultDiv.textContent = "";
+  }
+}
+
+async function submitContractIntel() {
+  const contract_address = document.getElementById("contract-address").value.trim();
+  const network = document.getElementById("contract-network").value;
+  const format = document.getElementById("contract-output-format").value;
+  const resultDiv = document.getElementById("contract-result");
+
+  if (!window.currentWallet) return alert("Connect wallet first.");
+  if (!contract_address) return alert("Enter contract address.");
+
+  resultDiv.classList.remove("hidden");
+  resultDiv.textContent = "Submitting…";
+
+  const res = await callPaidComponent({
+    key: "contract-intel",
+    endpoint: "/api/contract-intel",
+    payload: { contract_address, network, format },
+    payMethodName: "pay_method_contract",
+    onQueued: d => pollJobStatus(d.task_id, resultDiv, format)
+  });
+
+  if (res?.cancelled) {
+    resultDiv.classList.add("hidden");
+    resultDiv.textContent = "";
+  }
+}
+</script>
+
+    <script>
+  function detectNetworkFromAddress(addr) {
+    const ethRegex = /^0x[a-fA-F0-9]{40}$/;
+
+    const solRegex = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
+
+    if (ethRegex.test(addr)) return "ethereum";
+    if (solRegex.test(addr)) return "solana";
+    return null;
+  }
+
+  function closeModal() {
+    document.getElementById("modal-bg").style.display = "none";
+  }
+
+  function closeCodeModal() {
+    document.getElementById("modal-code-bg").style.display = "none";
+  }
+
+  function closeContractModal() {
+  document.getElementById("modal-contract-bg").style.display = "none";
+}
+
+  const searchInput = document.getElementById("search");
+  const filterButtons = document.querySelectorAll("[data-filter-btn]");
+  const cards = document.querySelectorAll("#components-grid .card");
+  let activeCategory = "All";
+
+   function applyFilters() {
+    const term = (searchInput?.value || "").trim().toLowerCase();
+
+    cards.forEach((card) => {
+      const name = (card.dataset.name || "").toLowerCase();
+      const cat = card.dataset.category || "All";
+
+      const matchesSearch = !term || name.includes(term);
+      const matchesCategory =
+        activeCategory === "All" || cat === activeCategory;
+
+      if (matchesSearch && matchesCategory) {
+        card.style.display = "flex";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+
+    const addrInput = document.getElementById("contract-address");
+    const networkSelect = document.getElementById("contract-network");
+
+    if (addrInput && networkSelect) {
+      addrInput.addEventListener("input", () => {
+        const detected = detectNetworkFromAddress(addrInput.value.trim());
+        if (detected) networkSelect.value = detected;
+      });
+    }
+
+    function closeTesterModal(){ document.getElementById("modal-tester-bg").style.display = "none"; }
+
+    window.closeTesterModal = closeTesterModal;
+    window.closeContractModal = closeContractModal;
+
+  if (searchInput) {
+    searchInput.addEventListener("input", () => applyFilters());
+  }
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const cat = btn.dataset.category || "All";
+
+      if (activeCategory === cat && cat !== "All") {
+        activeCategory = "All";
+      } else {
+        activeCategory = cat;
+      }
+
+      filterButtons.forEach((b) => b.classList.remove("active"));
+      filterButtons.forEach((b) => {
+        if (b.dataset.category === activeCategory) {
+          b.classList.add("active");
+        }
+      });
+
+      applyFilters();
+    });
+  });
+
+  applyFilters();
+
+  window.closeModal = closeModal;
+});
+
+async function loadMyAssets(page = 1) {
+  const section = document.getElementById("my-assets-section");
+  const list = document.getElementById("my-assets-list");
+  if (!window.currentWallet) return;
+
+  section.classList.remove("hidden");
+  list.innerHTML = "<p class='text-gray-400 text-center'>Loading your assets...</p>";
+
+  try {
+    const res = await fetch(`/api/my-assets/${window.currentWallet}?page=${page}`);
+    const data = await res.json();
+    const entries = data.entries || [];
+
+    if (entries.length === 0) {
+      list.innerHTML = "<p class='text-gray-500 text-center'>No assets yet. Run a component!</p>";
+      return;
+    }
+
+    list.innerHTML = entries.map(e => `
+      <div class="flex justify-between items-center border-b border-cyan-400/10 py-2">
+        <div>
+          <div class="text-cyan-300 font-semibold">${e.component}</div>
+          <div class="text-xs text-gray-400">${new Date(e.timestamp * 1000).toLocaleString()}</div>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-cyan-400 font-mono text-sm">
+              ${e.price.toFixed(2)} ${e.currency}
+          </span>
+          ${e.filename
+            ? `<a href="/download/${e.filename}" class="text-cyan-300 hover:text-cyan-200 text-sm">Download</a>`
+            : `<span class="text-gray-500 text-sm">${e.status === "pending" ? "building" : e.status}</span>`}
+        </div>
+      </div>
+    `).join("");
+
+    list.innerHTML += `
+      <div class="flex justify-center items-center gap-6 mt-6">
+        ${data.page > 1 ? `
+          <button onclick="loadMyAssets(${data.page - 1})"
+            class="px-4 py-2 bg-gray-800 text-cyan-300 rounded-lg hover:bg-gray-700">
+            ← Previous
+          </button>
+        ` : ""}
+
+        <span class="text-gray-400">
+          Page <span class="text-cyan-300">${data.page}</span> of
+          <span class="text-cyan-300">${data.total_pages}</span>
+        </span>
+
+        ${data.page < data.total_pages ? `
+          <button onclick="loadMyAssets(${data.page + 1})"
+            class="px-4 py-2 bg-gray-800 text-cyan-300 rounded-lg hover:bg-gray-700">
+            Next →
+          </button>
+        ` : ""}
+      </div>
+    `;
+
+  } catch (err) {
+    console.error("Error loading assets:", err);
+    list.innerHTML = `<p class='text-red-400 text-center'>Error loading assets.</p>`;
+  }
+}
+
+function onWalletConnected() {
+  const assetsSection = document.getElementById("my-assets-section");
+  if (window.currentWallet && assetsSection) {
+    loadMyAssets();
+  }
+}
+
+window.addEventListener("wallet:connected", () => {
+  onWalletConnected();
+});
+
+async function pollJobStatus(taskId, resultDiv, userFormat = "pdf", onDone = null) {
+  resultDiv.textContent = "Processing your request... don’t refresh. (20-60s)";
+  while (true) {
+    const res = await fetch(`/api/job-status/${taskId}`);
+    const data = await res.json();
+
+    if (data.state === "SUCCESS") {
+      const url = data.result.download_url;
+      const format = userFormat || data.result.format || "pdf";
+      const label = format.toUpperCase();
+
+      resultDiv.innerHTML = `
+        <b>Completed!</b><br>
+        <a href="${url}" target="_blank" class="text-cyan-400 underline">
+          Download ${label}
+        </a>
+      `;
+
+      if (format === "pdf") {
+        window.open(url, "_blank");
+      } else {
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `aetherix402_${Date.now()}.${format}`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+
+      hideLoading();
+      if (onDone) { try { onDone(); } catch (e) {} }
+      break;
+    }
+
+    if (data.state === "FAILURE") {
+      resultDiv.textContent = "Failed: " + (data.error || "Unknown error");
+      hideLoading();
+      break;
+    }
+
+    await new Promise(r => setTimeout(r, 3000));
+  }
+}
+
+async function updateRiskPayAmount() {
+  const method =
+    document.querySelector("input[name='pay_method_risk']:checked")?.value || "USDC";
+
+  const box = document.getElementById("risk-pay-info");
+  const amount = document.getElementById("risk-pay-amount");
+  const note = document.getElementById("risk-aeth-note");
+
+  box.classList.remove("hidden");
+
+  const usdcPrice = 0.75;
+
+  if (method === "USDC") {
+    note.classList.add("hidden");
+    amount.textContent = `${usdcPrice.toFixed(2)} USDC`;
+    return;
+  }
+
+  note.classList.remove("hidden");
+  amount.textContent = "Fetching AETH amount…";
+
+  try {
+    const res = await fetch("/api/price/aeth?component=risk-engine", { headers: aethHeaders() });
+    const data = await res.json();
+    amount.textContent = `${data.required_aeth} AETH`;
+  } catch {
+    amount.textContent = "Failed to fetch AETH amount";
+  }
+}
+
+async function submitRiskEngine() {
+  const runs = parseInt(document.getElementById("risk-runs").value, 10);
+  const steps = parseInt(document.getElementById("risk-steps").value, 10);
+  const mu = parseFloat(document.getElementById("risk-mu").value);
+  const sigma = parseFloat(document.getElementById("risk-sigma").value);
+  const start_price = parseFloat(document.getElementById("risk-start-price").value);
+  const seedRaw = document.getElementById("risk-seed").value.trim();
+  const seed = seedRaw === "" ? null : parseInt(seedRaw, 10);
+
+  const format = document.getElementById("risk-output-format").value;
+  const resultDiv = document.getElementById("risk-result");
+
+  if (!window.currentWallet) return alert("Connect wallet first.");
+  if (!Number.isInteger(runs) || runs <= 0) return alert("Runs must be > 0.");
+  if (!Number.isInteger(steps) || steps <= 0) return alert("Steps must be > 0.");
+  if (!Number.isFinite(mu)) return alert("Mu must be a number.");
+  if (!Number.isFinite(sigma) || sigma < 0) return alert("Sigma must be >= 0.");
+  if (!Number.isFinite(start_price) || start_price <= 0) return alert("Start price must be > 0.");
+  if (seed !== null && !Number.isInteger(seed)) return alert("Seed must be an integer or empty.");
+
+  resultDiv.classList.remove("hidden");
+  resultDiv.textContent = "Submitting…";
+
+  const res = await callPaidComponent({
+    key: "risk-engine",
+    endpoint: "/api/risk-engine",
+    payload: { runs, steps, mu, sigma, start_price, seed, format },
+    payMethodName: "pay_method_risk",
+    onQueued: d => pollJobStatus(d.task_id, resultDiv, format)
+  });
+
+  if (res?.cancelled) {
+    resultDiv.classList.add("hidden");
+    resultDiv.textContent = "";
+  }
+}
+
+function closeRiskModal() {
+  document.getElementById("modal-risk-bg").style.display = "none";
+}
+window.closeRiskModal = closeRiskModal;
+
+document.querySelectorAll("input[name='pay_method_risk']")
+  .forEach(r => r.addEventListener("change", updateRiskPayAmount));
+</script>
+
+<script>
+function requireWallet() {
+  if (!window.currentWallet) {
+    alert("Connect your wallet first.");
+    return false;
+  }
+  return true;
+}
+</script>
+
+<script>
+function showLoading() {
+  document.getElementById("loading")?.classList.remove("hidden");
+}
+
+function hideLoading() {
+  document.getElementById("loading")?.classList.add("hidden");
+}
+</script>
+
+<script>
+function toggleMobileMenu() {
+    const nav = document.getElementById("mobile-nav");
+    nav.classList.toggle("hidden");
+    nav.classList.toggle("flex");
+}
+</script>
+
+
+<style>
+  .site-tab {
+    padding: .4rem .9rem; font-size: .8rem; font-weight: 600;
+    color: #94a3b8; background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.1); border-radius: .5rem; cursor: pointer;
+  }
+  .site-tab-on { color: #67e8f9; background: rgba(34,211,238,.1); border-color: rgba(34,211,238,.4); }
+  /* Quieter than Use: the point is that reading one costs nothing. */
+  .example-btn {
+    display: inline-block; margin-left: .5rem; padding: .12rem .6rem;
+    font-size: .68rem; font-weight: 600; letter-spacing: .02em; line-height: 1.5;
+    color: #67e8f9; background: rgba(103,232,249,.07);
+    border: 1px solid rgba(103,232,249,.28); border-radius: 999px;
+    cursor: pointer; white-space: nowrap; vertical-align: middle;
+    transition: background .15s, color .15s;
+  }
+  .example-btn:hover { background: rgba(103,232,249,.18); color: #a5f3fc; }
+
+  #example-bg .modal { width: min(60rem, calc(100vw - 3rem)); }
+  #example-body {
+    background: #070b14; border: 1px solid rgba(103,232,249,.14);
+    border-radius: .6rem; padding: 1.1rem 1.3rem;
+    font-family: 'Geist Mono', ui-monospace, monospace;
+    font-size: .72rem; line-height: 1.6; color: #cbd5e1;
+    white-space: pre-wrap; word-break: break-word;
+    max-height: 62vh; overflow-y: auto;
+  }
+</style>
+
+<div id="example-bg" class="modal-bg" style="display:none">
+  <div class="modal bg-gray-950/95 backdrop-blur border border-cyan-400/20 rounded-2xl shadow-xl p-6">
+    <div class="flex justify-between items-start mb-1">
+      <h3 id="example-title" class="text-cyan-300 text-xl font-semibold">Example report</h3>
+      <button onclick="document.getElementById('example-bg').style.display='none'"
+              class="text-gray-400 hover:text-cyan-300 text-lg">&times;</button>
+    </div>
+    <p class="text-sm text-gray-400 mb-4">
+      A real report this component produced, unedited. Yours is generated from your
+      own input, so it will differ in content rather than in shape. Each wallet can
+      open three examples across the whole shop, so pick the ones that matter.
+    </p>
+    <pre id="example-body">Loading...</pre>
+    <p id="example-note" class="text-xs text-gray-500 mt-3"></p>
+  </div>
+</div>
+
+<script>
+// Examples are metered per wallet across the whole shop, so a visitor picks
+// which reports to spend their allowance on rather than reading every one.
+async function refreshExampleAllowance() {
+  const labels = document.querySelectorAll(".example-left");
+  if (!labels.length) return;
+
+  let state = { connected: false, remaining: null, seen: [] };
+  try {
+    const headers = window.currentWallet ? { "X-USER-WALLET": window.currentWallet } : {};
+    state = await (await fetch("/api/examples", { headers })).json();
+  } catch (e) { /* leave the label blank rather than guess */ }
+
+  for (const label of labels) {
+    const slug = label.previousElementSibling?.dataset?.slug;
+    if (!state.connected) {
+      label.textContent = "connect a wallet to read one";
+    } else if (state.seen.includes(slug)) {
+      label.textContent = "already opened, free to reread";
+    } else if (state.remaining > 0) {
+      label.textContent = `${state.remaining} of ${state.allowance} left`;
+    } else {
+      label.textContent = "no examples left";
+    }
+  }
+}
+
+document.querySelectorAll(".example-btn").forEach(btn => {
+  btn.addEventListener("click", async () => {
+    const bg = document.getElementById("example-bg");
+    const body = document.getElementById("example-body");
+    const note = document.getElementById("example-note");
+
+    document.getElementById("example-title").textContent = "Example report";
+    body.textContent = "Loading...";
+    note.textContent = "";
+    bg.style.display = "flex";
+
+    try {
+      const headers = window.currentWallet ? { "X-USER-WALLET": window.currentWallet } : {};
+      const r = await fetch(`/api/examples/${btn.dataset.slug}`, { headers });
+      const d = await r.json();
+
+      if (!r.ok) {
+        body.textContent = d.detail || "This example could not be loaded.";
+      } else if (d.as_page) {
+        // Rendered rather than printed, because the thing being judged is how
+        // the page looks. Sandboxed with no allow-scripts, so nothing in the
+        // example can run.
+        body.textContent = "";
+        const frame = document.createElement("iframe");
+        frame.setAttribute("sandbox", "");
+        frame.srcdoc = d.report;
+        frame.style.cssText = "width:100%;height:60vh;border:1px solid rgba(34,211,238,.2);border-radius:.6rem;background:#fff";
+        body.appendChild(frame);
+        note.textContent = d.already_seen
+          ? "You have opened this one before, so it did not cost you another."
+          : `${d.remaining} example${d.remaining === 1 ? "" : "s"} left on this wallet.`;
+      } else {
+        body.textContent = d.report;
+        note.textContent = d.already_seen
+          ? "You have opened this one before, so it did not cost you another."
+          : `${d.remaining} example${d.remaining === 1 ? "" : "s"} left on this wallet.`;
+      }
+    } catch (e) {
+      body.textContent = "This example could not be loaded.";
+    }
+    body.scrollTop = 0;
+    refreshExampleAllowance();
+  });
+});
+
+document.addEventListener("DOMContentLoaded", refreshExampleAllowance);
+// The count is per wallet, so it changes when one connects.
+window.addEventListener("aetherix402:wallet", refreshExampleAllowance);
+</script>
+
+</div>
+
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-cyan-900/30 mt-12 text-center text-sm text-gray-500 p-6">
+      © 2026 Aetherix402 · Powered by the X402 protocol.
+      <div class="space-x-4 mt-2">
+        <a href="https://github.com/Aetherix402/Aetherix402" target="_blank" class="hover:text-cyan-300 transition">GitHub</a>
+        <a href="https://x.com/Aetherix402" target="_blank" class="text-gray-400 hover:text-cyan-300 transition">X</a>
+        <a href="/learn" class="hover:text-cyan-300 transition">Learn</a>
+        <a href="/roadmap" class="hover:text-cyan-300 transition">Roadmap</a>
+        <a href="/legal" class="hover:text-cyan-300 transition">Legal</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Wallet Selection Modal -->
+  <div id="wallet-select-modal" class="modal-bg" style="display:none;"
+       role="dialog" aria-modal="true" aria-labelledby="wallet-modal-title">
+    <div class="modal">
+
+      <div class="flex items-start justify-between mb-1">
+        <h3 id="wallet-modal-title" class="text-white text-base font-semibold tracking-tight">Connect a wallet</h3>
+        <button type="button" class="wallet-close" aria-label="Close"
+                onclick="closeWalletModal()">&times;</button>
+      </div>
+      <p class="text-xs text-gray-400 mb-5">
+        Aetherix402 never holds your keys. You approve every payment in your own wallet.
+      </p>
+
+      <p class="wallet-group-label">Solana</p>
+      <div class="wallet-list mb-4">
+
+        <button class="wallet-row" data-wallet="phantom" onclick="connectPhantom()">
+          <span class="wallet-logo" style="background:#ab9ff2"><img src="/static/wallets/phantom-purple.png?v=1788191516" alt="" width="22" height="22" loading="lazy"></span>
+          <span class="wallet-meta">
+            <span class="wallet-name">Phantom</span>
+            <span class="wallet-sub" data-detect="phantom">Detecting…</span>
+          </span>
+          <span class="wallet-chev" aria-hidden="true">&rsaquo;</span>
+        </button>
+
+        <button class="wallet-row" data-wallet="solflare" onclick="connectSolflare()">
+          <span class="wallet-logo" style="background:#0a0a0a"><img src="/static/wallets/solflare.png?v=1788191516" alt="" width="22" height="22" loading="lazy"></span>
+          <span class="wallet-meta">
+            <span class="wallet-name">Solflare</span>
+            <span class="wallet-sub" data-detect="solflare">Detecting…</span>
+          </span>
+          <span class="wallet-chev" aria-hidden="true">&rsaquo;</span>
+        </button>
+
+        <button class="wallet-row" data-wallet="backpack" onclick="connectBackpack()">
+          <span class="wallet-logo" style="background:#0a0a0a"><img src="/static/wallets/backpack.png?v=1788191516" alt="" width="22" height="22" loading="lazy"></span>
+          <span class="wallet-meta">
+            <span class="wallet-name">Backpack</span>
+            <span class="wallet-sub" data-detect="backpack">Detecting…</span>
+          </span>
+          <span class="wallet-chev" aria-hidden="true">&rsaquo;</span>
+        </button>
+      </div>
+
+      <p class="wallet-group-label">Ethereum</p>
+      <div class="wallet-list">
+        <button class="wallet-row" data-wallet="metamask" onclick="connectMetamask()">
+          <span class="wallet-logo" style="background:#0a0a0a"><img src="/static/wallets/metamask.png?v=1788191516" alt="" width="22" height="22" loading="lazy"></span>
+          <span class="wallet-meta">
+            <span class="wallet-name">MetaMask</span>
+            <span class="wallet-sub" data-detect="metamask">Detecting…</span>
+          </span>
+          <span class="wallet-chev" aria-hidden="true">&rsaquo;</span>
+        </button>
+      </div>
+
+      <button type="button" class="wallet-cancel" onclick="closeWalletModal()">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Ambient particles init -->
+  <script>
+    (function initParticles(){
+      const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduced) return;
+
+      const container = document.getElementById("particle-container");
+      if (!container) return;
+
+      const count = 80;
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement("div");
+        p.className = "particle";
+        p.style.left = (Math.random() * 100) + "%";
+        p.style.opacity = (0.25 + Math.random() * 0.5).toFixed(2);
+        p.style.animationDuration = (4 + Math.random() * 10) + "s";
+        p.style.animationDelay = (Math.random() * 6) + "s";
+        container.appendChild(p);
+      }
+    })();
+  </script>
+
+  <!-- WALLET JS -->
+  <script>
+    let currentWallet = "";
+    let currentChain  = "";
+    window.currentWallet = "";
+    const walletBtn = document.getElementById("connect-wallet");
+
+    function shorten(addr) { return addr.slice(0,4) + "..." + addr.slice(-4); }
+
+    function updateWalletUI() {
+      const mobileWalletBtn = document.getElementById("mobile-connect-wallet");
+      const label = document.getElementById("connect-wallet-label");
+      const mobileLabel = document.getElementById("mobile-connect-wallet-label");
+
+      const connected = !!currentWallet;
+      const text = connected ? shorten(currentWallet) : "Connect Wallet";
+
+      if (label) label.textContent = text;
+      if (mobileLabel) mobileLabel.textContent = text;
+
+      walletBtn.classList.toggle("is-connected", connected);
+      walletBtn.title = connected ? currentWallet + " (click to disconnect)" : "Connect a wallet";
+      if (mobileWalletBtn) mobileWalletBtn.classList.toggle("is-connected", connected);
+    }
+
+    async function connectPhantom() {
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      const hasPhantom = !!window.solana?.isPhantom;
+
+      // MOBILE: redirect into Phantom app browser
+      if (isMobile && !hasPhantom) {
+        const target = encodeURIComponent(window.location.href);
+        window.location.href = `https://phantom.app/ul/browse/${target}`;
+        return;
+      }
+
+      // DESKTOP without Phantom
+      if (!hasPhantom) {
+        alert("Please install the Phantom browser extension to continue.");
+        return;
+      }
+
+      try {
+        await window.solana.disconnect().catch(() => {});
+        const res = await window.solana.connect({ onlyIfTrusted: false });
+        currentWallet = res.publicKey.toString();
+        window.currentProvider = window.solana;
+        currentChain = "solana";
+        window.currentWallet = currentWallet;
+        window.dispatchEvent(new CustomEvent('aetherix402:wallet', { detail: currentWallet }));
+        updateWalletUI();
+        window.dispatchEvent(new Event("wallet:connected"));
+      } catch (err) {
+        console.error(err);
+      }
+
+      document.getElementById("wallet-select-modal").style.display = "none";
+    }
+
+    function closeWalletModal() {
+      document.getElementById("wallet-select-modal").style.display = "none";
+    }
+
+    /* Adopt whatever provider object a wallet injected, then share the result
+       through the same globals and event the Phantom path already uses. */
+    async function adoptSolanaProvider(provider, label) {
+      if (!provider) {
+        alert(label + " was not detected. Install it, then reload this page.");
+        return;
+      }
+      try {
+        await provider.disconnect?.().catch(() => {});
+        const res = await provider.connect({ onlyIfTrusted: false });
+        currentWallet = (res?.publicKey ?? provider.publicKey).toString();
+        window.currentProvider = provider;
+        currentChain = "solana";
+        window.currentWallet = currentWallet;
+        window.dispatchEvent(new CustomEvent('aetherix402:wallet', { detail: currentWallet }));
+        window.currentChain = currentChain;
+        updateWalletUI();
+        window.dispatchEvent(new Event("wallet:connected"));
+      } catch (err) {
+        console.error(err);
+      }
+      closeWalletModal();
+    }
+
+    function connectSolflare() {
+      adoptSolanaProvider(window.solflare, "Solflare");
+    }
+
+    function connectBackpack() {
+      adoptSolanaProvider(window.backpack?.solana || window.xnf?.solana, "Backpack");
+    }
+
+    async function connectMetamask() {
+      if (!window.ethereum) {
+        alert("MetaMask was not detected. Install it, then reload this page.");
+        return;
+      }
+      try {
+        const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+        currentWallet = accounts[0];
+        currentChain = "ethereum";
+        window.currentWallet = currentWallet;
+        window.dispatchEvent(new CustomEvent('aetherix402:wallet', { detail: currentWallet }));
+        window.currentChain = currentChain;
+        updateWalletUI();
+        window.dispatchEvent(new Event("wallet:connected"));
+      } catch(err) {
+        console.error(err);
+      }
+      closeWalletModal();
+    }
+
+    /* Tell the reader which wallets are actually available before they click. */
+    function refreshWalletAvailability() {
+      const found = {
+        phantom:  !!(window.phantom?.solana?.isPhantom || window.solana?.isPhantom),
+        solflare: !!window.solflare,
+        backpack: !!(window.backpack?.solana || window.xnf?.solana),
+        metamask: !!window.ethereum,
+      };
+      document.querySelectorAll("[data-detect]").forEach(el => {
+        const installed = found[el.dataset.detect];
+        el.textContent = installed ? "Installed" : "Not detected";
+        el.classList.toggle("is-installed", installed);
+      });
+    }
+
+    walletBtn.addEventListener("click", () => {
+      if (!currentWallet) {
+        refreshWalletAvailability();
+        document.getElementById("wallet-select-modal").style.display = "flex";
+      } else {
+        if (confirm("Disconnect wallet?")) {
+          currentWallet = "";
+          currentChain = "";
+          window.currentWallet = "";
+          updateWalletUI();
+        }
+      }
+    });
+
+    const walletModal = document.getElementById("wallet-select-modal");
+    walletModal.addEventListener("click", (e) => {
+      if (e.target === walletModal) closeWalletModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && walletModal.style.display === "flex") closeWalletModal();
+    });
+  </script>
+
+  <script>
+    const mobileWalletBtn = document.getElementById("mobile-connect-wallet");
+    if (mobileWalletBtn) {
+      mobileWalletBtn.addEventListener("click", () => {
+        if (!currentWallet) {
+          document.getElementById("wallet-select-modal").style.display = "flex";
+        } else {
+          if (confirm("Disconnect wallet?")) {
+            currentWallet = "";
+            currentChain = "";
+            window.currentWallet = "";
+            updateWalletUI();
+          }
+        }
+      });
+    }
+  </script>
+
+  <script>
+    async function registerPayment({ txSig, payMethod }) {
+      if (!currentWallet) throw new Error("Wallet not connected");
+      return { txSig, wallet: currentWallet, method: payMethod || "USDC" };
+    }
+  </script>
+
+  <script>
+    function toggleMobileMenu() {
+      const nav = document.getElementById("mobile-nav");
+      if (!nav) return;
+      nav.classList.toggle("hidden");
+      nav.classList.toggle("flex");
+    }
+  </script>
+
+  <script>
+    async function requestTxSignature() {
+      const sig = prompt("Paste your transaction signature:");
+      if (!sig) throw new Error("Transaction signature required");
+      return sig.trim();
+    }
+  </script>
+
+  <script>
+    function forceClosePaymentModal() {
+      const modal = document.getElementById("payment-modal");
+      if (!modal) return;
+      modal.style.display = "none";
+      modal.classList.remove("flex");
+      document.body.style.pointerEvents = "auto";
+    }
+  </script>
+
+  <script>
+    const globalLocks = {};
+    function lock(key) { if (globalLocks[key]) return false; globalLocks[key] = true; return true; }
+    function unlock(key) { globalLocks[key] = false; }
+    async function safeJson(res) {
+      const text = await res.text();
+      try { return JSON.parse(text); }
+      catch { return { error: "Invalid JSON response", raw: text.slice(0, 200) }; }
+    }
+  </script>
+
+  <script>
+    let lastStatusCheck = Date.now();
+    function timeAgo(ts) {
+      const sec = Math.floor((Date.now() - ts) / 1000);
+      if (sec < 5) return "just now";
+      if (sec < 60) return `${sec}s ago`;
+      return `${Math.floor(sec / 60)}m ago`;
+    }
+
+    async function checkSystemStatus() {
+      const els = [
+        document.getElementById("system-status"),
+        document.getElementById("system-status-mobile")
+      ].filter(Boolean);
+
+      if (!els.length) return;
+
+      function paint(state, label) {
+        lastStatusCheck = Date.now();
+        els.forEach(el => {
+          el.classList.remove("is-ok", "is-degraded", "is-down");
+          el.classList.add(state);
+          const t = el.querySelector(".status-chip-text");
+          if (t) t.textContent = label;
+          el.title = label + " . Click for the full status page";
+        });
+      }
+
+      const setOperational = () => paint("is-ok", "All systems operational");
+      const setDegraded    = () => paint("is-degraded", "Partially degraded");
+      const setDown        = () => paint("is-down", "Service disruption");
+
+      try {
+        const res = await fetch("/api/status", { cache: "no-store" });
+        const json = await res.json();
+        if (json?.overall === "operational") setOperational();
+        else if (json?.overall === "degraded") setDegraded();
+        else setDown();
+      } catch {
+        setDown();
+      }
+    }
+
+    checkSystemStatus();
+    setInterval(checkSystemStatus, 15000);
+  </script>
+
+  
+
+<script>
+// Escape closes whatever modal is open, on every page.
+//
+// Five purchase modals shipped with their close button emptied, which left a
+// visitor who opened one with no way out but a page reload. A keyboard route
+// costs nothing and does not depend on a glyph rendering.
+//
+// Clicking the backdrop deliberately does not close anything: these modals hold
+// text somebody typed, and losing a long prompt to a stray click is worse than
+// one extra keystroke.
+document.addEventListener("keydown", function (e) {
+  if (e.key !== "Escape") return;
+  document.querySelectorAll(".modal-bg").forEach(function (m) {
+    const shown = m.style.display && m.style.display !== "none";
+    if (shown || getComputedStyle(m).display === "flex") m.style.display = "none";
+  });
+});
+</script>
+</body>
+</html>

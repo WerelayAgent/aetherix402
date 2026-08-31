@@ -1,0 +1,55 @@
+@keyframes loading {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+.animate-loading {
+  animation: loading 3s infinite;
+}
+
+/* Only the item name is struck through, not its description.
+   Striking the whole line was fine when items were three words; with a
+   sentence of detail behind each one it made everything already shipped the
+   hardest part of the page to read. */
+.roadmap-done strong {
+  background-image: linear-gradient(#22d3ee 2px, transparent 0);
+  background-repeat: repeat-x;
+  background-size: 100% 0.9em;
+  background-position: 0 0.60em;
+}
+
+.roadmap-done span {
+  color: rgba(148, 163, 184, 0.85);
+}
+
+ul li.roadmap-done {
+  padding-left: 0.25rem;
+}
+
+/* ── typography ──────────────────────────────────────────────────────────
+   Geist everywhere, including elements that never carried a Tailwind font
+   class. Set on the root rather than only on body, so anything rendered
+   outside it inherits too. Falls back to the system stack while the webfont
+   loads, which is why display=swap is on the link.
+   ───────────────────────────────────────────────────────────────────────── */
+:root,
+html,
+body {
+  font-family: 'Geist', ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+/* Buttons and form controls do not inherit the page font on their own. */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+code,
+pre,
+kbd,
+samp,
+.font-mono {
+  font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}

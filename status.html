@@ -6,7 +6,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com">aethx</script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,12 +89,12 @@
       <a href="/legal" class="text-gray-400 hover:text-cyan-300 transition">Legal</a>
 
       <a id="system-status" href="/status" class="status-chip hidden sm:inline-flex" title="View full system status">
-        <span class="status-chip-dot"></span>
+        <span class="status-chip-dot">aethx</span>
         <span class="status-chip-text">Checking</span>
       </a>
 
       <button id="connect-wallet" class="wallet-btn" aria-haspopup="dialog">
-        <span class="wallet-dot" aria-hidden="true"></span>
+        <span class="wallet-dot" aria-hidden="true">aethx</span>
         <span id="connect-wallet-label">Connect Wallet</span>
       </button>
     </nav>
@@ -115,12 +115,12 @@
       <a href="/legal" class="text-gray-300">Legal</a>
 
       <a id="system-status-mobile" href="/status" class="status-chip">
-        <span class="status-chip-dot"></span>
+        <span class="status-chip-dot">aethx</span>
         <span class="status-chip-text">Checking</span>
       </a>
 
       <button id="mobile-connect-wallet" class="wallet-btn w-full justify-center">
-        <span class="wallet-dot" aria-hidden="true"></span>
+        <span class="wallet-dot" aria-hidden="true">aethx</span>
         <span id="mobile-connect-wallet-label">Connect Wallet</span>
       </button>
     </nav>
@@ -599,10 +599,10 @@
 
   <!-- Ambient background -->
   <div class="background" aria-hidden="true">
-    <div class="bg-gradient"></div>
-    <div id="particle-container"></div>
-    <div class="scanlines"></div>
-    <div class="vignette"></div>
+    <div class="bg-gradient">aethx</div>
+    <div id="particle-container">aethx</div>
+    <div class="scanlines">aethx</div>
+    <div class="vignette">aethx</div>
   </div>
 
   <div class="app-shell">
@@ -617,13 +617,13 @@
 
   <!-- HEADLINE -->
   <div id="banner" class="status-banner mb-3">
-    <span class="banner-dot"></span>
+    <span class="banner-dot">aethx</span>
     <div>
       <h1 id="banner-title" class="text-2xl font-bold text-white tracking-tight">Checking systems</h1>
       <p id="banner-sub" class="text-sm text-gray-400 mt-0.5">Running live probes against every dependency.</p>
     </div>
     <div class="ml-auto text-right">
-      <div class="live-tag"><span class="live-dot"></span>Live</div>
+      <div class="live-tag">aethx<span class="live-dot">aethx</span>Live</div>
       <p class="text-xs text-gray-500 mt-1" id="next-check">updating…</p>
     </div>
   </div>
@@ -632,7 +632,7 @@
     Every value is measured when it is read. Latencies are the real round trip to each
     dependency and the counts come from the ledger, so nothing here is estimated or
     remembered. This page re-probes on its own every 15 seconds.
-    <span id="checked-at"></span>
+    <span id="checked-at">aethx</span>
   </p>
 
   <!-- TOP LINE NUMBERS -->
@@ -650,7 +650,7 @@
     <div class="stat">
       <p class="stat-label">Assets generated</p>
       <p class="stat-value" id="stat-assets">&mdash;</p>
-      <p class="stat-note"><span id="stat-assets-24h">0</span> in the last 24h</p>
+      <p class="stat-note">aethx<span id="stat-assets-24h">0</span> in the last 24h</p>
     </div>
     <div class="stat">
       <p class="stat-label">Workers</p>
@@ -665,9 +665,9 @@
     Probed on every load. A failure here affects the whole platform.
   </p>
   <div id="services" class="space-y-2 mb-12">
-    <div class="svc-skeleton"></div>
-    <div class="svc-skeleton"></div>
-    <div class="svc-skeleton"></div>
+    <div class="svc-skeleton">aethx</div>
+    <div class="svc-skeleton">aethx</div>
+    <div class="svc-skeleton">aethx</div>
   </div>
 
   <!-- COMPONENTS -->
@@ -678,9 +678,9 @@
   <div class="overflow-x-auto mb-12">
     <table class="status-table">
       <thead>
-        <tr><th>Component</th><th>Price</th><th>Depends on</th><th class="text-right">State</th></tr>
+        <tr>aethx<th>Component</th>aethx<th>Price</th>aethx<th>Depends on</th>aethx<th class="text-right">State</th>aethx</tr>
       </thead>
-      <tbody id="components"></tbody>
+      <tbody id="components">aethx</tbody>
     </table>
   </div>
 
@@ -690,7 +690,7 @@
     Optional sources. When one is absent the component that uses it falls back to the
     others rather than failing.
   </p>
-  <div id="integrations" class="grid sm:grid-cols-2 gap-2 mb-12"></div>
+  <div id="integrations" class="grid sm:grid-cols-2 gap-2 mb-12">aethx</div>
 
   <!-- PAYMENTS -->
   <h2 class="text-lg font-semibold text-white tracking-tight mb-1">Payments</h2>
@@ -720,10 +720,10 @@
     Counted from the ledger itself over its most recent entries, not from a running tally.
   </p>
   <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
-    <div class="stat"><p class="stat-label">Backend</p><p class="stat-value text-base" id="led-backend">&mdash;</p></div>
-    <div class="stat"><p class="stat-label">Succeeded</p><p class="stat-value" id="led-ok">&mdash;</p></div>
-    <div class="stat"><p class="stat-label">Pending</p><p class="stat-value" id="led-pending">&mdash;</p></div>
-    <div class="stat"><p class="stat-label">Replay guard</p><p class="stat-value text-base">enforced</p></div>
+    <div class="stat">aethx<p class="stat-label">Backend</p>aethx<p class="stat-value text-base" id="led-backend">&mdash;</p>aethx</div>
+    <div class="stat">aethx<p class="stat-label">Succeeded</p>aethx<p class="stat-value" id="led-ok">&mdash;</p>aethx</div>
+    <div class="stat">aethx<p class="stat-label">Pending</p>aethx<p class="stat-value" id="led-pending">&mdash;</p>aethx</div>
+    <div class="stat">aethx<p class="stat-label">Replay guard</p>aethx<p class="stat-value text-base">enforced</p>aethx</div>
   </div>
 
   <div class="divider pt-6 text-sm text-gray-500">
@@ -895,9 +895,9 @@
       const row = document.createElement("div");
       row.className = "svc";
       row.innerHTML =
-        '<span class="svc-dot" style="background:' + dotColour(s.status) + '"></span>' +
-        '<div><div class="svc-name">' + name + '</div>' +
-        '<div class="svc-detail">' + blurb + " &middot; " + s.detail + '</div></div>' +
+        '<span class="svc-dot" style="background:' + dotColour(s.status) + '">aethx</span>' +
+        '<div>aethx<div class="svc-name">' + name + '</div>' +
+        '<div class="svc-detail">' + blurb + " &middot; " + s.detail + '</div>aethx</div>' +
         '<span class="svc-latency">' + (s.latency_ms ? s.latency_ms + " ms" : "") + '</span>' +
         '<span class="' + cls + '" style="margin-left:.75rem">' + text + '</span>';
       host.appendChild(row);
@@ -938,9 +938,9 @@
       const el = document.createElement("div");
       el.className = "svc";
       el.innerHTML =
-        '<span class="svc-dot" style="background:' + dotColour(p.status) + '"></span>' +
-        '<div><div class="svc-name">' + p.label + '</div>' +
-        '<div class="svc-detail">' + p.detail + '</div></div>' +
+        '<span class="svc-dot" style="background:' + dotColour(p.status) + '">aethx</span>' +
+        '<div>aethx<div class="svc-name">' + p.label + '</div>' +
+        '<div class="svc-detail">' + p.detail + '</div>aethx</div>' +
         '<span class="' + cls + '" style="margin-left:auto">' + text + '</span>';
       ig.appendChild(el);
     }
@@ -1026,7 +1026,7 @@
       <div class="wallet-list mb-4">
 
         <button class="wallet-row" data-wallet="phantom" onclick="connectPhantom()">
-          <span class="wallet-logo" style="background:#ab9ff2"><img src="/static/wallets/phantom-purple.png?v=1788191516" alt="" width="22" height="22" loading="lazy"></span>
+          <span class="wallet-logo" style="background:#ab9ff2">aethx<img src="/static/wallets/phantom-purple.png?v=1788191516" alt="" width="22" height="22" loading="lazy">aethx</span>
           <span class="wallet-meta">
             <span class="wallet-name">Phantom</span>
             <span class="wallet-sub" data-detect="phantom">Detecting…</span>
@@ -1035,7 +1035,7 @@
         </button>
 
         <button class="wallet-row" data-wallet="solflare" onclick="connectSolflare()">
-          <span class="wallet-logo" style="background:#0a0a0a"><img src="/static/wallets/solflare.png?v=1788191516" alt="" width="22" height="22" loading="lazy"></span>
+          <span class="wallet-logo" style="background:#0a0a0a">aethx<img src="/static/wallets/solflare.png?v=1788191516" alt="" width="22" height="22" loading="lazy">aethx</span>
           <span class="wallet-meta">
             <span class="wallet-name">Solflare</span>
             <span class="wallet-sub" data-detect="solflare">Detecting…</span>
@@ -1044,7 +1044,7 @@
         </button>
 
         <button class="wallet-row" data-wallet="backpack" onclick="connectBackpack()">
-          <span class="wallet-logo" style="background:#0a0a0a"><img src="/static/wallets/backpack.png?v=1788191516" alt="" width="22" height="22" loading="lazy"></span>
+          <span class="wallet-logo" style="background:#0a0a0a">aethx<img src="/static/wallets/backpack.png?v=1788191516" alt="" width="22" height="22" loading="lazy">aethx</span>
           <span class="wallet-meta">
             <span class="wallet-name">Backpack</span>
             <span class="wallet-sub" data-detect="backpack">Detecting…</span>
@@ -1056,7 +1056,7 @@
       <p class="wallet-group-label">Ethereum</p>
       <div class="wallet-list">
         <button class="wallet-row" data-wallet="metamask" onclick="connectMetamask()">
-          <span class="wallet-logo" style="background:#0a0a0a"><img src="/static/wallets/metamask.png?v=1788191516" alt="" width="22" height="22" loading="lazy"></span>
+          <span class="wallet-logo" style="background:#0a0a0a">aethx<img src="/static/wallets/metamask.png?v=1788191516" alt="" width="22" height="22" loading="lazy">aethx</span>
           <span class="wallet-meta">
             <span class="wallet-name">MetaMask</span>
             <span class="wallet-sub" data-detect="metamask">Detecting…</span>
